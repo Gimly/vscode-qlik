@@ -2,8 +2,8 @@
     "name": "qvs",
     "displayName": "Qlik",
     "description": "Qlik script support for Visual Studio Code",
-    "version": "0.0.1",
-    "publisher": "gimly81",
+    "version": "0.1.0",
+    "publisher": "Gimly81",
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -11,16 +11,25 @@
         "Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "qvs",
-            "aliases": ["QlikView", "qvs"],
-            "extensions": [".qvs"],
-            "configuration": "./qvs.configuration.json"
-        }],
-        "grammars": [{
-            "language": "qvs",
-            "scopeName": "source.qvs",
-            "path": "./syntaxes/qvs.tmLanguage"
-        }]
+        "languages": [
+            {
+                "id": "qlik",
+                "aliases": [
+                    "QlikView",
+                    "qvs"
+                ],
+                "extensions": [
+                    ".qvs"
+                ],
+                "configuration": "./qvs.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "qvs",
+                "scopeName": "source.qvs",
+                "path": "./syntaxes/qvs.tmLanguage"
+            }
+        ]
     }
 }
