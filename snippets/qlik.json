@@ -1,0 +1,2658 @@
+{
+    "configFull": {
+        "prefix": "configFull",
+        "body": [
+            "var ${1:config} = {\n\tmark: '',\n\tport: 4848,\n\tappname: '',\n\thost: '',\n\tprefix: '',\n\torigin: '',\n\tisSecure: true|false,\n\trejectUnauthorized: true|false,\n\theaders: ''|{},\n\tticket: ''|false,\n\tkey: ''|null,\n\tcert: ''|null,\n\tca: ''|null,\n\tpfx: ''|null,\n\tpassphrase: ''|null,\n\tidentity: '',\n\tdebug: true|false,\n\tdisconnect: ''\n}"
+        ],
+        "description": "Full Config JSON Object"
+    },
+    "MakeWeekDate": {
+        "prefix": "MakeWeekDate(YYYY [ , WW [ , D ] ])",
+        "body": [
+            "MakeWeekDate()"
+        ],
+        "description": "This function returns a date calculated from the year YYYY, the week WW and the day-of-week D."
+    },
+    "QVACB.InRange": {
+        "prefix": "QVACB.InRange",
+        "body": ["QVACB.InRange"],
+        "description": ""
+    },
+    "QVACB.RollingSum": {
+        "prefix": "QVACB.RollingSum",
+        "body": ["QVACB.RollingSum"],
+        "description": ""
+    },
+    "QVACB.Days360": {
+        "prefix": "QVACB.Days360",
+        "body": ["QVACB.Days360"],
+        "description": ""
+    },
+    "QVACB.DateDiff": {
+        "prefix": "QVACB.DateDiff",
+        "body": ["QVACB.DateDiff"],
+        "description": ""
+    },
+    "QVACB.MonthDiff": {
+        "prefix": "QVACB.MonthDiff",
+        "body": ["QVACB.MonthDiff"],
+        "description": ""
+    },
+    "QVACB.NVL": {
+        "prefix": "QVACB.NVL",
+        "body": ["QVACB.NVL"],
+        "description": ""
+    },
+    "QVACB.Exists.Table": {
+        "prefix": "QVACB.Exists.Table",
+        "body": ["QVACB.Exists.Table"],
+        "description": ""
+    },
+    "QVACB.Exists.File": {
+        "prefix": "QVACB.Exists.File",
+        "body": ["QVACB.Exists.File"],
+        "description": ""
+    },
+    "QVACB.v.UseQVLog": {
+        "prefix": "QVACB.v.UseQVLog",
+        "body": ["QVACB.v.UseQVLog"],
+        "description": ""
+    },
+    "QVACB.v.TimestampInLogFileName": {
+        "prefix": "QVACB.v.TimestampInLogFileName",
+        "body": ["QVACB.v.TimestampInLogFileName"],
+        "description": ""
+    },
+    "QVACB.v.EnableSubLogging": {
+        "prefix": "QVACB.v.EnableSubLogging",
+        "body": ["QVACB.v.EnableSubLogging"],
+        "description": ""
+    },
+    "QVACB.v.LookForNewVersion": {
+        "prefix": "QVACB.v.LookForNewVersion",
+        "body": ["QVACB.v.LookForNewVersion"],
+        "description": ""
+    },
+    "QVACB.v.Version": {
+        "prefix": "QVACB.v.Version",
+        "body": ["QVACB.v.Version"],
+        "description": ""
+    },
+    "QVACB.TidyUp": {
+        "prefix": "QVACB.TidyUp",
+        "body": ["QVACB.TidyUp"],
+        "description": ""
+    },
+    "QVACB.LookForNewVersion": {
+        "prefix": "QVACB.LookForNewVersion",
+        "body": ["QVACB.LookForNewVersion"],
+        "description": ""
+    },
+    "QVACB.IntervalMatchClean": {
+        "prefix": "QVACB.IntervalMatchClean",
+        "body": ["QVACB.IntervalMatchClean"],
+        "description": ""
+    },
+    "QVACB.EmptyQVD": {
+        "prefix": "QVACB.EmptyQVD",
+        "body": ["QVACB.EmptyQVD"],
+        "description": ""
+    },
+    "QVACB.StoreMonthlyQVD": {
+        "prefix": "QVACB.StoreMonthlyQVD",
+        "body": ["QVACB.StoreMonthlyQVD"],
+        "description": ""
+    },
+    "QVACB.CalendarFromField": {
+        "prefix": "QVACB.CalendarFromField",
+        "body": ["QVACB.CalendarFromField"],
+        "description": ""
+    },
+    "QVACB.CalendarFromDates": {
+        "prefix": "QVACB.CalendarFromDates",
+        "body": ["QVACB.CalendarFromDates"],
+        "description": ""
+    },
+    "QVACB.PatternDropTables": {
+        "prefix": "QVACB.PatternDropTables",
+        "body": ["QVACB.PatternDropTables"],
+        "description": ""
+    },
+    "QVACB.PatternDropFields": {
+        "prefix": "QVACB.PatternDropFields",
+        "body": ["QVACB.PatternDropFields"],
+        "description": ""
+    },
+    "QVACB.SetVariablesFromFile": {
+        "prefix": "QVACB.SetVariablesFromFile",
+        "body": ["QVACB.SetVariablesFromFile"],
+        "description": ""
+    },
+    "QVACB.SetAdditionalEnvironmentVariables": {
+        "prefix": "QVACB.SetAdditionalEnvironmentVariables",
+        "body": ["QVACB.SetAdditionalEnvironmentVariables"],
+        "description": ""
+    },
+    "QVACB.SetEnvironmentVariables": {
+        "prefix": "QVACB.SetEnvironmentVariables",
+        "body": ["QVACB.SetEnvironmentVariables"],
+        "description": ""
+    },
+    "QVACB.LoadLogFiles": {
+        "prefix": "QVACB.LoadLogFiles",
+        "body": ["QVACB.LoadLogFiles"],
+        "description": ""
+    },
+    "QVACB.LogQVD": {
+        "prefix": "QVACB.LogQVD",
+        "body": ["QVACB.LogQVD"],
+        "description": ""
+    },
+    "QVACB.LogSubCall": {
+        "prefix": "QVACB.LogSubCall",
+        "body": ["QVACB.LogSubCall"],
+        "description": ""
+    },
+    "QVACB.LogTables": {
+        "prefix": "QVACB.LogTables",
+        "body": ["QVACB.LogTables"],
+        "description": ""
+    },
+    "QVACB.LogString": {
+        "prefix": "QVACB.LogString",
+        "body": ["QVACB.LogString"],
+        "description": ""
+    },
+    "QVACB.LogQVACBError": {
+        "prefix": "QVACB.LogQVACBError",
+        "body": ["QVACB.LogQVACBError"],
+        "description": ""
+    },
+    "QVACB.LogQVErrors": {
+        "prefix": "QVACB.LogQVErrors",
+        "body": ["QVACB.LogQVErrors"],
+        "description": ""
+    },
+    "QVACB.LogConnection": {
+        "prefix": "QVACB.LogConnection",
+        "body": ["QVACB.LogConnection"],
+        "description": ""
+    },
+    "QVACB.LogSystemVariables": {
+        "prefix": "QVACB.LogSystemVariables",
+        "body": ["QVACB.LogSystemVariables"],
+        "description": ""
+    },
+    "QVACB.LogFilePurge": {
+        "prefix": "QVACB.LogFilePurge",
+        "body": ["QVACB.LogFilePurge"],
+        "description": ""
+    },
+    "QVACB.CreateLogFile": {
+        "prefix": "QVACB.CreateLogFile",
+        "body": ["QVACB.CreateLogFile"],
+        "description": ""
+    },
+    "YearMonthFormat": {
+        "prefix": "YearMonthFormat",
+        "body": ["YearMonthFormat"],
+        "description": ""
+    },
+    "DayNames": {
+        "prefix": "DayNames",
+        "body": ["DayNames"],
+        "description": ""
+    },
+    "MonthNames": {
+        "prefix": "MonthNames",
+        "body": ["MonthNames"],
+        "description": ""
+    },
+    "TimestampFormat": {
+        "prefix": "TimestampFormat",
+        "body": ["TimestampFormat"],
+        "description": ""
+    },
+    "DateFormat": {
+        "prefix": "DateFormat",
+        "body": ["DateFormat"],
+        "description": ""
+    },
+    "TimeFormat": {
+        "prefix": "TimeFormat",
+        "body": ["TimeFormat"],
+        "description": ""
+    },
+    "MoneyFormat": {
+        "prefix": "MoneyFormat",
+        "body": ["MoneyFormat"],
+        "description": ""
+    },
+    "MoneyDecimalSep": {
+        "prefix": "MoneyDecimalSep",
+        "body": ["MoneyDecimalSep"],
+        "description": ""
+    },
+    "MoneyThousandSep": {
+        "prefix": "MoneyThousandSep",
+        "body": ["MoneyThousandSep"],
+        "description": ""
+    },
+    "DecimalSep": {
+        "prefix": "DecimalSep",
+        "body": ["DecimalSep"],
+        "description": ""
+    },
+    "ThousandSep": {
+        "prefix": "ThousandSep",
+        "body": ["ThousandSep"],
+        "description": ""
+    },
+    "HideSuffix": {
+        "prefix": "HideSuffix",
+        "body": ["set HideSuffix='${1:%}';"],
+        "description": "All field names ending with this text string will be hidden in the same manner as the system fields. This is a user-defined variable."
+    },
+    "HidePrefix": {
+        "prefix": "HidePrefix",
+        "body": ["set HidePrefix='${1:%}' ;"],
+        "description": "All field names beginning with this text string will be hidden in the same manner as the system fields. This is a user-defined variable."
+    },
+    "ZTestw_z": {
+        "prefix": "ZTestw_z",
+        "body": ["ZTestw_z"],
+        "description": ""
+    },
+    "ZTestw_upper": {
+        "prefix": "ZTestw_upper",
+        "body": ["ZTestw_upper"],
+        "description": ""
+    },
+    "ZTestw_sterr": {
+        "prefix": "ZTestw_sterr",
+        "body": ["ZTestw_sterr"],
+        "description": ""
+    },
+    "ZTestw_sig": {
+        "prefix": "ZTestw_sig",
+        "body": ["ZTestw_sig"],
+        "description": ""
+    },
+    "ZTestw_lower": {
+        "prefix": "ZTestw_lower",
+        "body": ["ZTestw_lower"],
+        "description": ""
+    },
+    "ZTestw_dif": {
+        "prefix": "ZTestw_dif",
+        "body": ["ZTestw_dif"],
+        "description": ""
+    },
+    "ZTestw_conf": {
+        "prefix": "ZTestw_conf",
+        "body": ["ZTestw_conf"],
+        "description": ""
+    },
+    "ZTest_z": {
+        "prefix": "ZTest_z",
+        "body": ["ZTest_z"],
+        "description": ""
+    },
+    "ZTest_upper": {
+        "prefix": "ZTest_upper",
+        "body": ["ZTest_upper"],
+        "description": ""
+    },
+    "ZTest_sterr": {
+        "prefix": "ZTest_sterr",
+        "body": ["ZTest_sterr"],
+        "description": ""
+    },
+    "ZTest_sig": {
+        "prefix": "ZTest_sig",
+        "body": ["ZTest_sig"],
+        "description": ""
+    },
+    "ZTest_lower": {
+        "prefix": "ZTest_lower",
+        "body": ["ZTest_lower"],
+        "description": ""
+    },
+    "ZTest_dif": {
+        "prefix": "ZTest_dif",
+        "body": ["ZTest_dif"],
+        "description": ""
+    },
+    "ZTest_conf": {
+        "prefix": "ZTest_conf",
+        "body": ["ZTest_conf"],
+        "description": ""
+    },
+    "Yellow": {
+        "prefix": "Yellow",
+        "body": ["Yellow"],
+        "description": ""
+    },
+    "YearToDate": {
+        "prefix": "YearToDate(timestamp [ , yearoffset [ , firstmonth [ , todaydate] ] ])",
+        "body": ["YearToDate(${1:TimeStamp})"],
+        "description": "This function finds if the input date falls within the year of the date the script was last loaded, and returns True if it does, False if it does not."
+    },
+    "YearStart": {
+        "prefix": "YearStart(date[, period_no[, first_month_of_year]])",
+        "body": ["YearStart(${1:Date})"],
+        "description": "This function returns a timestamp corresponding to the start of the first day of the year containing date. The default output format will be the DateFormat set in the script."
+    },
+    "YearName": {
+        "prefix": "YearName(date[, period_no[, first_month_of_year]] )",
+        "body": ["YearName(${1:Date})"],
+        "description": "This function returns a four-digit year as display value with an underlying numeric value corresponding to a timestamp of the first millisecond of the first day of the year containing date."
+    },
+    "YearEnd": {
+        "prefix": "YearEnd",
+        "body": ["YearEnd"],
+        "description": ""
+    },
+    "Year2Date": {
+        "prefix": "Year2Date",
+        "body": ["Year2Date"],
+        "description": ""
+    },
+    "Year": {
+        "prefix": "Year",
+        "body": ["Year"],
+        "description": ""
+    },
+    "XNPV": {
+        "prefix": "XNPV",
+        "body": ["XNPV"],
+        "description": ""
+    },
+    "XIRR": {
+        "prefix": "XIRR",
+        "body": ["XIRR"],
+        "description": ""
+    },
+    "WildMatch5": {
+        "prefix": "WildMatch5",
+        "body": ["WildMatch5"],
+        "description": ""
+    },
+    "WildMatch": {
+        "prefix": "WildMatch",
+        "body": ["WildMatch"],
+        "description": ""
+    },
+    "White": {
+        "prefix": "White",
+        "body": ["White"],
+        "description": ""
+    },
+    "WeekYear": {
+        "prefix": "WeekYear",
+        "body": ["WeekYear"],
+        "description": ""
+    },
+    "WeekStart": {
+        "prefix": "WeekStart",
+        "body": ["WeekStart"],
+        "description": ""
+    },
+    "WeekName": {
+        "prefix": "WeekName",
+        "body": ["WeekName"],
+        "description": ""
+    },
+    "WeekEnd": {
+        "prefix": "WeekEnd",
+        "body": ["WeekEnd"],
+        "description": ""
+    },
+    "WeekDay": {
+        "prefix": "WeekDay",
+        "body": ["WeekDay"],
+        "description": ""
+    },
+    "Week": {
+        "prefix": "Week",
+        "body": ["Week"],
+        "description": ""
+    },
+    "UTC": {
+        "prefix": "UTC",
+        "body": ["UTC"],
+        "description": ""
+    },
+    "Upper": {
+        "prefix": "Upper",
+        "body": ["Upper"],
+        "description": ""
+    },
+    "TTestw_upper": {
+        "prefix": "TTestw_upper",
+        "body": ["TTestw_upper"],
+        "description": ""
+    },
+    "TTestw_t": {
+        "prefix": "TTestw_t",
+        "body": ["TTestw_t"],
+        "description": ""
+    },
+    "TTestw_sterr": {
+        "prefix": "TTestw_sterr",
+        "body": ["TTestw_sterr"],
+        "description": ""
+    },
+    "TTestw_sig": {
+        "prefix": "TTestw_sig",
+        "body": ["TTestw_sig"],
+        "description": ""
+    },
+    "TTestw_lower": {
+        "prefix": "TTestw_lower",
+        "body": ["TTestw_lower"],
+        "description": ""
+    },
+    "TTestw_dif": {
+        "prefix": "TTestw_dif",
+        "body": ["TTestw_dif"],
+        "description": ""
+    },
+    "TTestw_df": {
+        "prefix": "TTestw_df",
+        "body": ["TTestw_df"],
+        "description": ""
+    },
+    "TTestw_conf": {
+        "prefix": "TTestw_conf",
+        "body": ["TTestw_conf"],
+        "description": ""
+    },
+    "TTest_upper": {
+        "prefix": "TTest_upper",
+        "body": ["TTest_upper"],
+        "description": ""
+    },
+    "TTest_t": {
+        "prefix": "TTest_t",
+        "body": ["TTest_t"],
+        "description": ""
+    },
+    "TTest_sterr": {
+        "prefix": "TTest_sterr",
+        "body": ["TTest_sterr"],
+        "description": ""
+    },
+    "TTest_sig": {
+        "prefix": "TTest_sig",
+        "body": ["TTest_sig"],
+        "description": ""
+    },
+    "TTest_lower": {
+        "prefix": "TTest_lower",
+        "body": ["TTest_lower"],
+        "description": ""
+    },
+    "TTest_dif": {
+        "prefix": "TTest_dif",
+        "body": ["TTest_dif"],
+        "description": ""
+    },
+    "TTest_df": {
+        "prefix": "TTest_df",
+        "body": ["TTest_df"],
+        "description": ""
+    },
+    "TTest_conf": {
+        "prefix": "TTest_conf",
+        "body": ["TTest_conf"],
+        "description": ""
+    },
+    "TTest1w_upper": {
+        "prefix": "TTest1w_upper",
+        "body": ["TTest1w_upper"],
+        "description": ""
+    },
+    "TTest1w_t": {
+        "prefix": "TTest1w_t",
+        "body": ["TTest1w_t"],
+        "description": ""
+    },
+    "TTest1w_sterr": {
+        "prefix": "TTest1w_sterr",
+        "body": ["TTest1w_sterr"],
+        "description": ""
+    },
+    "TTest1w_sig": {
+        "prefix": "TTest1w_sig",
+        "body": ["TTest1w_sig"],
+        "description": ""
+    },
+    "TTest1w_lower": {
+        "prefix": "TTest1w_lower",
+        "body": ["TTest1w_lower"],
+        "description": ""
+    },
+    "TTest1w_dif": {
+        "prefix": "TTest1w_dif",
+        "body": ["TTest1w_dif"],
+        "description": ""
+    },
+    "TTest1w_df": {
+        "prefix": "TTest1w_df",
+        "body": ["TTest1w_df"],
+        "description": ""
+    },
+    "TTest1w_conf": {
+        "prefix": "TTest1w_conf",
+        "body": ["TTest1w_conf"],
+        "description": ""
+    },
+    "TTest1_upper": {
+        "prefix": "TTest1_upper",
+        "body": ["TTest1_upper"],
+        "description": ""
+    },
+    "TTest1_t": {
+        "prefix": "TTest1_t",
+        "body": ["TTest1_t"],
+        "description": ""
+    },
+    "TTest1_sterr": {
+        "prefix": "TTest1_sterr",
+        "body": ["TTest1_sterr"],
+        "description": ""
+    },
+    "TTest1_sig": {
+        "prefix": "TTest1_sig",
+        "body": ["TTest1_sig"],
+        "description": ""
+    },
+    "TTest1_lower": {
+        "prefix": "TTest1_lower",
+        "body": ["TTest1_lower"],
+        "description": ""
+    },
+    "TTest1_dif": {
+        "prefix": "TTest1_dif",
+        "body": ["TTest1_dif"],
+        "description": ""
+    },
+    "TTest1_df": {
+        "prefix": "TTest1_df",
+        "body": ["TTest1_df"],
+        "description": ""
+    },
+    "TTest1_conf": {
+        "prefix": "TTest1_conf",
+        "body": ["TTest1_conf"],
+        "description": ""
+    },
+    "TRUE": {
+        "prefix": "TRUE",
+        "body": ["TRUE"],
+        "description": ""
+    },
+    "Trim": {
+        "prefix": "Trim",
+        "body": ["Trim"],
+        "description": ""
+    },
+    "Today": {
+        "prefix": "Today",
+        "body": ["Today"],
+        "description": ""
+    },
+    "TINV": {
+        "prefix": "TINV",
+        "body": ["TINV"],
+        "description": ""
+    },
+    "TimeZone": {
+        "prefix": "TimeZone",
+        "body": ["TimeZone"],
+        "description": ""
+    },
+    "Timestamp#": {
+        "prefix": "Timestamp#",
+        "body": ["Timestamp#"],
+        "description": ""
+    },
+    "Timestamp": {
+        "prefix": "Timestamp",
+        "body": ["Timestamp"],
+        "description": ""
+    },
+    "Time#": {
+        "prefix": "Time#",
+        "body": ["Time#"],
+        "description": ""
+    },
+    "Time": {
+        "prefix": "Time",
+        "body": ["Time"],
+        "description": ""
+    },
+    "TextCount": {
+        "prefix": "TextCount",
+        "body": ["TextCount"],
+        "description": ""
+    },
+    "TextBetween": {
+        "prefix": "TextBetween",
+        "body": ["TextBetween"],
+        "description": ""
+    },
+    "Text": {
+        "prefix": "Text",
+        "body": ["Text"],
+        "description": ""
+    },
+    "TDIST": {
+        "prefix": "TDIST",
+        "body": ["TDIST"],
+        "description": ""
+    },
+    "tanh": {
+        "prefix": "tanh",
+        "body": ["tanh"],
+        "description": ""
+    },
+    "tan": {
+        "prefix": "tan",
+        "body": ["tan"],
+        "description": ""
+    },
+    "TableNumber": {
+        "prefix": "TableNumber",
+        "body": ["TableNumber"],
+        "description": ""
+    },
+    "TableName": {
+        "prefix": "TableName",
+        "body": ["TableName"],
+        "description": ""
+    },
+    "SysColor": {
+        "prefix": "SysColor",
+        "body": ["SysColor"],
+        "description": ""
+    },
+    "sum": {
+        "prefix": "sum",
+        "body": ["sum"],
+        "description": ""
+    },
+    "SubStringCount": {
+        "prefix": "SubStringCount",
+        "body": ["SubStringCount"],
+        "description": ""
+    },
+    "SubField": {
+        "prefix": "SubField",
+        "body": ["SubField"],
+        "description": ""
+    },
+    "STEYX": {
+        "prefix": "STEYX",
+        "body": ["STEYX"],
+        "description": ""
+    },
+    "Sterr": {
+        "prefix": "Sterr",
+        "body": ["Sterr"],
+        "description": ""
+    },
+    "Stdev": {
+        "prefix": "Stdev",
+        "body": ["Stdev"],
+        "description": ""
+    },
+    "sqrt": {
+        "prefix": "sqrt",
+        "body": ["sqrt"],
+        "description": ""
+    },
+    "sqr": {
+        "prefix": "sqr",
+        "body": ["sqr"],
+        "description": ""
+    },
+    "Skew": {
+        "prefix": "Skew",
+        "body": ["Skew"],
+        "description": ""
+    },
+    "sinh": {
+        "prefix": "sinh",
+        "body": ["sinh"],
+        "description": ""
+    },
+    "sin": {
+        "prefix": "sin",
+        "body": ["sin"],
+        "description": ""
+    },
+    "Sign": {
+        "prefix": "Sign",
+        "body": ["Sign"],
+        "description": ""
+    },
+    "SetDateYearMonth": {
+        "prefix": "SetDateYearMonth",
+        "body": ["SetDateYearMonth"],
+        "description": ""
+    },
+    "SetDateYear": {
+        "prefix": "SetDateYear",
+        "body": ["SetDateYear"],
+        "description": ""
+    },
+    "Second": {
+        "prefix": "Second",
+        "body": ["Second"],
+        "description": ""
+    },
+    "RTrim": {
+        "prefix": "RTrim",
+        "body": ["RTrim"],
+        "description": ""
+    },
+    "RowNo": {
+        "prefix": "RowNo",
+        "body": ["RowNo"],
+        "description": ""
+    },
+    "Round": {
+        "prefix": "Round",
+        "body": ["Round"],
+        "description": ""
+    },
+    "Right": {
+        "prefix": "Right",
+        "body": ["Right"],
+        "description": ""
+    },
+    "RGB": {
+        "prefix": "RGB",
+        "body": ["RGB"],
+        "description": ""
+    },
+    "ReportNumber": {
+        "prefix": "ReportNumber",
+        "body": ["ReportNumber"],
+        "description": ""
+    },
+    "ReportName": {
+        "prefix": "ReportName",
+        "body": ["ReportName"],
+        "description": ""
+    },
+    "ReportId": {
+        "prefix": "ReportId",
+        "body": ["ReportId"],
+        "description": ""
+    },
+    "ReportComment": {
+        "prefix": "ReportComment",
+        "body": ["ReportComment"],
+        "description": ""
+    },
+    "Replace": {
+        "prefix": "Replace",
+        "body": ["Replace"],
+        "description": ""
+    },
+    "Repeat": {
+        "prefix": "Repeat",
+        "body": ["Repeat"],
+        "description": ""
+    },
+    "ReloadTime": {
+        "prefix": "ReloadTime",
+        "body": ["ReloadTime"],
+        "description": ""
+    },
+    "Red": {
+        "prefix": "Red",
+        "body": ["Red"],
+        "description": ""
+    },
+    "RecNo": {
+        "prefix": "RecNo",
+        "body": ["RecNo"],
+        "description": ""
+    },
+    "Rate": {
+        "prefix": "Rate",
+        "body": ["Rate"],
+        "description": ""
+    },
+    "RangeXNPV": {
+        "prefix": "RangeXNPV",
+        "body": ["RangeXNPV"],
+        "description": ""
+    },
+    "RangeXIRR": {
+        "prefix": "RangeXIRR",
+        "body": ["RangeXIRR"],
+        "description": ""
+    },
+    "RangeTextCount": {
+        "prefix": "RangeTextCount",
+        "body": ["RangeTextCount"],
+        "description": ""
+    },
+    "RangeSum": {
+        "prefix": "RangeSum",
+        "body": ["RangeSum"],
+        "description": ""
+    },
+    "RangeStdev": {
+        "prefix": "RangeStdev",
+        "body": ["RangeStdev"],
+        "description": ""
+    },
+    "RangeSkew": {
+        "prefix": "RangeSkew",
+        "body": ["RangeSkew"],
+        "description": ""
+    },
+    "RangeOnly": {
+        "prefix": "RangeOnly",
+        "body": ["RangeOnly"],
+        "description": ""
+    },
+    "RangeNumericCount": {
+        "prefix": "RangeNumericCount",
+        "body": ["RangeNumericCount"],
+        "description": ""
+    },
+    "RangeNullCount": {
+        "prefix": "RangeNullCount",
+        "body": ["RangeNullCount"],
+        "description": ""
+    },
+    "RangeNPV": {
+        "prefix": "RangeNPV",
+        "body": ["RangeNPV"],
+        "description": ""
+    },
+    "RangeMode": {
+        "prefix": "RangeMode",
+        "body": ["RangeMode"],
+        "description": ""
+    },
+    "RangeMissingCount": {
+        "prefix": "RangeMissingCount",
+        "body": ["RangeMissingCount"],
+        "description": ""
+    },
+    "RangeMinString": {
+        "prefix": "RangeMinString",
+        "body": ["RangeMinString"],
+        "description": ""
+    },
+    "RangeMin": {
+        "prefix": "RangeMin",
+        "body": ["RangeMin"],
+        "description": ""
+    },
+    "RangeMaxString": {
+        "prefix": "RangeMaxString",
+        "body": ["RangeMaxString"],
+        "description": ""
+    },
+    "RangeMax": {
+        "prefix": "RangeMax",
+        "body": ["RangeMax"],
+        "description": ""
+    },
+    "RangeKurtosis": {
+        "prefix": "RangeKurtosis",
+        "body": ["RangeKurtosis"],
+        "description": ""
+    },
+    "RangeIRR": {
+        "prefix": "RangeIRR",
+        "body": ["RangeIRR"],
+        "description": ""
+    },
+    "RangeFractile": {
+        "prefix": "RangeFractile",
+        "body": ["RangeFractile"],
+        "description": ""
+    },
+    "RangeCount": {
+        "prefix": "RangeCount",
+        "body": ["RangeCount"],
+        "description": ""
+    },
+    "RangeCorrel": {
+        "prefix": "RangeCorrel",
+        "body": ["RangeCorrel"],
+        "description": ""
+    },
+    "RangeAvg": {
+        "prefix": "RangeAvg",
+        "body": ["RangeAvg"],
+        "description": ""
+    },
+    "Rand": {
+        "prefix": "Rand",
+        "body": ["Rand"],
+        "description": ""
+    },
+    "QVUser": {
+        "prefix": "QVUser",
+        "body": ["QVUser"],
+        "description": ""
+    },
+    "QvdTableName": {
+        "prefix": "QvdTableName",
+        "body": ["QvdTableName"],
+        "description": ""
+    },
+    "QvdNoOfRecords": {
+        "prefix": "QvdNoOfRecords",
+        "body": ["QvdNoOfRecords"],
+        "description": ""
+    },
+    "QvdNoOfFields": {
+        "prefix": "QvdNoOfFields",
+        "body": ["QvdNoOfFields"],
+        "description": ""
+    },
+    "QvdFieldName": {
+        "prefix": "QvdFieldName",
+        "body": ["QvdFieldName"],
+        "description": ""
+    },
+    "QvdCreateTime": {
+        "prefix": "QvdCreateTime",
+        "body": ["QvdCreateTime"],
+        "description": ""
+    },
+    "QuarterStart": {
+        "prefix": "QuarterStart",
+        "body": ["QuarterStart"],
+        "description": ""
+    },
+    "QuarterName": {
+        "prefix": "QuarterName",
+        "body": ["QuarterName"],
+        "description": ""
+    },
+    "QuarterEnd": {
+        "prefix": "QuarterEnd",
+        "body": ["QuarterEnd"],
+        "description": ""
+    },
+    "QlikViewVersion": {
+        "prefix": "QlikViewVersion",
+        "body": ["QlikViewVersion"],
+        "description": ""
+    },
+    "QlikTechGray": {
+        "prefix": "QlikTechGray",
+        "body": ["QlikTechGray"],
+        "description": ""
+    },
+    "QlikTechBlue": {
+        "prefix": "QlikTechBlue",
+        "body": ["QlikTechBlue"],
+        "description": ""
+    },
+    "PV": {
+        "prefix": "PV",
+        "body": ["PV"],
+        "description": ""
+    },
+    "PurgeChar": {
+        "prefix": "PurgeChar",
+        "body": ["PurgeChar"],
+        "description": ""
+    },
+    "Previous": {
+        "prefix": "Previous",
+        "body": ["Previous"],
+        "description": ""
+    },
+    "pow": {
+        "prefix": "pow",
+        "body": ["pow"],
+        "description": ""
+    },
+    "Pmt": {
+        "prefix": "Pmt",
+        "body": ["Pmt"],
+        "description": ""
+    },
+    "Pick": {
+        "prefix": "Pick",
+        "body": ["Pick"],
+        "description": ""
+    },
+    "Pi": {
+        "prefix": "Pi",
+        "body": ["Pi"],
+        "description": ""
+    },
+    "Permut": {
+        "prefix": "Permut",
+        "body": ["Permut"],
+        "description": ""
+    },
+    "Peek": {
+        "prefix": "Peek",
+        "body": ["Peek"],
+        "description": ""
+    },
+    "OSUser": {
+        "prefix": "OSUser",
+        "body": ["OSUser"],
+        "description": ""
+    },
+    "Ord": {
+        "prefix": "Ord",
+        "body": ["Ord"],
+        "description": ""
+    },
+    "Only": {
+        "prefix": "Only",
+        "body": ["Only"],
+        "description": ""
+    },
+    "Odd": {
+        "prefix": "Odd",
+        "body": ["Odd"],
+        "description": ""
+    },
+    "NumSum": {
+        "prefix": "NumSum",
+        "body": ["NumSum"],
+        "description": ""
+    },
+    "NumMin": {
+        "prefix": "NumMin",
+        "body": ["NumMin"],
+        "description": ""
+    },
+    "NumMax": {
+        "prefix": "NumMax",
+        "body": ["NumMax"],
+        "description": ""
+    },
+    "NumericCount": {
+        "prefix": "NumericCount",
+        "body": ["NumericCount"],
+        "description": ""
+    },
+    "NumCount": {
+        "prefix": "NumCount",
+        "body": ["NumCount"],
+        "description": ""
+    },
+    "NumAvg": {
+        "prefix": "NumAvg",
+        "body": ["NumAvg"],
+        "description": ""
+    },
+    "Num#": {
+        "prefix": "Num#",
+        "body": ["Num#"],
+        "description": ""
+    },
+    "Num": {
+        "prefix": "Num",
+        "body": ["Num"],
+        "description": ""
+    },
+    "NullCount": {
+        "prefix": "NullCount",
+        "body": ["NullCount"],
+        "description": ""
+    },
+    "Null": {
+        "prefix": "Null",
+        "body": ["Null"],
+        "description": ""
+    },
+    "NPV": {
+        "prefix": "NPV",
+        "body": ["NPV"],
+        "description": ""
+    },
+    "nPer": {
+        "prefix": "nPer",
+        "body": ["nPer"],
+        "description": ""
+    },
+    "Now": {
+        "prefix": "Now",
+        "body": ["Now"],
+        "description": ""
+    },
+    "NORMINV": {
+        "prefix": "NORMINV",
+        "body": ["NORMINV"],
+        "description": ""
+    },
+    "NORMDIST": {
+        "prefix": "NORMDIST",
+        "body": ["NORMDIST"],
+        "description": ""
+    },
+    "NoOfTables": {
+        "prefix": "NoOfTables",
+        "body": ["NoOfTables"],
+        "description": ""
+    },
+    "NoOfRows": {
+        "prefix": "NoOfRows",
+        "body": ["NoOfRows"],
+        "description": ""
+    },
+    "NoOfReports": {
+        "prefix": "NoOfReports",
+        "body": ["NoOfReports"],
+        "description": ""
+    },
+    "NoOfFields": {
+        "prefix": "NoOfFields",
+        "body": ["NoOfFields"],
+        "description": ""
+    },
+    "NetWorkDays": {
+        "prefix": "NetWorkDays",
+        "body": ["NetWorkDays"],
+        "description": ""
+    },
+    "MsgBox": {
+        "prefix": "MsgBox",
+        "body": ["MsgBox"],
+        "description": ""
+    },
+    "MonthStart": {
+        "prefix": "MonthStart",
+        "body": ["MonthStart"],
+        "description": ""
+    },
+    "MonthsStart": {
+        "prefix": "MonthsStart",
+        "body": ["MonthsStart"],
+        "description": ""
+    },
+    "MonthsName": {
+        "prefix": "MonthsName",
+        "body": ["MonthsName"],
+        "description": ""
+    },
+    "MonthsEnd": {
+        "prefix": "MonthsEnd",
+        "body": ["MonthsEnd"],
+        "description": ""
+    },
+    "MonthName": {
+        "prefix": "MonthName",
+        "body": ["MonthName"],
+        "description": ""
+    },
+    "MonthEnd": {
+        "prefix": "MonthEnd",
+        "body": ["MonthEnd"],
+        "description": ""
+    },
+    "Month": {
+        "prefix": "Month",
+        "body": ["Month"],
+        "description": ""
+    },
+    "Money#": {
+        "prefix": "Money#",
+        "body": ["Money#"],
+        "description": ""
+    },
+    "Money": {
+        "prefix": "Money",
+        "body": ["Money"],
+        "description": ""
+    },
+    "Mode": {
+        "prefix": "Mode",
+        "body": ["Mode"],
+        "description": ""
+    },
+    "Mod": {
+        "prefix": "Mod",
+        "body": ["Mod"],
+        "description": ""
+    },
+    "MixMatch": {
+        "prefix": "MixMatch",
+        "body": ["MixMatch"],
+        "description": ""
+    },
+    "MissingCount": {
+        "prefix": "MissingCount",
+        "body": ["MissingCount"],
+        "description": ""
+    },
+    "Minute": {
+        "prefix": "Minute",
+        "body": ["Minute"],
+        "description": ""
+    },
+    "MinString": {
+        "prefix": "MinString",
+        "body": ["MinString"],
+        "description": ""
+    },
+    "Min": {
+        "prefix": "Min",
+        "body": ["Min"],
+        "description": ""
+    },
+    "Mid": {
+        "prefix": "Mid",
+        "body": ["Mid"],
+        "description": ""
+    },
+    "Median": {
+        "prefix": "Median",
+        "body": ["Median"],
+        "description": ""
+    },
+    "MaxString": {
+        "prefix": "MaxString",
+        "body": ["MaxString"],
+        "description": ""
+    },
+    "Max": {
+        "prefix": "Max",
+        "body": ["Max"],
+        "description": ""
+    },
+    "Match": {
+        "prefix": "Match",
+        "body": ["Match"],
+        "description": ""
+    },
+    "MapSubString": {
+        "prefix": "MapSubString",
+        "body": ["MapSubString"],
+        "description": ""
+    },
+    "MakeWeekDate": {
+        "prefix": "MakeWeekDate",
+        "body": ["MakeWeekDate"],
+        "description": ""
+    },
+    "MakeTime": {
+        "prefix": "MakeTime",
+        "body": ["MakeTime"],
+        "description": ""
+    },
+    "MakeDate": {
+        "prefix": "MakeDate",
+        "body": ["MakeDate"],
+        "description": ""
+    },
+    "Magenta": {
+        "prefix": "Magenta",
+        "body": ["Magenta"],
+        "description": ""
+    },
+    "LunarWeekStart": {
+        "prefix": "LunarWeekStart",
+        "body": ["LunarWeekStart"],
+        "description": ""
+    },
+    "LunarWeekName": {
+        "prefix": "LunarWeekName",
+        "body": ["LunarWeekName"],
+        "description": ""
+    },
+    "LunarWeekEnd": {
+        "prefix": "LunarWeekEnd",
+        "body": ["LunarWeekEnd"],
+        "description": ""
+    },
+    "LTrim": {
+        "prefix": "LTrim",
+        "body": ["LTrim"],
+        "description": ""
+    },
+    "Lower": {
+        "prefix": "Lower",
+        "body": ["Lower"],
+        "description": ""
+    },
+    "Lookup": {
+        "prefix": "Lookup",
+        "body": ["Lookup"],
+        "description": ""
+    },
+    "log10": {
+        "prefix": "log10",
+        "body": ["log10"],
+        "description": ""
+    },
+    "log": {
+        "prefix": "log",
+        "body": ["log"],
+        "description": ""
+    },
+    "LocalTime": {
+        "prefix": "LocalTime",
+        "body": ["LocalTime"],
+        "description": ""
+    },
+    "LINEST_SSRESID": {
+        "prefix": "LINEST_SSRESID",
+        "body": ["LINEST_SSRESID"],
+        "description": ""
+    },
+    "LINEST_SSREG": {
+        "prefix": "LINEST_SSREG",
+        "body": ["LINEST_SSREG"],
+        "description": ""
+    },
+    "LINEST_SEY": {
+        "prefix": "LINEST_SEY",
+        "body": ["LINEST_SEY"],
+        "description": ""
+    },
+    "LINEST_SEM": {
+        "prefix": "LINEST_SEM",
+        "body": ["LINEST_SEM"],
+        "description": ""
+    },
+    "LINEST_SEB": {
+        "prefix": "LINEST_SEB",
+        "body": ["LINEST_SEB"],
+        "description": ""
+    },
+    "LINEST_R2": {
+        "prefix": "LINEST_R2",
+        "body": ["LINEST_R2"],
+        "description": ""
+    },
+    "LINEST_M": {
+        "prefix": "LINEST_M",
+        "body": ["LINEST_M"],
+        "description": ""
+    },
+    "LINEST_F": {
+        "prefix": "LINEST_F",
+        "body": ["LINEST_F"],
+        "description": ""
+    },
+    "LINEST_DF": {
+        "prefix": "LINEST_DF",
+        "body": ["LINEST_DF"],
+        "description": ""
+    },
+    "LINEST_B": {
+        "prefix": "LINEST_B",
+        "body": ["LINEST_B"],
+        "description": ""
+    },
+    "LightRed": {
+        "prefix": "LightRed",
+        "body": ["LightRed"],
+        "description": ""
+    },
+    "LightMagenta": {
+        "prefix": "LightMagenta",
+        "body": ["LightMagenta"],
+        "description": ""
+    },
+    "LightGreen": {
+        "prefix": "LightGreen",
+        "body": ["LightGreen"],
+        "description": ""
+    },
+    "LightGray": {
+        "prefix": "LightGray",
+        "body": ["LightGray"],
+        "description": ""
+    },
+    "LightCyan": {
+        "prefix": "LightCyan",
+        "body": ["LightCyan"],
+        "description": ""
+    },
+    "LightBlue": {
+        "prefix": "LightBlue",
+        "body": ["LightBlue"],
+        "description": ""
+    },
+    "Len": {
+        "prefix": "Len",
+        "body": ["Len"],
+        "description": ""
+    },
+    "Left": {
+        "prefix": "Left",
+        "body": ["Left"],
+        "description": ""
+    },
+    "LastWorkDate": {
+        "prefix": "LastWorkDate",
+        "body": ["LastWorkDate"],
+        "description": ""
+    },
+    "LastValue": {
+        "prefix": "LastValue",
+        "body": ["LastValue"],
+        "description": ""
+    },
+    "Kurtosis": {
+        "prefix": "Kurtosis",
+        "body": ["Kurtosis"],
+        "description": ""
+    },
+    "KeepChar": {
+        "prefix": "KeepChar",
+        "body": ["KeepChar"],
+        "description": ""
+    },
+    "IterNo": {
+        "prefix": "IterNo",
+        "body": ["IterNo"],
+        "description": ""
+    },
+    "IsText": {
+        "prefix": "IsText",
+        "body": ["IsText"],
+        "description": ""
+    },
+    "IsPartialReload": {
+        "prefix": "IsPartialReload",
+        "body": ["IsPartialReload"],
+        "description": ""
+    },
+    "IsNum": {
+        "prefix": "IsNum",
+        "body": ["IsNum"],
+        "description": ""
+    },
+    "IsNull": {
+        "prefix": "IsNull",
+        "body": ["IsNull"],
+        "description": ""
+    },
+    "IRR": {
+        "prefix": "IRR",
+        "body": ["IRR"],
+        "description": ""
+    },
+    "InYearToDate": {
+        "prefix": "InYearToDate",
+        "body": ["InYearToDate"],
+        "description": ""
+    },
+    "InYear": {
+        "prefix": "InYear",
+        "body": ["InYear"],
+        "description": ""
+    },
+    "InWeekToDate": {
+        "prefix": "InWeekToDate",
+        "body": ["InWeekToDate"],
+        "description": ""
+    },
+    "InWeek": {
+        "prefix": "InWeek",
+        "body": ["InWeek"],
+        "description": ""
+    },
+    "Interval#": {
+        "prefix": "Interval#",
+        "body": ["Interval#"],
+        "description": ""
+    },
+    "Interval": {
+        "prefix": "Interval",
+        "body": ["Interval"],
+        "description": ""
+    },
+    "InQuarterToDate": {
+        "prefix": "InQuarterToDate",
+        "body": ["InQuarterToDate"],
+        "description": ""
+    },
+    "InQuarter": {
+        "prefix": "InQuarter",
+        "body": ["InQuarter"],
+        "description": ""
+    },
+    "InputSum": {
+        "prefix": "InputSum",
+        "body": ["InputSum"],
+        "description": ""
+    },
+    "InputAvg": {
+        "prefix": "InputAvg",
+        "body": ["InputAvg"],
+        "description": ""
+    },
+    "Input": {
+        "prefix": "Input",
+        "body": ["Input"],
+        "description": ""
+    },
+    "InMonthToDate": {
+        "prefix": "InMonthToDate",
+        "body": ["InMonthToDate"],
+        "description": ""
+    },
+    "InMonthsToDate": {
+        "prefix": "InMonthsToDate",
+        "body": ["InMonthsToDate"],
+        "description": ""
+    },
+    "InMonths": {
+        "prefix": "InMonths",
+        "body": ["InMonths"],
+        "description": ""
+    },
+    "InMonth": {
+        "prefix": "InMonth",
+        "body": ["InMonth"],
+        "description": ""
+    },
+    "InLunarWeekToDate": {
+        "prefix": "InLunarWeekToDate",
+        "body": ["InLunarWeekToDate"],
+        "description": ""
+    },
+    "InLunarWeek": {
+        "prefix": "InLunarWeek",
+        "body": ["InLunarWeek"],
+        "description": ""
+    },
+    "Index": {
+        "prefix": "Index",
+        "body": ["Index"],
+        "description": ""
+    },
+    "InDayToTime": {
+        "prefix": "InDayToTime",
+        "body": ["InDayToTime"],
+        "description": ""
+    },
+    "InDay": {
+        "prefix": "InDay",
+        "body": ["InDay"],
+        "description": ""
+    },
+    "if": {
+        "prefix": "if",
+        "body": ["if"],
+        "description": ""
+    },
+    "HSL": {
+        "prefix": "HSL",
+        "body": ["HSL"],
+        "description": ""
+    },
+    "Hour": {
+        "prefix": "Hour",
+        "body": ["Hour"],
+        "description": ""
+    },
+    "Hash256": {
+        "prefix": "Hash256",
+        "body": ["Hash256"],
+        "description": ""
+    },
+    "Hash160": {
+        "prefix": "Hash160",
+        "body": ["Hash160"],
+        "description": ""
+    },
+    "Hash128": {
+        "prefix": "Hash128",
+        "body": ["Hash128"],
+        "description": ""
+    },
+    "Green": {
+        "prefix": "Green",
+        "body": ["Green"],
+        "description": ""
+    },
+    "GMT": {
+        "prefix": "GMT",
+        "body": ["GMT"],
+        "description": ""
+    },
+    "GetRegistryString": {
+        "prefix": "GetRegistryString",
+        "body": ["GetRegistryString"],
+        "description": ""
+    },
+    "GetObjectField": {
+        "prefix": "GetObjectField",
+        "body": ["GetObjectField"],
+        "description": ""
+    },
+    "GetFolderPath": {
+        "prefix": "GetFolderPath",
+        "body": ["GetFolderPath"],
+        "description": ""
+    },
+    "GetExtendedProperty": {
+        "prefix": "GetExtendedProperty",
+        "body": ["GetExtendedProperty"],
+        "description": ""
+    },
+    "FV": {
+        "prefix": "FV",
+        "body": ["FV"],
+        "description": ""
+    },
+    "Fractile": {
+        "prefix": "Fractile",
+        "body": ["Fractile"],
+        "description": ""
+    },
+    "Frac": {
+        "prefix": "Frac",
+        "body": ["Frac"],
+        "description": ""
+    },
+    "fmod": {
+        "prefix": "fmod",
+        "body": ["fmod"],
+        "description": ""
+    },
+    "Floor": {
+        "prefix": "Floor",
+        "body": ["Floor"],
+        "description": ""
+    },
+    "FirstWorkDate": {
+        "prefix": "FirstWorkDate",
+        "body": ["FirstWorkDate"],
+        "description": ""
+    },
+    "FirstValue": {
+        "prefix": "FirstValue",
+        "body": ["FirstValue"],
+        "description": ""
+    },
+    "FirstSortedValue": {
+        "prefix": "FirstSortedValue",
+        "body": ["FirstSortedValue"],
+        "description": ""
+    },
+    "FINV": {
+        "prefix": "FINV",
+        "body": ["FINV"],
+        "description": ""
+    },
+    "FindOneOf": {
+        "prefix": "FindOneOf",
+        "body": ["FindOneOf"],
+        "description": ""
+    },
+    "FileTime": {
+        "prefix": "FileTime",
+        "body": ["FileTime"],
+        "description": ""
+    },
+    "FileSize": {
+        "prefix": "FileSize",
+        "body": ["FileSize"],
+        "description": ""
+    },
+    "FilePath": {
+        "prefix": "FilePath",
+        "body": ["FilePath"],
+        "description": ""
+    },
+    "FileName": {
+        "prefix": "FileName",
+        "body": ["FileName"],
+        "description": ""
+    },
+    "FileList": {
+        "prefix": "FileList",
+        "body": ["FileList"],
+        "description": ""
+    },
+    "FileExtension": {
+        "prefix": "FileExtension",
+        "body": ["FileExtension"],
+        "description": ""
+    },
+    "FileDir": {
+        "prefix": "FileDir",
+        "body": ["FileDir"],
+        "description": ""
+    },
+    "FileBaseName": {
+        "prefix": "FileBaseName",
+        "body": ["FileBaseName"],
+        "description": ""
+    },
+    "FieldValueCount": {
+        "prefix": "FieldValueCount",
+        "body": ["FieldValueCount"],
+        "description": ""
+    },
+    "FieldValue": {
+        "prefix": "FieldValue",
+        "body": ["FieldValue"],
+        "description": ""
+    },
+    "FieldNumber": {
+        "prefix": "FieldNumber",
+        "body": ["FieldNumber"],
+        "description": ""
+    },
+    "FieldName": {
+        "prefix": "FieldName",
+        "body": ["FieldName"],
+        "description": ""
+    },
+    "FieldIndex": {
+        "prefix": "FieldIndex",
+        "body": ["FieldIndex"],
+        "description": ""
+    },
+    "FDIST": {
+        "prefix": "FDIST",
+        "body": ["FDIST"],
+        "description": ""
+    },
+    "FALSE": {
+        "prefix": "FALSE",
+        "body": ["FALSE"],
+        "description": ""
+    },
+    "Fact": {
+        "prefix": "Fact",
+        "body": ["Fact"],
+        "description": ""
+    },
+    "fabs": {
+        "prefix": "fabs",
+        "body": ["fabs"],
+        "description": ""
+    },
+    "exp": {
+        "prefix": "exp",
+        "body": ["exp"],
+        "description": ""
+    },
+    "Exists": {
+        "prefix": "Exists",
+        "body": ["Exists"],
+        "description": ""
+    },
+    "Even": {
+        "prefix": "Even",
+        "body": ["Even"],
+        "description": ""
+    },
+    "Evaluate": {
+        "prefix": "Evaluate",
+        "body": ["Evaluate"],
+        "description": ""
+    },
+    "e": {
+        "prefix": "e",
+        "body": ["e"],
+        "description": ""
+    },
+    "Dual": {
+        "prefix": "Dual",
+        "body": ["Dual"],
+        "description": ""
+    },
+    "DocumentTitle": {
+        "prefix": "DocumentTitle",
+        "body": ["DocumentTitle"],
+        "description": ""
+    },
+    "DocumentPath": {
+        "prefix": "DocumentPath",
+        "body": ["DocumentPath"],
+        "description": ""
+    },
+    "DocumentName": {
+        "prefix": "DocumentName",
+        "body": ["DocumentName"],
+        "description": ""
+    },
+    "div": {
+        "prefix": "div",
+        "body": ["div"],
+        "description": ""
+    },
+    "daystart": {
+        "prefix": "daystart",
+        "body": ["daystart"],
+        "description": ""
+    },
+    "daynumberofyear": {
+        "prefix": "daynumberofyear",
+        "body": ["daynumberofyear"],
+        "description": ""
+    },
+    "daynumberofquarter": {
+        "prefix": "daynumberofquarter",
+        "body": ["daynumberofquarter"],
+        "description": ""
+    },
+    "dayname": {
+        "prefix": "dayname",
+        "body": ["dayname"],
+        "description": ""
+    },
+    "daylightsaving": {
+        "prefix": "daylightsaving",
+        "body": ["daylightsaving"],
+        "description": ""
+    },
+    "dayend": {
+        "prefix": "dayend",
+        "body": ["dayend"],
+        "description": ""
+    },
+    "day": {
+        "prefix": "day",
+        "body": ["day"],
+        "description": ""
+    },
+    "date#": {
+        "prefix": "date#",
+        "body": ["date#"],
+        "description": ""
+    },
+    "date": {
+        "prefix": "date",
+        "body": ["date"],
+        "description": ""
+    },
+    "darkgray": {
+        "prefix": "darkgray",
+        "body": ["darkgray"],
+        "description": ""
+    },
+    "cyan": {
+        "prefix": "cyan",
+        "body": ["cyan"],
+        "description": ""
+    },
+    "count": {
+        "prefix": "count",
+        "body": ["count"],
+        "description": ""
+    },
+    "cosh": {
+        "prefix": "cosh",
+        "body": ["cosh"],
+        "description": ""
+    },
+    "cos": {
+        "prefix": "cos",
+        "body": ["cos"],
+        "description": ""
+    },
+    "correl": {
+        "prefix": "correl",
+        "body": ["correl"],
+        "description": ""
+    },
+    "converttolocaltime": {
+        "prefix": "converttolocaltime",
+        "body": ["converttolocaltime"],
+        "description": ""
+    },
+    "connectstring": {
+        "prefix": "connectstring",
+        "body": ["connectstring"],
+        "description": ""
+    },
+    "concat": {
+        "prefix": "concat",
+        "body": ["concat"],
+        "description": ""
+    },
+    "computername": {
+        "prefix": "computername",
+        "body": ["computername"],
+        "description": ""
+    },
+    "combin": {
+        "prefix": "combin",
+        "body": ["combin"],
+        "description": ""
+    },
+    "colormix2": {
+        "prefix": "colormix2",
+        "body": ["colormix2"],
+        "description": ""
+    },
+    "colormix1": {
+        "prefix": "colormix1",
+        "body": ["colormix1"],
+        "description": ""
+    },
+    "colormapjet": {
+        "prefix": "colormapjet",
+        "body": ["colormapjet"],
+        "description": ""
+    },
+    "colormaphue": {
+        "prefix": "colormaphue",
+        "body": ["colormaphue"],
+        "description": ""
+    },
+    "color": {
+        "prefix": "color",
+        "body": ["color"],
+        "description": ""
+    },
+    "clientplatform": {
+        "prefix": "clientplatform",
+        "body": ["clientplatform"],
+        "description": ""
+    },
+    "class": {
+        "prefix": "class",
+        "body": ["class"],
+        "description": ""
+    },
+    "chr": {
+        "prefix": "chr",
+        "body": ["chr"],
+        "description": ""
+    },
+    "chiinv": {
+        "prefix": "chiinv",
+        "body": ["chiinv"],
+        "description": ""
+    },
+    "chidist": {
+        "prefix": "chidist",
+        "body": ["chidist"],
+        "description": ""
+    },
+    "chi2test_p": {
+        "prefix": "chi2test_p",
+        "body": ["chi2test_p"],
+        "description": ""
+    },
+    "chi2test_df": {
+        "prefix": "chi2test_df",
+        "body": ["chi2test_df"],
+        "description": ""
+    },
+    "chi2test_chi2": {
+        "prefix": "chi2test_chi2",
+        "body": ["chi2test_chi2"],
+        "description": ""
+    },
+    "ceil": {
+        "prefix": "ceil",
+        "body": ["ceil"],
+        "description": ""
+    },
+    "capitalize": {
+        "prefix": "capitalize",
+        "body": ["capitalize"],
+        "description": ""
+    },
+    "brown": {
+        "prefix": "brown",
+        "body": ["brown"],
+        "description": ""
+    },
+    "blue": {
+        "prefix": "blue",
+        "body": ["blue"],
+        "description": ""
+    },
+    "blackandschole": {
+        "prefix": "blackandschole",
+        "body": ["blackandschole"],
+        "description": ""
+    },
+    "black": {
+        "prefix": "black",
+        "body": ["black"],
+        "description": ""
+    },
+    "bitcount": {
+        "prefix": "bitcount",
+        "body": ["bitcount"],
+        "description": ""
+    },
+    "avg": {
+        "prefix": "avg",
+        "body": ["avg"],
+        "description": ""
+    },
+    "AutoNumberHash256": {
+        "prefix": "AutoNumberHash256",
+        "body": ["AutoNumberHash256"],
+        "description": ""
+    },
+    "AutoNumberHash128": {
+        "prefix": "AutoNumberHash128",
+        "body": ["AutoNumberHash128"],
+        "description": ""
+    },
+    "AutoNumber": {
+        "prefix": "AutoNumber",
+        "body": ["AutoNumber"],
+        "description": ""
+    },
+    "author": {
+        "prefix": "author",
+        "body": ["author"],
+        "description": ""
+    },
+    "attribute": {
+        "prefix": "attribute",
+        "body": ["attribute"],
+        "description": ""
+    },
+    "atan2": {
+        "prefix": "atan2",
+        "body": ["atan2"],
+        "description": ""
+    },
+    "atan": {
+        "prefix": "atan",
+        "body": ["atan"],
+        "description": ""
+    },
+    "asin": {
+        "prefix": "asin",
+        "body": ["asin"],
+        "description": ""
+    },
+    "argb": {
+        "prefix": "argb",
+        "body": ["argb"],
+        "description": ""
+    },
+    "applymap": {
+        "prefix": "applymap",
+        "body": ["applymap"],
+        "description": ""
+    },
+    "applycodepage": {
+        "prefix": "applycodepage",
+        "body": ["applycodepage"],
+        "description": ""
+    },
+    "alt": {
+        "prefix": "alt",
+        "body": ["alt"],
+        "description": ""
+    },
+    "age": {
+        "prefix": "age",
+        "body": ["age"],
+        "description": ""
+    },
+    "addyears": {
+        "prefix": "addyears",
+        "body": ["addyears"],
+        "description": ""
+    },
+    "addmonths": {
+        "prefix": "addmonths",
+        "body": ["addmonths"],
+        "description": ""
+    },
+    "acos": {
+        "prefix": "acos",
+        "body": ["acos"],
+        "description": ""
+    },
+    "with": {
+        "prefix": "with",
+        "body": ["with"],
+        "description": ""
+    },
+    "then": {
+        "prefix": "then",
+        "body": ["then"],
+        "description": ""
+    },
+    "and": {
+        "prefix": "and",
+        "body": ["and"],
+        "description": ""
+    },
+    "or": {
+        "prefix": "or",
+        "body": ["or"],
+        "description": ""
+    },
+    "not": {
+        "prefix": "not",
+        "body": ["not"],
+        "description": ""
+    },
+    "resident": {
+        "prefix": "resident",
+        "body": ["resident"],
+        "description": ""
+    },
+    "autogenerate": {
+        "prefix": "autogenerate",
+        "body": ["autogenerate"],
+        "description": ""
+    },
+    "step": {
+        "prefix": "step",
+        "body": ["step"],
+        "description": ""
+    },
+    "to": {
+        "prefix": "to",
+        "body": ["to"],
+        "description": ""
+    },
+    "into": {
+        "prefix": "into",
+        "body": ["into"],
+        "description": ""
+    },
+    "as": {
+        "prefix": "as",
+        "body": ["as"],
+        "description": ""
+    },
+    "from": {
+        "prefix": "from",
+        "body": ["from"],
+        "description": ""
+    },
+    "set": {
+        "prefix": "set",
+        "body": ["set"],
+        "description": ""
+    },
+    "Where": {
+        "prefix": "Where",
+        "body": ["Where"],
+        "description": ""
+    },
+    "When": {
+        "prefix": "When",
+        "body": ["When"],
+        "description": ""
+    },
+    "Untag": {
+        "prefix": "Untag",
+        "body": ["Untag"],
+        "description": ""
+    },
+    "Unqualify": {
+        "prefix": "Unqualify",
+        "body": ["Unqualify"],
+        "description": ""
+    },
+    "Unmap": {
+        "prefix": "Unmap",
+        "body": ["Unmap"],
+        "description": ""
+    },
+    "Unless": {
+        "prefix": "Unless",
+        "body": ["Unless"],
+        "description": ""
+    },
+    "Trace": {
+        "prefix": "Trace",
+        "body": ["Trace"],
+        "description": ""
+    },
+    "tag fields": {
+        "prefix": "tag fields",
+        "body": ["tag fields"],
+        "description": ""
+    },
+    "Tag field": {
+        "prefix": "Tag field",
+        "body": ["Tag field"],
+        "description": ""
+    },
+    "end switch": {
+        "prefix": "end switch",
+        "body": ["end switch"],
+        "description": ""
+    },
+    "switch": {
+        "prefix": "switch",
+        "body": ["switch"],
+        "description": ""
+    },
+    "Store": {
+        "prefix": "Store",
+        "body": ["Store"],
+        "description": ""
+    },
+    "Star": {
+        "prefix": "Star",
+        "body": ["Star"],
+        "description": ""
+    },
+    "SQLTypes": {
+        "prefix": "SQLTypes",
+        "body": ["SQLTypes"],
+        "description": ""
+    },
+    "SQLTables": {
+        "prefix": "SQLTables",
+        "body": ["SQLTables"],
+        "description": ""
+    },
+    "SQLColumns": {
+        "prefix": "SQLColumns",
+        "body": ["SQLColumns"],
+        "description": ""
+    },
+    "SQL": {
+        "prefix": "SQL",
+        "body": ["SQL"],
+        "description": ""
+    },
+    "Sleep": {
+        "prefix": "Sleep",
+        "body": ["Sleep"],
+        "description": ""
+    },
+    "Semantic": {
+        "prefix": "Semantic",
+        "body": ["Semantic"],
+        "description": ""
+    },
+    "select": {
+        "prefix": "select",
+        "body": ["select"],
+        "description": ""
+    },
+    "Section": {
+        "prefix": "Section",
+        "body": ["Section"],
+        "description": ""
+    },
+    "Sample": {
+        "prefix": "Sample",
+        "body": ["Sample"],
+        "description": ""
+    },
+    "right Keep": {
+        "prefix": "right Keep",
+        "body": ["right Keep"],
+        "description": ""
+    },
+    "Right Join": {
+        "prefix": "Right Join",
+        "body": ["Right Join"],
+        "description": ""
+    },
+    "Replace Only Load": {
+        "prefix": "Replace Only Load",
+        "body": ["Replace Only Load"],
+        "description": ""
+    },
+    "Replace Load": {
+        "prefix": "Replace Load",
+        "body": ["Replace Load"],
+        "description": ""
+    },
+    "Rename Tables Using": {
+        "prefix": "Rename Tables Using",
+        "body": ["Rename Tables Using"],
+        "description": ""
+    },
+    "Rename Tables": {
+        "prefix": "Rename Tables",
+        "body": ["Rename Tables"],
+        "description": ""
+    },
+    "Rename Table Using": {
+        "prefix": "Rename Table Using",
+        "body": ["Rename Table Using"],
+        "description": ""
+    },
+    "Rename Table": {
+        "prefix": "Rename Table",
+        "body": ["Rename Table"],
+        "description": ""
+    },
+    "Rename Fields Using": {
+        "prefix": "Rename Fields Using",
+        "body": ["Rename Fields Using"],
+        "description": ""
+    },
+    "Rename Field Using": {
+        "prefix": "Rename Field Using",
+        "body": ["Rename Field Using"],
+        "description": ""
+    },
+    "Rename Fields": {
+        "prefix": "Rename Fields",
+        "body": ["Rename Fields"],
+        "description": ""
+    },
+    "Rename Field": {
+        "prefix": "Rename Field",
+        "body": ["Rename Field"],
+        "description": ""
+    },
+    "Qualify": {
+        "prefix": "Qualify",
+        "body": ["Qualify"],
+        "description": ""
+    },
+    "Outer Join": {
+        "prefix": "Outer Join",
+        "body": ["Outer Join"],
+        "description": ""
+    },
+    "NullAsNull": {
+        "prefix": "NullAsNull",
+        "body": ["NullAsNull"],
+        "description": ""
+    },
+    "NullAsValue": {
+        "prefix": "NullAsValue",
+        "body": ["NullAsValue"],
+        "description": ""
+    },
+    "Noconcatenate Load": {
+        "prefix": "Noconcatenate Load",
+        "body": ["Noconcatenate Load"],
+        "description": ""
+    },
+    "using": {
+        "prefix": "using",
+        "body": ["using"],
+        "description": ""
+    },
+    "Map": {
+        "prefix": "Map",
+        "body": ["Map"],
+        "description": ""
+    },
+    "Mapping Load": {
+        "prefix": "Mapping Load",
+        "body": ["Mapping Load"],
+        "description": ""
+    },
+    "Loosen": {
+        "prefix": "Loosen",
+        "body": ["Loosen"],
+        "description": ""
+    },
+    "Load": {
+        "prefix": "Load",
+        "body": ["Load"],
+        "description": ""
+    },
+    "Let": {
+        "prefix": "Let",
+        "body": ["Let"],
+        "description": ""
+    },
+    "left Keep": {
+        "prefix": "left Keep",
+        "body": ["left Keep"],
+        "description": ""
+    },
+    "Left Join": {
+        "prefix": "Left Join",
+        "body": ["Left Join"],
+        "description": ""
+    },
+    "Join": {
+        "prefix": "Join",
+        "body": ["Join"],
+        "description": ""
+    },
+    "IntervalMatch": {
+        "prefix": "IntervalMatch",
+        "body": ["IntervalMatch"],
+        "description": ""
+    },
+    "InputField": {
+        "prefix": "InputField",
+        "body": ["InputField"],
+        "description": ""
+    },
+    "inner Keep": {
+        "prefix": "inner Keep",
+        "body": ["inner Keep"],
+        "description": ""
+    },
+    "Inner Join": {
+        "prefix": "Inner Join",
+        "body": ["Inner Join"],
+        "description": ""
+    },
+    "Inline": {
+        "prefix": "Inline",
+        "body": ["Inline"],
+        "description": ""
+    },
+    "info sql": {
+        "prefix": "info sql",
+        "body": ["info sql"],
+        "description": ""
+    },
+    "Info Load": {
+        "prefix": "Info Load",
+        "body": ["Info Load"],
+        "description": ""
+    },
+    "In": {
+        "prefix": "In",
+        "body": ["In"],
+        "description": ""
+    },
+    "info Image_size": {
+        "prefix": "info Image_size",
+        "body": ["info Image_size"],
+        "description": ""
+    },
+    "end if": {
+        "prefix": "end if",
+        "body": ["end if"],
+        "description": ""
+    },
+    "endif": {
+        "prefix": "endif",
+        "body": ["endif"],
+        "description": ""
+    },
+    "else if": {
+        "prefix": "else if",
+        "body": ["else if"],
+        "description": ""
+    },
+    "elseif": {
+        "prefix": "elseif",
+        "body": ["elseif"],
+        "description": ""
+    },
+    "else": {
+        "prefix": "else",
+        "body": ["else"],
+        "description": ""
+    },
+    "HierarchyBelongsTo": {
+        "prefix": "HierarchyBelongsTo",
+        "body": ["HierarchyBelongsTo"],
+        "description": ""
+    },
+    "Hierarchy": {
+        "prefix": "Hierarchy",
+        "body": ["Hierarchy"],
+        "description": ""
+    },
+    "Group By": {
+        "prefix": "Group By",
+        "body": ["Group By"],
+        "description": ""
+    },
+    "Generic": {
+        "prefix": "Generic",
+        "body": ["Generic"],
+        "description": ""
+    },
+    "Force": {
+        "prefix": "Force",
+        "body": ["Force"],
+        "description": ""
+    },
+    "First": {
+        "prefix": "First",
+        "body": ["First"],
+        "description": ""
+    },
+    "exit script": {
+        "prefix": "exit script",
+        "body": ["exit script"],
+        "description": ""
+    },
+    "exit sub": {
+        "prefix": "exit sub",
+        "body": ["exit sub"],
+        "description": ""
+    },
+    "exit do": {
+        "prefix": "exit do",
+        "body": ["exit do"],
+        "description": ""
+    },
+    "exit for": {
+        "prefix": "exit for",
+        "body": ["exit for"],
+        "description": ""
+    },
+    "each": {
+        "prefix": "each",
+        "body": ["each"],
+        "description": ""
+    },
+    "Execute": {
+        "prefix": "Execute",
+        "body": ["Execute"],
+        "description": ""
+    },
+    "Drop Fields": {
+        "prefix": "Drop Fields",
+        "body": ["Drop Fields"],
+        "description": ""
+    },
+    "Drop Field": {
+        "prefix": "Drop Field",
+        "body": ["Drop Field"],
+        "description": ""
+    },
+    "Drop Tables": {
+        "prefix": "Drop Tables",
+        "body": ["Drop Tables"],
+        "description": ""
+    },
+    "Drop Table": {
+        "prefix": "Drop Table",
+        "body": ["Drop Table"],
+        "description": ""
+    },
+    "Load distinct": {
+        "prefix": "Load distinct",
+        "body": ["Load distinct"],
+        "description": ""
+    },
+    "Disconnect": {
+        "prefix": "Disconnect",
+        "body": ["Disconnect"],
+        "description": ""
+    },
+    "Directory": {
+        "prefix": "Directory",
+        "body": ["Directory"],
+        "description": ""
+    },
+    "Crosstable": {
+        "prefix": "Crosstable",
+        "body": ["Crosstable"],
+        "description": ""
+    },
+    "Connect": {
+        "prefix": "Connect",
+        "body": ["Connect"],
+        "description": ""
+    },
+    "Concatenate": {
+        "prefix": "Concatenate",
+        "body": ["Concatenate"],
+        "description": ""
+    },
+    "Comment": {
+        "prefix": "Comment",
+        "body": ["Comment"],
+        "description": ""
+    },
+    "Call": {
+        "prefix": "Call",
+        "body": ["Call"],
+        "description": ""
+    },
+    "Bundle Info sql": {
+        "prefix": "Bundle Info sql",
+        "body": ["Bundle Info sql"],
+        "description": ""
+    },
+    "Bundle sql": {
+        "prefix": "Bundle sql",
+        "body": ["Bundle sql"],
+        "description": ""
+    },
+    "Bundle Info load": {
+        "prefix": "Bundle Info load",
+        "body": ["Bundle Info load"],
+        "description": ""
+    },
+    "Bundle Load": {
+        "prefix": "Bundle Load",
+        "body": ["Bundle Load"],
+        "description": ""
+    },
+    "Buffer": {
+        "prefix": "Buffer",
+        "body": ["Buffer"],
+        "description": ""
+    },
+    "Binary": {
+        "prefix": "Binary",
+        "body": ["Binary"],
+        "description": ""
+    },
+    "Alias": {
+        "prefix": "Alias",
+        "body": ["Alias"],
+        "description": ""
+    },
+    "Add": {
+        "prefix": "Add",
+        "body": ["Add"],
+        "description": ""
+    }
+
+
+}
