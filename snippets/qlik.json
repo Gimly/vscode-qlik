@@ -1,2658 +1,2886 @@
 {
-    "configFull": {
-        "prefix": "configFull",
+    "Add": {
+        "prefix": "Add [only] (loadstatement | selectstatement | mapstatement)",
         "body": [
-            "var ${1:config} = {\n\tmark: '',\n\tport: 4848,\n\tappname: '',\n\thost: '',\n\tprefix: '',\n\torigin: '',\n\tisSecure: true|false,\n\trejectUnauthorized: true|false,\n\theaders: ''|{},\n\tticket: ''|false,\n\tkey: ''|null,\n\tcert: ''|null,\n\tca: ''|null,\n\tpfx: ''|null,\n\tpassphrase: ''|null,\n\tidentity: '',\n\tdebug: true|false,\n\tdisconnect: ''\n}"
+            "Add"
         ],
-        "description": "Full Config JSON Object"
+        "description": "The add prefix can be added to any LOAD, SELECT or map...using statement in the script. It is only relevant during partial\nreloads."
+    },
+    "Alias": {
+        "prefix": "alias fieldname as aliasname {,fieldname as aliasname}",
+        "body": [
+            "Alias ${1:FileName} as ${2:FieldNewName};"
+        ],
+        "description": "The alias statement is used for setting an alias according to which a field will be renamed whenever it occurs in the script that\nfollows."
+    },
+    "Binary": {
+        "prefix": "binary [path] filename",
+        "body": [
+            "Binary ${1:Path to QVW};"
+        ],
+        "description": "The binary statement is used for loading the data from another QlikView document, including section access data. It does not load\nthe layout information or variables."
+    },
+    "Buffer": {
+        "prefix": "Buffer [(option [ , option])] ( loadstatement | selectstatement )",
+        "body": [
+            "Buffer "
+        ],
+        "description": "QVD files can be created and maintained automatically via the buffer prefix. This prefix can be used on most LOAD and SELECT \nstatements in script. It indicates that QVD files are used to cache/buffer the result of the statement."
+    },
+    "Call": {
+        "prefix": "Call name ( [ paramlist ])",
+        "body": [
+            "Call ${1:FunctionName};"
+        ],
+        "description": "The call control statement calls a subroutine which must be defined by a previous sub statement."
+    },
+    "Comment": {
+        "prefix": "",
+        "body": [
+            "Comment"
+        ],
+        "description": ""
+    },
+    "Concatenate": {
+        "prefix": "Concatenate[ (tablename ) ] ( loadstatement | selectstatement )",
+        "body": [
+            "Concatenate"
+        ],
+        "description": "If two tables that are to be concatenated have different sets of fields, concatenation of two tables can still be forced with the \nConcatenate prefix. This statement forces concatenation with an existing named table or the latest previously created logical\ntable. An automatic concatenation occurs if two tables have the same field names."
+    },
+    "Connect": {
+        "prefix": "",
+        "body": [
+            "Connect"
+        ],
+        "description": ""
+    },
+    "Crosstable": {
+        "prefix": "crosstable (attribute field name, data field name [ , n ] ) ( loadstatement | selectstatement )",
+        "body": [
+            "Crosstable (${1:AttributeField}, ${2:DataField}, ${3:n}) "
+        ],
+        "description": "The crosstable prefix is used to turn a cross table into a straight table, that is, a wide table with many columns is turned into\na tall table, with the column headings being placed into a single attribute column."
+    },
+    "Directory": {
+        "prefix": "Directory[path]",
+        "body": [
+            "Directory ${1:Folder};"
+        ],
+        "description": "The Directory statement defines which directory to look in for data files in subsequent LOAD statements, until a new Directory \nstatement is made."
+    },
+    "Disconnect": {
+        "prefix": "Disconnect",
+        "body": [
+            "Disconnect;"
+        ],
+        "description": "The Disconnect statement terminates the current ODBC/OLE DB/Custom connection. This statement is optional."
+    },
+    "Load distinct": {
+        "prefix": "",
+        "body": [
+            "Load distinct"
+        ],
+        "description": ""
+    },
+    "Drop Table": {
+        "prefix": "drop table tablename [, tablename2 ...]",
+        "body": [
+            "Drop Table ${1: TableName};"
+        ],
+        "description": "One or several QlikView internal tables can be dropped from the data model, and thus from memory, at any time during script\nexecution, by means of a drop table statement."
+    },
+    "Drop Tables": {
+        "prefix": "drop tables tablename [, tablename2 ...]",
+        "body": [
+            "Drop Tables ${1:TableName1}, ${2:TableName2};"
+        ],
+        "description": "One or several QlikView internal tables can be dropped from the data model, and thus from memory, at any time during script\nexecution, by means of a drop table statement."
+    },    
+    "Drop Field": {
+        "prefix": "Drop field fieldname [ , fieldname2 ...] [from tablename1 [ , tablename2 ...]]",
+        "body": [
+            "Drop Field ${1:FieldName};"
+        ],
+        "description": "One or several QlikView fields can be dropped from the data model, and thus from memory, at any time during script execution, by\nmeans of a drop field statement."
+    },
+    "Drop Fields": {
+        "prefix": "Drop fields fieldname [ , fieldname2 ...] [from tablename1 [ , tablename2 ...]]",
+        "body": [
+            "Drop Fields ${1:FieldName1}, ${2:FieldName2};"
+        ],
+        "description": "One or several QlikView fields can be dropped from the data model, and thus from memory, at any time during script execution, by\nmeans of a drop field statement."
+    },    
+    "Execute": {
+        "prefix": "execute commandline",
+        "body": [
+            "Execute "
+        ],
+        "description": "The Execute statement is used to run other programs while QlikView is loading data. For example, to make conversions that are\nnecessary."
+    },
+    "exit script": {
+        "prefix": "Exit Script [ (when | unless) condition ]",
+        "body": [
+            "exit script;"
+        ],
+        "description": "This control statement stops script execution. It may be inserted anywhere in the script."
+    },
+    "First": {
+        "prefix": "First n ( loadstatement | selectstatement )",
+        "body": [
+            "First ${1:1000}"
+        ],
+        "description": "The First prefix to a LOAD or SELECT (SQL) statement is used for loading a set maximum number of records from a data source table."
+    },
+    "Force": {
+        "prefix": "Force ( capitalization | case upper | case lower | case mixed )",
+        "body": [
+            "Force"
+        ],
+        "description": "The force statement forces QlikView to interpret field names and field values of subsequent LOAD and SELECT statements as written\nwith only upper case letters, with only lower case letters, as always capitalized or as they appear (mixed). This statement makes\nit possible to associate field values from tables made according to different conventions."
+    },
+    "Generic": {
+        "prefix": "Generic( loadstatement | selectstatement )",
+        "body": [
+            "Generic"
+        ],
+        "description": "The generic prefix unpacks a tall table, creating one field per attribute value. This is similar to pivoting a table, except that\nit results in a separate table per field created."
+    },
+    "Hierarchy": {
+        "prefix": "Hierarchy (NodeID, ParentID, NodeName, [ParentName], [PathSource], [PathName], [PathDelimiter], [Depth])(loadstatement |\nselectstatement)",
+        "body": [
+            "Hierarchy(${1:NodeID}, ${2:ParentID}, ${3:NodeName}, ${4:ParentName}, ${5:NodeName}, ${6:PathName}, ${6:'\\'}, ${7:Depth)})\n"
+        ],
+        "description": "The hierarchy prefix is used to transform a parent-child hierarchy table to a table that is useful in a QlikView data model. It\ncan be put in front of a LOAD or a SELECT statement and will use the result of the loading statement as input for a table\ntransformation."
+    },
+    "HierarchyBelongsTo": {
+        "prefix": "HierarchyBelongsTo (NodeID, ParentID, NodeName, AncestorID, AncestorName, [DepthDiff])(loadstatement | selectstatement)",
+        "body": [
+            "Hierarchy(${1:NodeID}, ${2:AncestorID}, ${3:NodeName}, ${4:AncestorID}, ${5:AncestorName}, ${6:DepthDiff})\n"
+        ],
+        "description": "This prefix is used to transform a parent-child hierarchy table to a table that is useful in a QlikView data model. It can be put\nin front of a LOAD or a SELECT statement and will use the result of the loading statement as input for a table transformation."
+    },
+    "Inline": {
+        "prefix": "Inline",
+        "body": [
+            "${1:InlineTableName}:\nLoad * Inline [\n\t${2:Field1},${3:Field2}\n];"
+        ],
+        "description": "Load inline table"
+    },
+    "InputField": {
+        "prefix": "inputfield fieldlist",
+        "body": [
+            "InputField ${1:FieldName};\n"
+        ],
+        "description": "[#]  INPUTFIELD\nA field may be flagged as an input field by listing it in an inputfield statement before it is referenced in any LOAD or SELECT \nstatements."
+    },
+    "IntervalMatch": {
+        "prefix": "IntervalMatch (matchfield)(loadstatement | selectstatement )",
+        "body": [
+            "Inner Join (${1:TransTable})\nIntervalMatch ( ${2:Date}, ${3:Key} )\nLOAD\n\t${4:FirstDate},\n\t${5:LastDate},\n\t${3:Key}\nResident\n\t${6:KeyTable}\n;"
+        ],
+        "description": "The IntervalMatch prefix is used to create a table matching discrete numeric values to one or more numeric intervals, and\noptionally matching the values of one or several additional keys."
+    },
+    "Join": {
+        "prefix": "Join [inner | outer | left | right ]Join [ (tablename ) ]( loadstatement | selectstatement )",
+        "body": [
+            "${1:inner|outer|left|right} Join (${2:ToTable})\n"
+        ],
+        "description": "The join prefix joins the loaded table with an existing named table or the last previously created data table."
+    },
+    "Let": {
+        "prefix": "Let variablename=expression",
+        "body": [
+            "let ${1:sVariable} = ${2:Expression};"
+        ],
+        "description": "The let statement is a complement to the set statement, used for defining script variables. The let statement, in opposition to\nthe set statement, evaluates the expression on the right side of the ' =' before it is assigned to the variable."
+    },
+    "Load": {
+        "prefix": "LOAD [ distinct ] fieldlist",
+        "body": [
+            "Load ${1: distinct}\n"
+        ],
+        "description": "The LOAD statement loads fields from a file, from data defined in the script, from a previously loaded table, from a web page,\nfrom the result of a subsequent SELECT statement or by generating data automatically."
+    },
+    "Loosen": {
+        "prefix": "",
+        "body": [
+            "Loosen"
+        ],
+        "description": ""
+    },
+    "Mapping Load Inline": {
+        "prefix": "Mapping Inline Load",
+        "body": [
+            "Mapping\nLoad * Inline [\n\t${1:OldValue},${2:NewValue}\n\t\n]\n;"
+        ],
+        "description": "The mapping prefix is used to create a mapping table that can be used to, for example, replacing field values and field names during script execution."
+    },
+    "Mapping Load Resident": {
+        "prefix": "Mapping Resident Load",
+        "body": [
+            "Mapping\nLoad \n\t${1:OldValueField},\n${2:NewValueField}\nResident\n;"
+        ],
+        "description": "The mapping prefix is used to create a mapping table that can be used to, for example, replacing field values and field names during script execution."
+    },    
+    "Map": {
+        "prefix": "Map *fieldlist Using  mapname",
+        "body": [
+            "Map"
+        ],
+        "description": "The map ... using statement is used for mapping a certain field value or expression to the values of a specific mapping table. The\nmapping table is created through the Mapping statement."
+    },
+    "NullAsValue": {
+        "prefix": "NullAsValue *fieldlist",
+        "body": [
+            "NullAsValue ${1:Field1}, ${2:Field2};\nset NullValue = '${3:NULL}';"
+        ],
+        "description": "The NullAsValue statement specifies for which fields that NULL should be converted to a value."
+    },
+    "NullAsNull": {
+        "prefix": "NullAsNull *fieldlist",
+        "body": [
+            "NullAsNull ${1:Field1}, ${2:Field2};"
+        ],
+        "description": "The NullAsNull statement turns off the conversion of NULL values to string values previously set by a NullAsValue statement."
+    },
+    "Qualify": {
+        "prefix": "Qualify *fieldlist",
+        "body": [
+            "Qualify"
+        ],
+        "description": "The Qualify statement is used for switching on the qualification of field names, i.e. field names will get the table name as a\nprefix."
+    },
+    "Rename Field": {
+        "prefix": "Rename Field (using mapname | oldname to newname{ , oldname to newname })",
+        "body": [
+            "Rename ${1:Field} to ${2:ToField};"
+        ],
+        "description": "This script function renames one or more existing QlikView field(s) after they have been loaded."
+    },
+    "Rename Field Using": {
+        "prefix": "",
+        "body": [
+            "Rename Field Using"
+        ],
+        "description": ""
+    },
+    "Rename Table": {
+        "prefix": "Rename Table (using mapname | oldname to newname{ , oldname to newname })",
+        "body": [
+            "Rename Table ${1:Table} to ${2:ToTable};"
+        ],
+        "description": "This script function renames one or more existing QlikView internal table(s) after they have been loaded."
+    },
+    "Rename Tables": {
+        "prefix": "",
+        "body": [
+            "Rename Tables using ${2:MappingTable}"
+        ],
+        "description": ""
+    },
+    "Sample": {
+        "prefix": "Sample  p ( loadstatement | selectstatement )",
+        "body": [
+            "Sample ${1:0.10}"
+        ],
+        "description": "The sample prefix to a LOAD or SELECT statement is used for loading a random sample of records from the data source."
+    },
+    "Section": {
+        "prefix": "Section (access | application)",
+        "body": [
+            "Section"
+        ],
+        "description": "With the section statement, it is possible to define whether the subsequent LOAD and SELECT statements should be considered as\ndata or as a definition of the access rights."
+    },
+    "select": {
+        "prefix": "selectstatement Union selectstatement",
+        "body": [
+            "select"
+        ],
+        "description": "The selection of fields from an ODBC data source or OLE DB provider is made through standard SQL SELECT statements. However,\nwhether the SELECT statements are accepted depends on the ODBC driver or OLE DB provider used."
+    },
+    "Semantic": {
+        "prefix": "Semantic( loadstatement | selectstatement)",
+        "body": [
+            "Semantic"
+        ],
+        "description": "Tables containing relations between records can be loaded through a semantic prefix. This can for example be self-references\nwithin a table, where one record points to another, such as parent, belongs to, or predecessor."
+    },
+    "Sleep": {
+        "prefix": "Sleep ${1:1000};",
+        "body": [
+            "Sleep"
+        ],
+        "description": "The sleep statement pauses script execution for a specified time."
+    },
+    "SQL": {
+        "prefix": "SQL sqlcommand",
+        "body": [
+            "SQL"
+        ],
+        "description": "The SQL statement allows you to send an arbitrary SQL command through anODBC or OLE DB connection."
+    },
+    "SQLColumns": {
+        "prefix": "SQLcolumns",
+        "body": [
+            "SQLColumns"
+        ],
+        "description": "The sqlcolumns statement returns a set of fields describing the columns of an ODBC or OLE DB data source, to which a connect has\nbeen made."
+    },
+    "SQLTables": {
+        "prefix": "SQLTables",
+        "body": [
+            "SQLTables"
+        ],
+        "description": "The sqltables statement returns a set of fields describing the tables of an ODBC or OLE DB data source, to which a connect has\nbeen made."
+    },
+    "SQLTypes": {
+        "prefix": "SQLTypes",
+        "body": [
+            "SQLTypes"
+        ],
+        "description": "The sqltypes statement returns a set of fields describing the types of an ODBC or OLE DB data source, to which a connect has been\nmade."
+    },
+    "Star": {
+        "prefix": "Star is[ string ]",
+        "body": [
+            "Star is ${1:*};"
+        ],
+        "description": "The string used for representing the set of all the values of a field in the database can be set through the star statement. It\naffects the subsequent LOAD and SELECT statements."
+    },
+    "Store": {
+        "prefix": "Store[ *fieldlist from] table into filename [ format-spec ];",
+        "body": [
+            "Store ${1:TableName} into ${2:PathToQVD} ${3:(txt)};"
+        ],
+        "description": "This script function creates a QVD or a CSV file."
+    },
+    "Tag field": {
+        "prefix": "",
+        "body": [
+            "Tag field"
+        ],
+        "description": ""
+    },
+    "Trace": {
+        "prefix": "Trace string",
+        "body": [
+            "Trace ${1:statement};"
+        ],
+        "description": "The trace statement writes a string to the Script Execution Progress window and to the script log file, when used. It is very\nuseful for debugging purposes. Using $-expansions of variables that are calculated prior to the trace statement, you can customize\nthe message."
+    },
+    "Unless": {
+        "prefix": "(Unless condition statement | exitstatement Unless condition )",
+        "body": [
+            "Unless"
+        ],
+        "description": "The unless prefix and suffix is used for creating a conditional clause which determines whether a statement or exit clause should\nbe evaluated or not. It may be seen as a compact alternative to the full if..end if statement."
+    },
+    "Unmap": {
+        "prefix": "Unmap *fieldlist",
+        "body": [
+            "Unmap"
+        ],
+        "description": "The Unmap statement disables field value mapping specified by a previous Map … Using statement for subsequently loaded fields."
+    },
+    "Unqualify": {
+        "prefix": "Unqualify *fieldlist",
+        "body": [
+            "Unqualify"
+        ],
+        "description": "The Unqualify statement is used for switching off the qualification of field names that has been previously switched on by the \nQualify statement."
+    },
+    "Untag": {
+        "prefix": "Untag fields fieldlist using mapname",
+        "body": [
+            "Untag"
+        ],
+        "description": "Provides a way of removing tags from one or more fields. If an attempt to untag a Field name not present in the document is made,\nthe untagging will be ignored. If conflicting occurrences of a field or tag name is found, the last value is used."
+    },
+    "When": {
+        "prefix": "(when condition statement | exitstatement when condition )",
+        "body": [
+            "When"
+        ],
+        "description": "The when prefix and suffix is used for creating a conditional clause which determines whether a statement or exit clause should be\nexecuted or not. It may be seen as a compact alternative to the full if..end if statement."
+    },
+    "Where": {
+        "prefix": "",
+        "body": [
+            "Where"
+        ],
+        "description": ""
+    },
+    "set": {
+        "prefix": "Set variablename=string",
+        "body": [
+            "set"
+        ],
+        "description": "The set statement is used for defining script variables. These can be used for substituting strings, paths, drives, and so on."
+    },
+    "step": {
+        "prefix": "",
+        "body": [
+            "step"
+        ],
+        "description": ""
+    },
+    "autogenerate": {
+        "prefix": "",
+        "body": [
+            "autogenerate"
+        ],
+        "description": ""
+    },
+    "acos": {
+        "prefix": "",
+        "body": [
+            "acos"
+        ],
+        "description": ""
+    },
+    "addmonths": {
+        "prefix": "AddMonths(startdate, n , [ , mode])",
+        "body": [
+            "addmonths"
+        ],
+        "description": "This function returns the date occurring n months after startdate or, if n is negative, the date occurring n months before \nstartdate."
+    },
+    "addyears": {
+        "prefix": "AddYears(startdate, n)",
+        "body": [
+            "addyears"
+        ],
+        "description": "This function returns the date occurring n years after startdate or, if n is negative, the date occurring n years before startdate\n."
+    },
+    "age": {
+        "prefix": "age(timestamp, dateofbirth)",
+        "body": [
+            "age"
+        ],
+        "description": "The age function returns the age at the time of timestamp (in completed years) of somebody born on date_of_birth."
+    },
+    "alt": {
+        "prefix": "alt(case1[ , case2 , case3 , ...] , else)",
+        "body": [
+            "alt"
+        ],
+        "description": "The alt function returns the first of the parameters that has a valid number representation. If no such match is found, the last\nparameter will be returned. Any number of parameters can be used."
+    },
+    "applycodepage": {
+        "prefix": "",
+        "body": [
+            "applycodepage"
+        ],
+        "description": ""
+    },
+    "applymap": {
+        "prefix": "ApplyMap('mapname', expression [ , defaultmapping ] )",
+        "body": [
+            "applymap"
+        ],
+        "description": "The ApplyMap script function is used for mapping the output of an expression to a previously loaded mapping table."
+    },
+    "argb": {
+        "prefix": "ARGB(alpha, r, g, b)",
+        "body": [
+            "argb"
+        ],
+        "description": "ARGB() is used in expressions to set or evaluate the color properties of a chart object, where the color is defined by a red\ncomponent r, a green component g, and a blue component b, with an alpha factor (opacity) of alpha."
+    },
+    "asin": {
+        "prefix": "",
+        "body": [
+            "asin"
+        ],
+        "description": ""
+    },
+    "atan": {
+        "prefix": "",
+        "body": [
+            "atan"
+        ],
+        "description": ""
+    },
+    "atan2": {
+        "prefix": "",
+        "body": [
+            "atan2"
+        ],
+        "description": ""
+    },
+    "attribute": {
+        "prefix": "Attribute(filename, attributename)",
+        "body": [
+            "attribute"
+        ],
+        "description": "This script function returns the value of the meta tags of different media files as text. The following file formats are\nsupported: MP3, WMA, WMV, PNG and JPG. If the file filename does not exist, is not a supported file format or does not contain a\nmeta tag named attributename, NULL will be returned."
+    },
+    "author": {
+        "prefix": "",
+        "body": [
+            "author"
+        ],
+        "description": ""
+    },
+    "AutoNumber": {
+        "prefix": "autonumber(expression[ , AutoID])",
+        "body": [
+            "AutoNumber"
+        ],
+        "description": "This script function returns a unique integer value for each distinct evaluated value of expression encountered during the script\nexecution. This function can be used e.g. for creating a compact memory representation of a complex key."
+    },
+    "AutoNumberHash128": {
+        "prefix": "autonumberhash128(expression {, expression})",
+        "body": [
+            "AutoNumberHash128"
+        ],
+        "description": "This script function calculates a 128-bit hash of the combined input expression values and the returns a unique integer value for\neach distinct hash value encountered during the script execution. This function can be used for example for creating a compact\nmemory representation of a complex key."
+    },
+    "AutoNumberHash256": {
+        "prefix": "autonumberhash256(expression {, expression})",
+        "body": [
+            "AutoNumberHash256"
+        ],
+        "description": "This script function calculates a 256-bit hash of the combined input expression values and returns a unique integer value for each\ndistinct hash value encountered during the script execution. This function can be used e.g. for creating a compact memory\nrepresentation of a complex key."
+    },
+    "avg": {
+        "prefix": "",
+        "body": [
+            "avg"
+        ],
+        "description": "Avg() finds the average value of the aggregated data in the expression over a number of records as defined by a group by clause."
+    },
+    "bitcount": {
+        "prefix": "BitCount(integernumber)",
+        "body": [
+            "bitcount"
+        ],
+        "description": "BitCount() finds how many bits in the binary equivalent of a number are set to 1. That is, the function returns the number of set\nbits in integer_number, where integer_number is interpreted as a signed 32-bit integer."
+    },
+    "capitalize": {
+        "prefix": "Capitalize(text)",
+        "body": [
+            "capitalize"
+        ],
+        "description": "Capitalize() returns the string with all words in initial uppercase letters."
+    },
+    "ceil": {
+        "prefix": "Ceil(x[, step[, offset]])",
+        "body": [
+            "ceil"
+        ],
+        "description": "Ceil() rounds x up to the nearest multiple of step [+ offset]. The default value of offset is 0."
+    },
+    "chi2test_chi2": {
+        "prefix": "Chi2Testchi2(col, row, actualvalue[, expectedvalue])",
+        "body": [
+            "chi2test_chi2"
+        ],
+        "description": "Chi2Test_chi2() returns the aggregated chi2-test value for one or two series of values."
+    },
+    "chi2test_df": {
+        "prefix": "Chi2Testdf(col, row, actualvalue[, expectedvalue])",
+        "body": [
+            "chi2test_df"
+        ],
+        "description": "Chi2Test_df() returns the aggregated chi2-test df value (degrees of freedom) for one or two series of values."
+    },
+    "chi2test_p": {
+        "prefix": "Chi2Testp(col, row, actualvalue[, expectedvalue])",
+        "body": [
+            "chi2test_p"
+        ],
+        "description": "Chi2Test_p() returns the aggregated chi2-test p value (significance) for one or two series of values. The test can be done either\non the values in actual_value, testing for variations within the specified col and row matrix, or by comparing values in \nactual_value with corresponding values in expected_value, if specified."
+    },
+    "chidist": {
+        "prefix": "CHIDIST(value, degreesfreedom)",
+        "body": [
+            "chidist"
+        ],
+        "description": "CHIDIST() returns the one-tailed probability of the chi2 distribution. The chi2 distribution is associated with a chi2 test."
+    },
+    "chiinv": {
+        "prefix": "CHIINV(prob, degreesfreedom)",
+        "body": [
+            "chiinv"
+        ],
+        "description": "CHIINV() returns the inverse of the one-tailed probability of the chi2 distribution."
+    },
+    "chr": {
+        "prefix": "Chr(int)",
+        "body": [
+            "chr"
+        ],
+        "description": "Chr() returns the Unicode character corresponding to the input integer."
+    },
+    "class": {
+        "prefix": "class(expression, interval [ , label [ , offset ]])",
+        "body": [
+            "class"
+        ],
+        "description": "The class function assigns the first parameter to a class interval. The result is a dual value with a<=x<b as the textual value,\nwhere a and b are the upper and lower limits of the bin, and the lower bound as numeric value."
+    },
+    "clientplatform": {
+        "prefix": "",
+        "body": [
+            "clientplatform"
+        ],
+        "description": ""
+    },
+    "color": {
+        "prefix": "",
+        "body": [
+            "color"
+        ],
+        "description": ""
+    },
+    "colormaphue": {
+        "prefix": "",
+        "body": [
+            "colormaphue"
+        ],
+        "description": ""
+    },
+    "colormapjet": {
+        "prefix": "",
+        "body": [
+            "colormapjet"
+        ],
+        "description": ""
+    },
+    "colormix1": {
+        "prefix": "",
+        "body": [
+            "colormix1"
+        ],
+        "description": ""
+    },
+    "colormix2": {
+        "prefix": "",
+        "body": [
+            "colormix2"
+        ],
+        "description": ""
+    },
+    "combin": {
+        "prefix": "Combin(p, q)",
+        "body": [
+            "combin"
+        ],
+        "description": "Combin() returns the number of combinations of q elements that can be picked from a set of p items. As represented by the formula: \nCombin(p,q) = p! / q!(p-q)! The order in which the items are selected is insignificant."
+    },
+    "computername": {
+        "prefix": "",
+        "body": [
+            "computername"
+        ],
+        "description": ""
+    },
+    "concat": {
+        "prefix": "Concat({[SetExpression] [DISTINCT] [TOTAL [<fld{, fld}>]] string[, delimiter[, sortweight]])",
+        "body": [
+            "concat"
+        ],
+        "description": "Concat()is used to combine string values. The function returns the aggregated string concatenation of all the values of the\nexpression evaluated over each dimension."
+    },
+    "connectstring": {
+        "prefix": "ConnectString()",
+        "body": [
+            "connectstring"
+        ],
+        "description": "The ConnectString() function returns the name of the active data connection for ODBC or OLE DBconnections. The function returns an\nempty string if no connect statement has been executed, or after a disconnect statement."
+    },
+    "converttolocaltime": {
+        "prefix": "ConvertToLocalTime(timestamp [, place [, ignoredst=false]])",
+        "body": [
+            "converttolocaltime"
+        ],
+        "description": "Converts a UTC or GMT timestamp to local time as a dual value. The place can be any of the cities listed below and time zones\naround the world."
+    },
+    "correl": {
+        "prefix": "",
+        "body": [
+            "correl"
+        ],
+        "description": "Correl() returns the aggregated correlation coefficient for a series of coordinates represented by paired numbers in x-expression \nand y-expression iterated over a number of records as defined by a group by clause."
+    },
+    "cos": {
+        "prefix": "",
+        "body": [
+            "cos"
+        ],
+        "description": ""
+    },
+    "cosh": {
+        "prefix": "",
+        "body": [
+            "cosh"
+        ],
+        "description": ""
+    },
+    "count": {
+        "prefix": "Count([{SetExpression}] [DISTINCT] [TOTAL [<fld {,fld}>]] expr)",
+        "body": [
+            "count"
+        ],
+        "description": "Count() is used to aggregate the number of values, text and numeric, in each chart dimension."
+    },
+    "date": {
+        "prefix": "",
+        "body": [
+            "date"
+        ],
+        "description": ""
+    },
+    "date#": {
+        "prefix": "",
+        "body": [
+            "date#"
+        ],
+        "description": ""
+    },
+    "day": {
+        "prefix": "day(expression)",
+        "body": [
+            "day"
+        ],
+        "description": "This function returns an integer representing the day when the fraction of the expression is interpreted as a date according to\nthe standard number interpretation."
+    },
+    "dayend": {
+        "prefix": "DayEnd(time[, [periodno[, daystart]])",
+        "body": [
+            "dayend"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the final millisecond of the day contained in time. The default\noutput format will be the TimestampFormat set in the script."
+    },
+    "daylightsaving": {
+        "prefix": "DaylightSaving( )",
+        "body": [
+            "daylightsaving"
+        ],
+        "description": "Returns the current adjustment for daylight saving time, as defined in Windows."
+    },
+    "dayname": {
+        "prefix": "DayName(time[, periodno [, daystart]])",
+        "body": [
+            "dayname"
+        ],
+        "description": "This function returns a value showing the date with an underlying numeric value corresponding to a timestamp of the first\nmillisecond of the day containing time."
+    },
+    "daynumberofquarter": {
+        "prefix": "DayNumberOfQuarter(timestamp[,startmonth])",
+        "body": [
+            "daynumberofquarter"
+        ],
+        "description": "This function calculates the day number of the quarter in which a timestamp falls."
+    },
+    "daynumberofyear": {
+        "prefix": "DayNumberOfYear(timestamp[,startmonth])",
+        "body": [
+            "daynumberofyear"
+        ],
+        "description": "This function calculates the day number of the year in which a timestamp falls. The calculation is made from the first millisecond\nof the first day of the year, but the first month can be offset."
+    },
+    "daystart": {
+        "prefix": "DayStart(time[, [periodno[, daystart]])",
+        "body": [
+            "daystart"
+        ],
+        "description": "This function returns a value corresponding to a timestamp with the first millisecond of the day contained in the time argument.\nThe default output format will be the TimestampFormat set in the script."
+    },
+    "div": {
+        "prefix": "Div(integernumber1, integernumber2)",
+        "body": [
+            "div"
+        ],
+        "description": "Div() returns the integer part of the arithmetic division of the first argument by the second argument. Both parameters are\ninterpreted as real numbers, that is, they do not have to be integers."
+    },
+    "DocumentName": {
+        "prefix": "",
+        "body": [
+            "DocumentName"
+        ],
+        "description": ""
+    },
+    "DocumentPath": {
+        "prefix": "",
+        "body": [
+            "DocumentPath"
+        ],
+        "description": ""
+    },
+    "DocumentTitle": {
+        "prefix": "",
+        "body": [
+            "DocumentTitle"
+        ],
+        "description": ""
+    },
+    "Dual": {
+        "prefix": "Dual(text, number)",
+        "body": [
+            "Dual"
+        ],
+        "description": "Dual() combines a number and a string into a single record, such that the number representation of the record can be used for\nsorting and calculation purposes, while the string value can be used for display purposes"
+    },
+    "e": {
+        "prefix": "",
+        "body": [
+            "e"
+        ],
+        "description": ""
+    },
+    "Evaluate": {
+        "prefix": "Evaluate(expressiontext)",
+        "body": [
+            "Evaluate"
+        ],
+        "description": "Evaluate() finds if the input text string can be evaluated as a valid QlikView expression, and if so, returns the value of the\nexpression as a string. If the input string is not a valid expression, NULL is returned."
+    },
+    "Even": {
+        "prefix": "Even(integernumber)",
+        "body": [
+            "Even"
+        ],
+        "description": "Even() returns True (-1), if integer_number is an even integer or zero. It returns False (0), if integer_number is an odd integer,\nand NULL if integer_number is not an integer."
+    },
+    "Exists": {
+        "prefix": "Exists(fieldname [, expr] )",
+        "body": [
+            "Exists"
+        ],
+        "description": "Exists() determines whether a specific field value has already been loaded into the field in the load script. The function returns \nTRUEor FALSE, so can be used in the where clause of a LOADstatement or an IF statement."
+    },
+    "exp": {
+        "prefix": "",
+        "body": [
+            "exp"
+        ],
+        "description": ""
+    },
+    "fabs": {
+        "prefix": "fabs(x)",
+        "body": [
+            "fabs"
+        ],
+        "description": "Fabs() returns the absolute value of x. The result is a positive number."
+    },
+    "Fact": {
+        "prefix": "Fact(x)",
+        "body": [
+            "Fact"
+        ],
+        "description": "Fact() returns the factorial of a positive integer x."
+    },
+    "FALSE": {
+        "prefix": "",
+        "body": [
+            "FALSE"
+        ],
+        "description": ""
+    },
+    "FDIST": {
+        "prefix": "FDIST(value, degreesfreedom1, degreesfreedom2)",
+        "body": [
+            "FDIST"
+        ],
+        "description": "FDIST() returns the F-probability distribution."
+    },
+    "FieldIndex": {
+        "prefix": "FieldIndex(fieldname , value )",
+        "body": [
+            "FieldIndex"
+        ],
+        "description": "Returns the position of the field value value found in the field fieldname (by load order). If value cannot be found among the\nfield values, 0 is returned. fieldname must be given as a string value, e.g. the field name must be enclosed by single quotes."
+    },
+    "FieldName": {
+        "prefix": "FieldName(fieldnumber ,tablename)",
+        "body": [
+            "FieldName"
+        ],
+        "description": "The FieldName script function returns the name of the field with the specified number within a previously loaded table. If the\nfunction is used within a LOAD statement, it must not reference the table currently being loaded."
+    },
+    "FieldNumber": {
+        "prefix": "FieldNumber(fieldname ,tablename)",
+        "body": [
+            "FieldNumber"
+        ],
+        "description": "The FieldNumber script function returns the number of a specified field within a previously loaded table. If the function is used\nwithin a LOAD statement, it must not reference the table currently being loaded."
+    },
+    "FieldValue": {
+        "prefix": "FieldValue(fieldname , n )",
+        "body": [
+            "FieldValue"
+        ],
+        "description": "Returns the field value found in position n of the field fieldname (by load order). fieldname must be given as a string value,\ne.g. the field name must be enclosed by single quotes. The first field value is returned for n=1. If n is larger than the number\nof field values, NULL is returned."
+    },
+    "FieldValueCount": {
+        "prefix": "fieldvaluecount(fieldname)",
+        "body": [
+            "FieldValueCount"
+        ],
+        "description": "This script function returns the number of distinct values in a field. fieldname must be given as a string (for example a quoted\nliteral)."
+    },
+    "FileBaseName": {
+        "prefix": "FileBaseName()",
+        "body": [
+            "FileBaseName"
+        ],
+        "description": "The FileBaseName function returns a string containing the name of the table file currently being read, without path or extension."
+    },
+    "FileDir": {
+        "prefix": "FileDir()",
+        "body": [
+            "FileDir"
+        ],
+        "description": "The FileDir function returns a string containing the path to the directory of the table file currently being read."
+    },
+    "FileExtension": {
+        "prefix": "FileExtension()",
+        "body": [
+            "FileExtension"
+        ],
+        "description": "The FileExtension function returns a string containing the extension of the table file currently being read."
+    },
+    "FileList": {
+        "prefix": "",
+        "body": [
+            "FileList"
+        ],
+        "description": ""
+    },
+    "FileName": {
+        "prefix": "FileName()",
+        "body": [
+            "FileName"
+        ],
+        "description": "The FileName function returns a string containing the name of the table file currently being read, without path but including the\nextension."
+    },
+    "FilePath": {
+        "prefix": "FilePath()",
+        "body": [
+            "FilePath"
+        ],
+        "description": "The FilePath function returns a string containing the full path to the table file currently being read."
+    },
+    "FileSize": {
+        "prefix": "",
+        "body": [
+            "FileSize"
+        ],
+        "description": "The FileSize function returns an integer containing the size in bytes of the file filename or, if no filename is specified, of the\ntable file currently being read."
+    },
+    "FileTime": {
+        "prefix": "FileTime([ filename ])",
+        "body": [
+            "FileTime"
+        ],
+        "description": "The FileTime function returns a timestamp for the date and time of the last modification of the file filename. If no filename is\nspecified, the function will refer to the currently read table file."
+    },
+    "FindOneOf": {
+        "prefix": "FindOneOf(text, charset[, count])",
+        "body": [
+            "FindOneOf"
+        ],
+        "description": "FindOneOf() searches a string to find the position of the occurrence of any character from a set of provided characters. The\nposition of the first occurrence of any character from the search set is returned unless a third argument (with a value greater\nthan 1) is supplied. If no match is found, 0 is returned."
+    },
+    "FINV": {
+        "prefix": "FINV(prob, degreesfreedom1, degreesfreedom2)",
+        "body": [
+            "FINV"
+        ],
+        "description": "FINV() returns the inverse of the F-probability distribution."
+    },
+    "FirstSortedValue": {
+        "prefix": "FirstSortedValue ([ distinct ] value, sort-weight [, rank ])",
+        "body": [
+            "FirstSortedValue"
+        ],
+        "description": "FirstSortedValue() returns the value from the expression specified in value that corresponds to the result of sorting the \nsort_weight argument, taking into account rank, if specified. If more than one resulting value shares the same sort_weight for the\nspecified rank, the function returns NULL."
+    },
+    "FirstValue": {
+        "prefix": "FirstValue ( expr)",
+        "body": [
+            "FirstValue"
+        ],
+        "description": "FirstValue() returns the value that was loaded first from the records defined by the expression, sorted by a group by clause."
+    },
+    "FirstWorkDate": {
+        "prefix": "firstworkdate(enddate, noofworkdays [, holiday] )",
+        "body": [
+            "FirstWorkDate"
+        ],
+        "description": "The firstworkdate function returns the latest starting date to achieve no_of_workdays (Monday-Friday) ending no later than \nend_date taking into account any optionally listed holidays. end_date and holiday should be valid dates or timestamps."
+    },
+    "Floor": {
+        "prefix": "Floor(x[, step[, offset]])",
+        "body": [
+            "Floor"
+        ],
+        "description": "Floor() rounds x down to the nearest multiple of step [+ offset]. The default value of offset is 0."
+    },
+    "fmod": {
+        "prefix": "fmod(a, b)",
+        "body": [
+            "fmod"
+        ],
+        "description": "fmod() is a modulo function that returns the remainder part of the division of the first argument (the dividend) by the second\nargument (the divisor). The result is a real number. Both arguments are interpreted as real numbers, that is, they do not have to\nbe integers."
+    },
+    "Frac": {
+        "prefix": "Frac(x)",
+        "body": [
+            "Frac"
+        ],
+        "description": "Frac() returns the fraction to the right of the decimal point of x, where x is a real number."
+    },
+    "Fractile": {
+        "prefix": "",
+        "body": [
+            "Fractile"
+        ],
+        "description": "Fractile() finds the value that corresponds to the fractile (quantile) of the aggregated data in the expression over a number of\nrecords as defined by a group by clause."
+    },
+    "FV": {
+        "prefix": "FV(rate, nper, pmt [ ,pv [ , type ] ])",
+        "body": [
+            "FV"
+        ],
+        "description": "This function returns the future value of an investment based on periodic, constant payments and a simple annual interest."
+    },
+    "GetExtendedProperty": {
+        "prefix": "GetExtendedProperty (name[, objectid])",
+        "body": [
+            "GetExtendedProperty"
+        ],
+        "description": "This function returns the value of a named extended property in the sheet object with the given object ID. If objectid is not\ngiven, the sheet object containing the expression will be used. An extended property is defined for the extension object in its\ndefinition file."
+    },
+    "GetFolderPath": {
+        "prefix": "GetFolderPath(foldername)",
+        "body": [
+            "GetFolderPath"
+        ],
+        "description": "The GetFolderPath function returns the value of the Microsoft Windows SHGetFolderPath function. This function takes as input the\nname of a Microsoft Windows folder and returns the full path of the folder."
+    },
+    "GetObjectField": {
+        "prefix": "GetObjectField ([index])",
+        "body": [
+            "GetObjectField"
+        ],
+        "description": "This function returns the name of the dimension. Index is an optional integer denoting which of the used dimensions that should be\nreturned."
+    },
+    "GetRegistryString": {
+        "prefix": "",
+        "body": [
+            "GetRegistryString"
+        ],
+        "description": ""
+    },
+    "GMT": {
+        "prefix": "GMT( )",
+        "body": [
+            "GMT"
+        ],
+        "description": "This function returns the date and current Greenwich Mean Time, as derived from the system clock and Windows time settings."
+    },
+    "Hash128": {
+        "prefix": "Hash128(expr{, expression})",
+        "body": [
+            "Hash128"
+        ],
+        "description": "Hash128() returns a 128-bit hash of the combined input expression values. The result is a 22-character string."
+    },
+    "Hash160": {
+        "prefix": "Hash160(expr{, expression})",
+        "body": [
+            "Hash160"
+        ],
+        "description": "Hash160() returns a 160-bit hash of the combined input expression values. The result is a 27-character string."
+    },
+    "Hash256": {
+        "prefix": "Hash256(expr{, expression})",
+        "body": [
+            "Hash256"
+        ],
+        "description": "Hash256() returns a 256-bit hash of the combined input expression values. The result is a 43-character string."
+    },
+    "Hour": {
+        "prefix": "hour(expression)",
+        "body": [
+            "Hour"
+        ],
+        "description": "This function returns an integer representing the hour when the fraction of the expression is interpreted as a time according to\nthe standard number interpretation."
+    },
+    "HSL": {
+        "prefix": "HSL (hue, saturation, luminosity)",
+        "body": [
+            "HSL"
+        ],
+        "description": "HSL() is used in expressions to set or evaluate the color properties of a chart object, where the color is defined by values of \nhue, saturation, and luminosity between 0 and 1."
+    },
+    "InDay": {
+        "prefix": "InDay (timestamp, basetimestamp, periodno[, daystart])",
+        "body": [
+            "InDay"
+        ],
+        "description": "This function returns True if timestamp lies inside the day containing base_timestamp."
+    },
+    "InDayToTime": {
+        "prefix": "InDayToTime (timestamp, basetimestamp, periodno[, daystart])",
+        "body": [
+            "InDayToTime"
+        ],
+        "description": "This function returns True if timestamp lies inside the part of day containing base_timestamp up until and including the exact\nmillisecond of base_timestamp."
+    },
+    "Index": {
+        "prefix": "Index(text, substring[, count])",
+        "body": [
+            "Index"
+        ],
+        "description": "Index() searches a string to find the starting position of the nth occurrence of a provided substring. An optional third argument\nprovides the value of n, which is 1 if omitted. A negative value searches from the end of the string. The positions in the string\nare numbered from 1 and up."
+    },
+    "InLunarWeek": {
+        "prefix": "InLunarWeek (timestamp, basedate, periodno[, firstweekday])",
+        "body": [
+            "InLunarWeek"
+        ],
+        "description": "This function returns true if timestamp lies inside the lunar week containing base_date. Lunar weeks in QlikView are defined by\ncounting 1 January as the first day of the week."
+    },
+    "InLunarWeekToDate": {
+        "prefix": "InLunarWeekToDate (timestamp, basedate, periodno [, firstweekday])",
+        "body": [
+            "InLunarWeekToDate"
+        ],
+        "description": "This function returns true if timestamp lies inside the part of the lunar week up to and including the last millisecond of \nbase_date. Lunar weeks in QlikView are defined by counting 1 January as the first day of the week."
+    },
+    "InMonth": {
+        "prefix": "InMonth (timestamp, basedate, periodno[, firstmonthofyear])",
+        "body": [
+            "InMonth"
+        ],
+        "description": "This function returns True if timestamp lies inside the month containing base_date."
+    },
+    "InMonths": {
+        "prefix": "InMonths(nmonths, timestamp, basedate, periodno [, firstmonthofyear])",
+        "body": [
+            "InMonths"
+        ],
+        "description": "This function finds if a timestamp falls within the same month, bi-month, quarter, tertial, or half-year as a base date.It is also\npossible to find if the timestamp falls within a previous or following time period."
+    },
+    "InMonthsToDate": {
+        "prefix": "InMonths (nmonths, timestamp, basedate, periodno[, firstmonthofyear ])",
+        "body": [
+            "InMonthsToDate"
+        ],
+        "description": "This function finds if a timestamp falls within the part of a period of the month, bi-month, quarter, tertial, or half-year up to\nand including the last millisecond of base_date. It is also possible to find if the timestamp falls within a previous or following\ntime period."
+    },
+    "InMonthToDate": {
+        "prefix": "InMonthToDate (timestamp, basedate, periodno)",
+        "body": [
+            "InMonthToDate"
+        ],
+        "description": "Returns True if timestamp lies inside the part of month containing base_date up until and including the last millisecond of \nbase_date."
+    },
+    "Input": {
+        "prefix": "",
+        "body": [
+            "Input"
+        ],
+        "description": ""
+    },
+    "InputAvg": {
+        "prefix": "",
+        "body": [
+            "InputAvg"
+        ],
+        "description": "inputavg() returns the aggregated average of inputfield iterated over the chart dimension(s). inputfield must be a field name of a\nfield properly declared as an input field in the script."
+    },
+    "InputSum": {
+        "prefix": "",
+        "body": [
+            "InputSum"
+        ],
+        "description": "inputsum() returns the aggregated sum of inputfield iterated over the chart dimension(s). inputfield must be a field name of a\nfield properly declared as an input field in the script."
+    },
+    "InQuarter": {
+        "prefix": "InQuarter (timestamp, basedate, periodno[, firstmonthofyear])",
+        "body": [
+            "InQuarter"
+        ],
+        "description": "This function returns True if timestamp lies inside the quarter containing base_date."
+    },
+    "InQuarterToDate": {
+        "prefix": "InQuarterToDate (timestamp, basedate, periodno [, firstmonthofyear])",
+        "body": [
+            "InQuarterToDate"
+        ],
+        "description": "This function returns True if timestamp lies inside the part of the quarter containing base_date up until and including the last\nmillisecond of base_date."
+    },
+    "Interval": {
+        "prefix": "Interval(number[, format])",
+        "body": [
+            "Interval"
+        ],
+        "description": "Interval() formats a number as a time interval using the format in the system variables in the load script, or the operating\nsystem, or a format string, if supplied."
+    },
+    "Interval#": {
+        "prefix": "",
+        "body": [
+            "Interval#"
+        ],
+        "description": ""
+    },
+    "InWeek": {
+        "prefix": "InWeek (timestamp, basedate, periodno[, firstweekday])",
+        "body": [
+            "InWeek"
+        ],
+        "description": "This function returns True if timestamp lies inside the week containing base_date."
+    },
+    "InWeekToDate": {
+        "prefix": "InWeekToDate (timestamp, basedate, periodno [, firstweekday])",
+        "body": [
+            "InWeekToDate"
+        ],
+        "description": "This function returns True if timestamp lies inside the part of week containing base_date up until and including the last\nmillisecond of base_date."
+    },
+    "InYear": {
+        "prefix": "InYear (timestamp, basedate, periodno [, firstmonthofyear])",
+        "body": [
+            "InYear"
+        ],
+        "description": "This function returns True if timestamp lies inside the year containing base_date."
+    },
+    "InYearToDate": {
+        "prefix": "InYearToDate (timestamp, basedate, periodno[, firstmonthofyear])",
+        "body": [
+            "InYearToDate"
+        ],
+        "description": "This function returns True if timestamp lies inside the part of year containing base_date up until and including the last\nmillisecond of base_date."
+    },
+    "IRR": {
+        "prefix": "IRR(value)",
+        "body": [
+            "IRR"
+        ],
+        "description": "IRR() returns the aggregated internal rate of return for a series of cash flows represented by the numbers in the expression\niterated over a number of records as defined by a group by clause."
+    },
+    "IsNull": {
+        "prefix": "IsNull(expr )",
+        "body": [
+            "IsNull"
+        ],
+        "description": "The IsNull function tests if the value of an expression is NULL and if so, returns -1 (True), otherwise 0 (False)."
+    },
+    "IsNum": {
+        "prefix": "",
+        "body": [
+            "IsNum"
+        ],
+        "description": ""
+    },
+    "IsPartialReload": {
+        "prefix": "",
+        "body": [
+            "IsPartialReload"
+        ],
+        "description": ""
+    },
+    "IsText": {
+        "prefix": "",
+        "body": [
+            "IsText"
+        ],
+        "description": ""
+    },
+    "IterNo": {
+        "prefix": "IterNo( )",
+        "body": [
+            "IterNo"
+        ],
+        "description": "This script function returns an integer indicating the current iteration within a while clause. The first iteration has number 1.\nThe IterNo function is only meaningful if used together with a while clause."
+    },
+    "KeepChar": {
+        "prefix": "KeepChar(text, keepchars)",
+        "body": [
+            "KeepChar"
+        ],
+        "description": "KeepChar() returns a string consisting of the first string, 'text', less any of the characters NOT contained in the second string,\n\"keep_chars\"."
+    },
+    "Kurtosis": {
+        "prefix": "",
+        "body": [
+            "Kurtosis"
+        ],
+        "description": "Kurtosis() returns the kurtosis of the data in the expression over a number of records as defined by a group by clause."
+    },
+    "LastValue": {
+        "prefix": "LastValue ( expr )",
+        "body": [
+            "LastValue"
+        ],
+        "description": "LastValue() returns the value that was loaded last from the records defined by the expression, sorted by a group by clause."
+    },
+    "LastWorkDate": {
+        "prefix": "lastworkdate(startdate, noofworkdays {, holiday})",
+        "body": [
+            "LastWorkDate"
+        ],
+        "description": "The lastworkdate function returns the earliest ending date to achieve no_of_workdays (Monday-Friday) if starting at start_date \ntaking into account any optionally listed holiday. start_date and holiday should be valid dates or timestamps."
+    },
+    "Left": {
+        "prefix": "Left ( Join | Keep) [ (tablename) ](loadstatement | selectstatement)",
+        "body": [
+            "Left"
+        ],
+        "description": "The Join and Keep prefixes can be preceded by the prefix left."
+    },
+    "Len": {
+        "prefix": "Len(text)",
+        "body": [
+            "Len"
+        ],
+        "description": "Len() returns the length of the input string."
+    },
+    "LINEST_B": {
+        "prefix": "",
+        "body": [
+            "LINEST_B"
+        ],
+        "description": "LINEST_B() returns the aggregated b value (y-intercept) of a linear regression defined by the equation y=mx+b for a series of\ncoordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined by a group\nby clause."
+    },
+    "LINEST_DF": {
+        "prefix": "LINESTDF([{SetExpression}] [DISTINCT] [TOTAL [<fld{, fld}>]] yvalue, xvalue [, y0const [, x0const]])",
+        "body": [
+            "LINEST_DF"
+        ],
+        "description": "Syntax: \n\nLINEST_DF([{SetExpression}] [DISTINCT] [TOTAL [<fld{, fld}>]] y_value, x_value [, y0_const [, x0_const]]) \n\nReturn data type: numeric\n\nArguments: \n\nArgument Description y_value The expression or field containing the range of y-values to be measured. x_value The expression or\nfield containing the range of x-values to be measured. y0, x0 An optional value y0 may be stated forcing the regression line to\npass through the y-axis at a given point. By stating both y0 and x0 it is possible to force the regression line to pass through a\nsingle fixed coordinate. Unless both y0 and x0 are stated, the function requires at least two valid data-pairs to calculate. If y0\nand x0 are stated, a single data pair will do. SetExpression By default, the aggregation function will aggregate over the set of\npossible records defined by the selection. An alternative set of records can be defined by a set analysis expression. DISTINCT If\nthe word DISTINCT occurs before the function arguments, duplicates resulting from the evaluation of the function arguments are\ndisregarded. TOTAL"
+    },
+    "LINEST_F": {
+        "prefix": "",
+        "body": [
+            "LINEST_F"
+        ],
+        "description": "This script function returns the aggregated F statistic (r2/(1-r2)) of a linear regression defined by the equation y=mx+b for a\nseries of coordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined\nby a group by clause."
+    },
+    "LINEST_M": {
+        "prefix": "",
+        "body": [
+            "LINEST_M"
+        ],
+        "description": "LINEST_M() returns the aggregated m value (slope) of a linear regression defined by the equation y=mx+b for a series of\ncoordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined by a group\nby clause."
+    },
+    "LINEST_R2": {
+        "prefix": "",
+        "body": [
+            "LINEST_R2"
+        ],
+        "description": "LINEST_R2() returns the aggregated r2 value (coefficient of determination) of a linear regression defined by the equation y=mx+b \nfor a series of coordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as\ndefined by a group by clause."
+    },
+    "LINEST_SEB": {
+        "prefix": "",
+        "body": [
+            "LINEST_SEB"
+        ],
+        "description": "LINEST_SEB() returns the aggregated standard error of the b value of a linear regression defined by the equation y=mx+b for a\nseries of coordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined\nby a group by clause."
+    },
+    "LINEST_SEM": {
+        "prefix": "",
+        "body": [
+            "LINEST_SEM"
+        ],
+        "description": "LINEST_SEM() returns the aggregated standard error of the m value of a linear regression defined by the equation y=mx+b for a\nseries of coordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined\nby a group by clause."
+    },
+    "LINEST_SEY": {
+        "prefix": "",
+        "body": [
+            "LINEST_SEY"
+        ],
+        "description": "LINEST_SEY() returns the aggregated standard error of the y estimate of a linear regression defined by the equation y=mx+b for a\nseries of coordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined\nby a group by clause."
+    },
+    "LINEST_SSREG": {
+        "prefix": "",
+        "body": [
+            "LINEST_SSREG"
+        ],
+        "description": "LINEST_SSREG() returns the aggregated regression sum of squares of a linear regression defined by the equation y=mx+b for a series\nof coordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined by a \ngroup by clause."
+    },
+    "LINEST_SSRESID": {
+        "prefix": "",
+        "body": [
+            "LINEST_SSRESID"
+        ],
+        "description": "LINEST_SSRESID() returns the aggregated residual sum of squares of a linear regression defined by the equation y=mx+b for a series\nof coordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined by a \ngroup by clause."
+    },
+    "LocalTime": {
+        "prefix": "LocalTime([timezone [, ignoreDST ]])",
+        "body": [
+            "LocalTime"
+        ],
+        "description": "This function returns a timestamp of the current time from the system clock for a specified time zone."
+    },
+    "log": {
+        "prefix": "",
+        "body": [
+            "log"
+        ],
+        "description": ""
+    },
+    "log10": {
+        "prefix": "",
+        "body": [
+            "log10"
+        ],
+        "description": ""
+    },
+    "Lookup": {
+        "prefix": "lookup(fieldname, matchfieldname, matchfieldvalue [, tablename])",
+        "body": [
+            "Lookup"
+        ],
+        "description": "Lookup() looks into a table that is already loaded and returns the value of field_name corresponding to the first occurrence of\nthe value match_field_value in the field match_field_name. The table can be the current table or another table previously loaded."
+    },
+    "Lower": {
+        "prefix": "Lower(text)",
+        "body": [
+            "Lower"
+        ],
+        "description": "Lower() converts all the characters in the input string to lower case."
+    },
+    "LTrim": {
+        "prefix": "LTrim(text)",
+        "body": [
+            "LTrim"
+        ],
+        "description": "LTrim() returns the input string trimmed of any leading spaces."
+    },
+    "LunarWeekEnd": {
+        "prefix": "LunarweekEnd(date[, periodno[, firstweekday]])",
+        "body": [
+            "LunarWeekEnd"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the last millisecond of the lunar week containing date. Lunar weeks\nin QlikView are defined by counting 1 January as the first day of the week."
+    },
+    "LunarWeekName": {
+        "prefix": "LunarWeekName(date [, periodno[, firstweekday]])",
+        "body": [
+            "LunarWeekName"
+        ],
+        "description": "This function returns a display value showing the year and lunar week number corresponding to a timestamp of the first millisecond\nof the first day of the lunar week containing date. Lunar weeks in QlikView are defined by counting 1 January as the first day of\nthe week."
+    },
+    "LunarWeekStart": {
+        "prefix": "LunarweekStart(date[, periodno[, firstweekday]])",
+        "body": [
+            "LunarWeekStart"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the first millisecond of the lunar week containing date. Lunar weeks\nin QlikView are defined by counting 1 January as the first day of the week."
+    },
+    "MakeDate": {
+        "prefix": "MakeDate(YYYY [ , MM [ , DD ] ])",
+        "body": [
+            "MakeDate"
+        ],
+        "description": "This function returns a date calculated from the year YYYY, the month MM and the day DD."
+    },
+    "MakeTime": {
+        "prefix": "MakeTime(hh [ , mm [ , ss ] ])",
+        "body": [
+            "MakeTime"
+        ],
+        "description": "This function returns a time calculated from the hour hh, the minute mm, and the second ss."
     },
     "MakeWeekDate": {
         "prefix": "MakeWeekDate(YYYY [ , WW [ , D ] ])",
         "body": [
-            "MakeWeekDate()"
+            "MakeWeekDate(${1:YearId}, ${2:WeekId})"
         ],
         "description": "This function returns a date calculated from the year YYYY, the week WW and the day-of-week D."
     },
-    "QVACB.InRange": {
-        "prefix": "QVACB.InRange",
-        "body": ["QVACB.InRange"],
-        "description": ""
-    },
-    "QVACB.RollingSum": {
-        "prefix": "QVACB.RollingSum",
-        "body": ["QVACB.RollingSum"],
-        "description": ""
-    },
-    "QVACB.Days360": {
-        "prefix": "QVACB.Days360",
-        "body": ["QVACB.Days360"],
-        "description": ""
-    },
-    "QVACB.DateDiff": {
-        "prefix": "QVACB.DateDiff",
-        "body": ["QVACB.DateDiff"],
-        "description": ""
-    },
-    "QVACB.MonthDiff": {
-        "prefix": "QVACB.MonthDiff",
-        "body": ["QVACB.MonthDiff"],
-        "description": ""
-    },
-    "QVACB.NVL": {
-        "prefix": "QVACB.NVL",
-        "body": ["QVACB.NVL"],
-        "description": ""
-    },
-    "QVACB.Exists.Table": {
-        "prefix": "QVACB.Exists.Table",
-        "body": ["QVACB.Exists.Table"],
-        "description": ""
-    },
-    "QVACB.Exists.File": {
-        "prefix": "QVACB.Exists.File",
-        "body": ["QVACB.Exists.File"],
-        "description": ""
-    },
-    "QVACB.v.UseQVLog": {
-        "prefix": "QVACB.v.UseQVLog",
-        "body": ["QVACB.v.UseQVLog"],
-        "description": ""
-    },
-    "QVACB.v.TimestampInLogFileName": {
-        "prefix": "QVACB.v.TimestampInLogFileName",
-        "body": ["QVACB.v.TimestampInLogFileName"],
-        "description": ""
-    },
-    "QVACB.v.EnableSubLogging": {
-        "prefix": "QVACB.v.EnableSubLogging",
-        "body": ["QVACB.v.EnableSubLogging"],
-        "description": ""
-    },
-    "QVACB.v.LookForNewVersion": {
-        "prefix": "QVACB.v.LookForNewVersion",
-        "body": ["QVACB.v.LookForNewVersion"],
-        "description": ""
-    },
-    "QVACB.v.Version": {
-        "prefix": "QVACB.v.Version",
-        "body": ["QVACB.v.Version"],
-        "description": ""
-    },
-    "QVACB.TidyUp": {
-        "prefix": "QVACB.TidyUp",
-        "body": ["QVACB.TidyUp"],
-        "description": ""
-    },
-    "QVACB.LookForNewVersion": {
-        "prefix": "QVACB.LookForNewVersion",
-        "body": ["QVACB.LookForNewVersion"],
-        "description": ""
-    },
-    "QVACB.IntervalMatchClean": {
-        "prefix": "QVACB.IntervalMatchClean",
-        "body": ["QVACB.IntervalMatchClean"],
-        "description": ""
-    },
-    "QVACB.EmptyQVD": {
-        "prefix": "QVACB.EmptyQVD",
-        "body": ["QVACB.EmptyQVD"],
-        "description": ""
-    },
-    "QVACB.StoreMonthlyQVD": {
-        "prefix": "QVACB.StoreMonthlyQVD",
-        "body": ["QVACB.StoreMonthlyQVD"],
-        "description": ""
-    },
-    "QVACB.CalendarFromField": {
-        "prefix": "QVACB.CalendarFromField",
-        "body": ["QVACB.CalendarFromField"],
-        "description": ""
-    },
-    "QVACB.CalendarFromDates": {
-        "prefix": "QVACB.CalendarFromDates",
-        "body": ["QVACB.CalendarFromDates"],
-        "description": ""
-    },
-    "QVACB.PatternDropTables": {
-        "prefix": "QVACB.PatternDropTables",
-        "body": ["QVACB.PatternDropTables"],
-        "description": ""
-    },
-    "QVACB.PatternDropFields": {
-        "prefix": "QVACB.PatternDropFields",
-        "body": ["QVACB.PatternDropFields"],
-        "description": ""
-    },
-    "QVACB.SetVariablesFromFile": {
-        "prefix": "QVACB.SetVariablesFromFile",
-        "body": ["QVACB.SetVariablesFromFile"],
-        "description": ""
-    },
-    "QVACB.SetAdditionalEnvironmentVariables": {
-        "prefix": "QVACB.SetAdditionalEnvironmentVariables",
-        "body": ["QVACB.SetAdditionalEnvironmentVariables"],
-        "description": ""
-    },
-    "QVACB.SetEnvironmentVariables": {
-        "prefix": "QVACB.SetEnvironmentVariables",
-        "body": ["QVACB.SetEnvironmentVariables"],
-        "description": ""
-    },
-    "QVACB.LoadLogFiles": {
-        "prefix": "QVACB.LoadLogFiles",
-        "body": ["QVACB.LoadLogFiles"],
-        "description": ""
-    },
-    "QVACB.LogQVD": {
-        "prefix": "QVACB.LogQVD",
-        "body": ["QVACB.LogQVD"],
-        "description": ""
-    },
-    "QVACB.LogSubCall": {
-        "prefix": "QVACB.LogSubCall",
-        "body": ["QVACB.LogSubCall"],
-        "description": ""
-    },
-    "QVACB.LogTables": {
-        "prefix": "QVACB.LogTables",
-        "body": ["QVACB.LogTables"],
-        "description": ""
-    },
-    "QVACB.LogString": {
-        "prefix": "QVACB.LogString",
-        "body": ["QVACB.LogString"],
-        "description": ""
-    },
-    "QVACB.LogQVACBError": {
-        "prefix": "QVACB.LogQVACBError",
-        "body": ["QVACB.LogQVACBError"],
-        "description": ""
-    },
-    "QVACB.LogQVErrors": {
-        "prefix": "QVACB.LogQVErrors",
-        "body": ["QVACB.LogQVErrors"],
-        "description": ""
-    },
-    "QVACB.LogConnection": {
-        "prefix": "QVACB.LogConnection",
-        "body": ["QVACB.LogConnection"],
-        "description": ""
-    },
-    "QVACB.LogSystemVariables": {
-        "prefix": "QVACB.LogSystemVariables",
-        "body": ["QVACB.LogSystemVariables"],
-        "description": ""
-    },
-    "QVACB.LogFilePurge": {
-        "prefix": "QVACB.LogFilePurge",
-        "body": ["QVACB.LogFilePurge"],
-        "description": ""
-    },
-    "QVACB.CreateLogFile": {
-        "prefix": "QVACB.CreateLogFile",
-        "body": ["QVACB.CreateLogFile"],
-        "description": ""
-    },
-    "YearMonthFormat": {
-        "prefix": "YearMonthFormat",
-        "body": ["YearMonthFormat"],
-        "description": ""
-    },
-    "DayNames": {
-        "prefix": "DayNames",
-        "body": ["DayNames"],
-        "description": ""
-    },
-    "MonthNames": {
-        "prefix": "MonthNames",
-        "body": ["MonthNames"],
-        "description": ""
-    },
-    "TimestampFormat": {
-        "prefix": "TimestampFormat",
-        "body": ["TimestampFormat"],
-        "description": ""
-    },
-    "DateFormat": {
-        "prefix": "DateFormat",
-        "body": ["DateFormat"],
-        "description": ""
-    },
-    "TimeFormat": {
-        "prefix": "TimeFormat",
-        "body": ["TimeFormat"],
-        "description": ""
-    },
-    "MoneyFormat": {
-        "prefix": "MoneyFormat",
-        "body": ["MoneyFormat"],
-        "description": ""
-    },
-    "MoneyDecimalSep": {
-        "prefix": "MoneyDecimalSep",
-        "body": ["MoneyDecimalSep"],
-        "description": ""
-    },
-    "MoneyThousandSep": {
-        "prefix": "MoneyThousandSep",
-        "body": ["MoneyThousandSep"],
-        "description": ""
-    },
-    "DecimalSep": {
-        "prefix": "DecimalSep",
-        "body": ["DecimalSep"],
-        "description": ""
-    },
-    "ThousandSep": {
-        "prefix": "ThousandSep",
-        "body": ["ThousandSep"],
-        "description": ""
-    },
-    "HideSuffix": {
-        "prefix": "HideSuffix",
-        "body": ["set HideSuffix='${1:%}';"],
-        "description": "All field names ending with this text string will be hidden in the same manner as the system fields. This is a user-defined variable."
-    },
-    "HidePrefix": {
-        "prefix": "HidePrefix",
-        "body": ["set HidePrefix='${1:%}' ;"],
-        "description": "All field names beginning with this text string will be hidden in the same manner as the system fields. This is a user-defined variable."
-    },
-    "ZTestw_z": {
-        "prefix": "ZTestw_z",
-        "body": ["ZTestw_z"],
-        "description": ""
-    },
-    "ZTestw_upper": {
-        "prefix": "ZTestw_upper",
-        "body": ["ZTestw_upper"],
-        "description": ""
-    },
-    "ZTestw_sterr": {
-        "prefix": "ZTestw_sterr",
-        "body": ["ZTestw_sterr"],
-        "description": ""
-    },
-    "ZTestw_sig": {
-        "prefix": "ZTestw_sig",
-        "body": ["ZTestw_sig"],
-        "description": ""
-    },
-    "ZTestw_lower": {
-        "prefix": "ZTestw_lower",
-        "body": ["ZTestw_lower"],
-        "description": ""
-    },
-    "ZTestw_dif": {
-        "prefix": "ZTestw_dif",
-        "body": ["ZTestw_dif"],
-        "description": ""
-    },
-    "ZTestw_conf": {
-        "prefix": "ZTestw_conf",
-        "body": ["ZTestw_conf"],
-        "description": ""
-    },
-    "ZTest_z": {
-        "prefix": "ZTest_z",
-        "body": ["ZTest_z"],
-        "description": ""
-    },
-    "ZTest_upper": {
-        "prefix": "ZTest_upper",
-        "body": ["ZTest_upper"],
-        "description": ""
-    },
-    "ZTest_sterr": {
-        "prefix": "ZTest_sterr",
-        "body": ["ZTest_sterr"],
-        "description": ""
-    },
-    "ZTest_sig": {
-        "prefix": "ZTest_sig",
-        "body": ["ZTest_sig"],
-        "description": ""
-    },
-    "ZTest_lower": {
-        "prefix": "ZTest_lower",
-        "body": ["ZTest_lower"],
-        "description": ""
-    },
-    "ZTest_dif": {
-        "prefix": "ZTest_dif",
-        "body": ["ZTest_dif"],
-        "description": ""
-    },
-    "ZTest_conf": {
-        "prefix": "ZTest_conf",
-        "body": ["ZTest_conf"],
-        "description": ""
-    },
-    "Yellow": {
-        "prefix": "Yellow",
-        "body": ["Yellow"],
-        "description": ""
-    },
-    "YearToDate": {
-        "prefix": "YearToDate(timestamp [ , yearoffset [ , firstmonth [ , todaydate] ] ])",
-        "body": ["YearToDate(${1:TimeStamp})"],
-        "description": "This function finds if the input date falls within the year of the date the script was last loaded, and returns True if it does, False if it does not."
-    },
-    "YearStart": {
-        "prefix": "YearStart(date[, period_no[, first_month_of_year]])",
-        "body": ["YearStart(${1:Date})"],
-        "description": "This function returns a timestamp corresponding to the start of the first day of the year containing date. The default output format will be the DateFormat set in the script."
-    },
-    "YearName": {
-        "prefix": "YearName(date[, period_no[, first_month_of_year]] )",
-        "body": ["YearName(${1:Date})"],
-        "description": "This function returns a four-digit year as display value with an underlying numeric value corresponding to a timestamp of the first millisecond of the first day of the year containing date."
-    },
-    "YearEnd": {
-        "prefix": "YearEnd",
-        "body": ["YearEnd"],
-        "description": ""
-    },
-    "Year2Date": {
-        "prefix": "Year2Date",
-        "body": ["Year2Date"],
-        "description": ""
-    },
-    "Year": {
-        "prefix": "Year",
-        "body": ["Year"],
-        "description": ""
-    },
-    "XNPV": {
-        "prefix": "XNPV",
-        "body": ["XNPV"],
-        "description": ""
-    },
-    "XIRR": {
-        "prefix": "XIRR",
-        "body": ["XIRR"],
-        "description": ""
-    },
-    "WildMatch5": {
-        "prefix": "WildMatch5",
-        "body": ["WildMatch5"],
-        "description": ""
-    },
-    "WildMatch": {
-        "prefix": "WildMatch",
-        "body": ["WildMatch"],
-        "description": ""
-    },
-    "White": {
-        "prefix": "White",
-        "body": ["White"],
-        "description": ""
-    },
-    "WeekYear": {
-        "prefix": "WeekYear",
-        "body": ["WeekYear"],
-        "description": ""
-    },
-    "WeekStart": {
-        "prefix": "WeekStart",
-        "body": ["WeekStart"],
-        "description": ""
-    },
-    "WeekName": {
-        "prefix": "WeekName",
-        "body": ["WeekName"],
-        "description": ""
-    },
-    "WeekEnd": {
-        "prefix": "WeekEnd",
-        "body": ["WeekEnd"],
-        "description": ""
-    },
-    "WeekDay": {
-        "prefix": "WeekDay",
-        "body": ["WeekDay"],
-        "description": ""
-    },
-    "Week": {
-        "prefix": "Week",
-        "body": ["Week"],
-        "description": ""
-    },
-    "UTC": {
-        "prefix": "UTC",
-        "body": ["UTC"],
-        "description": ""
-    },
-    "Upper": {
-        "prefix": "Upper",
-        "body": ["Upper"],
-        "description": ""
-    },
-    "TTestw_upper": {
-        "prefix": "TTestw_upper",
-        "body": ["TTestw_upper"],
-        "description": ""
-    },
-    "TTestw_t": {
-        "prefix": "TTestw_t",
-        "body": ["TTestw_t"],
-        "description": ""
-    },
-    "TTestw_sterr": {
-        "prefix": "TTestw_sterr",
-        "body": ["TTestw_sterr"],
-        "description": ""
-    },
-    "TTestw_sig": {
-        "prefix": "TTestw_sig",
-        "body": ["TTestw_sig"],
-        "description": ""
-    },
-    "TTestw_lower": {
-        "prefix": "TTestw_lower",
-        "body": ["TTestw_lower"],
-        "description": ""
-    },
-    "TTestw_dif": {
-        "prefix": "TTestw_dif",
-        "body": ["TTestw_dif"],
-        "description": ""
-    },
-    "TTestw_df": {
-        "prefix": "TTestw_df",
-        "body": ["TTestw_df"],
-        "description": ""
-    },
-    "TTestw_conf": {
-        "prefix": "TTestw_conf",
-        "body": ["TTestw_conf"],
-        "description": ""
-    },
-    "TTest_upper": {
-        "prefix": "TTest_upper",
-        "body": ["TTest_upper"],
-        "description": ""
-    },
-    "TTest_t": {
-        "prefix": "TTest_t",
-        "body": ["TTest_t"],
-        "description": ""
-    },
-    "TTest_sterr": {
-        "prefix": "TTest_sterr",
-        "body": ["TTest_sterr"],
-        "description": ""
-    },
-    "TTest_sig": {
-        "prefix": "TTest_sig",
-        "body": ["TTest_sig"],
-        "description": ""
-    },
-    "TTest_lower": {
-        "prefix": "TTest_lower",
-        "body": ["TTest_lower"],
-        "description": ""
-    },
-    "TTest_dif": {
-        "prefix": "TTest_dif",
-        "body": ["TTest_dif"],
-        "description": ""
-    },
-    "TTest_df": {
-        "prefix": "TTest_df",
-        "body": ["TTest_df"],
-        "description": ""
-    },
-    "TTest_conf": {
-        "prefix": "TTest_conf",
-        "body": ["TTest_conf"],
-        "description": ""
-    },
-    "TTest1w_upper": {
-        "prefix": "TTest1w_upper",
-        "body": ["TTest1w_upper"],
-        "description": ""
-    },
-    "TTest1w_t": {
-        "prefix": "TTest1w_t",
-        "body": ["TTest1w_t"],
-        "description": ""
-    },
-    "TTest1w_sterr": {
-        "prefix": "TTest1w_sterr",
-        "body": ["TTest1w_sterr"],
-        "description": ""
-    },
-    "TTest1w_sig": {
-        "prefix": "TTest1w_sig",
-        "body": ["TTest1w_sig"],
-        "description": ""
-    },
-    "TTest1w_lower": {
-        "prefix": "TTest1w_lower",
-        "body": ["TTest1w_lower"],
-        "description": ""
-    },
-    "TTest1w_dif": {
-        "prefix": "TTest1w_dif",
-        "body": ["TTest1w_dif"],
-        "description": ""
-    },
-    "TTest1w_df": {
-        "prefix": "TTest1w_df",
-        "body": ["TTest1w_df"],
-        "description": ""
-    },
-    "TTest1w_conf": {
-        "prefix": "TTest1w_conf",
-        "body": ["TTest1w_conf"],
-        "description": ""
-    },
-    "TTest1_upper": {
-        "prefix": "TTest1_upper",
-        "body": ["TTest1_upper"],
-        "description": ""
-    },
-    "TTest1_t": {
-        "prefix": "TTest1_t",
-        "body": ["TTest1_t"],
-        "description": ""
-    },
-    "TTest1_sterr": {
-        "prefix": "TTest1_sterr",
-        "body": ["TTest1_sterr"],
-        "description": ""
-    },
-    "TTest1_sig": {
-        "prefix": "TTest1_sig",
-        "body": ["TTest1_sig"],
-        "description": ""
-    },
-    "TTest1_lower": {
-        "prefix": "TTest1_lower",
-        "body": ["TTest1_lower"],
-        "description": ""
-    },
-    "TTest1_dif": {
-        "prefix": "TTest1_dif",
-        "body": ["TTest1_dif"],
-        "description": ""
-    },
-    "TTest1_df": {
-        "prefix": "TTest1_df",
-        "body": ["TTest1_df"],
-        "description": ""
-    },
-    "TTest1_conf": {
-        "prefix": "TTest1_conf",
-        "body": ["TTest1_conf"],
-        "description": ""
-    },
-    "TRUE": {
-        "prefix": "TRUE",
-        "body": ["TRUE"],
-        "description": ""
-    },
-    "Trim": {
-        "prefix": "Trim",
-        "body": ["Trim"],
-        "description": ""
-    },
-    "Today": {
-        "prefix": "Today",
-        "body": ["Today"],
-        "description": ""
-    },
-    "TINV": {
-        "prefix": "TINV",
-        "body": ["TINV"],
-        "description": ""
-    },
-    "TimeZone": {
-        "prefix": "TimeZone",
-        "body": ["TimeZone"],
-        "description": ""
-    },
-    "Timestamp#": {
-        "prefix": "Timestamp#",
-        "body": ["Timestamp#"],
-        "description": ""
-    },
-    "Timestamp": {
-        "prefix": "Timestamp",
-        "body": ["Timestamp"],
-        "description": ""
-    },
-    "Time#": {
-        "prefix": "Time#",
-        "body": ["Time#"],
-        "description": ""
-    },
-    "Time": {
-        "prefix": "Time",
-        "body": ["Time"],
-        "description": ""
-    },
-    "TextCount": {
-        "prefix": "TextCount",
-        "body": ["TextCount"],
-        "description": ""
-    },
-    "TextBetween": {
-        "prefix": "TextBetween",
-        "body": ["TextBetween"],
-        "description": ""
-    },
-    "Text": {
-        "prefix": "Text",
-        "body": ["Text"],
-        "description": ""
-    },
-    "TDIST": {
-        "prefix": "TDIST",
-        "body": ["TDIST"],
-        "description": ""
-    },
-    "tanh": {
-        "prefix": "tanh",
-        "body": ["tanh"],
-        "description": ""
-    },
-    "tan": {
-        "prefix": "tan",
-        "body": ["tan"],
-        "description": ""
-    },
-    "TableNumber": {
-        "prefix": "TableNumber",
-        "body": ["TableNumber"],
-        "description": ""
-    },
-    "TableName": {
-        "prefix": "TableName",
-        "body": ["TableName"],
-        "description": ""
-    },
-    "SysColor": {
-        "prefix": "SysColor",
-        "body": ["SysColor"],
-        "description": ""
-    },
-    "sum": {
-        "prefix": "sum",
-        "body": ["sum"],
-        "description": ""
-    },
-    "SubStringCount": {
-        "prefix": "SubStringCount",
-        "body": ["SubStringCount"],
-        "description": ""
-    },
-    "SubField": {
-        "prefix": "SubField",
-        "body": ["SubField"],
-        "description": ""
-    },
-    "STEYX": {
-        "prefix": "STEYX",
-        "body": ["STEYX"],
-        "description": ""
-    },
-    "Sterr": {
-        "prefix": "Sterr",
-        "body": ["Sterr"],
-        "description": ""
-    },
-    "Stdev": {
-        "prefix": "Stdev",
-        "body": ["Stdev"],
-        "description": ""
-    },
-    "sqrt": {
-        "prefix": "sqrt",
-        "body": ["sqrt"],
-        "description": ""
-    },
-    "sqr": {
-        "prefix": "sqr",
-        "body": ["sqr"],
-        "description": ""
-    },
-    "Skew": {
-        "prefix": "Skew",
-        "body": ["Skew"],
-        "description": ""
-    },
-    "sinh": {
-        "prefix": "sinh",
-        "body": ["sinh"],
-        "description": ""
-    },
-    "sin": {
-        "prefix": "sin",
-        "body": ["sin"],
-        "description": ""
-    },
-    "Sign": {
-        "prefix": "Sign",
-        "body": ["Sign"],
-        "description": ""
-    },
-    "SetDateYearMonth": {
-        "prefix": "SetDateYearMonth",
-        "body": ["SetDateYearMonth"],
-        "description": ""
-    },
-    "SetDateYear": {
-        "prefix": "SetDateYear",
-        "body": ["SetDateYear"],
-        "description": ""
-    },
-    "Second": {
-        "prefix": "Second",
-        "body": ["Second"],
-        "description": ""
-    },
-    "RTrim": {
-        "prefix": "RTrim",
-        "body": ["RTrim"],
-        "description": ""
-    },
-    "RowNo": {
-        "prefix": "RowNo",
-        "body": ["RowNo"],
-        "description": ""
-    },
-    "Round": {
-        "prefix": "Round",
-        "body": ["Round"],
-        "description": ""
-    },
-    "Right": {
-        "prefix": "Right",
-        "body": ["Right"],
-        "description": ""
-    },
-    "RGB": {
-        "prefix": "RGB",
-        "body": ["RGB"],
-        "description": ""
-    },
-    "ReportNumber": {
-        "prefix": "ReportNumber",
-        "body": ["ReportNumber"],
-        "description": ""
-    },
-    "ReportName": {
-        "prefix": "ReportName",
-        "body": ["ReportName"],
-        "description": ""
-    },
-    "ReportId": {
-        "prefix": "ReportId",
-        "body": ["ReportId"],
-        "description": ""
-    },
-    "ReportComment": {
-        "prefix": "ReportComment",
-        "body": ["ReportComment"],
-        "description": ""
-    },
-    "Replace": {
-        "prefix": "Replace",
-        "body": ["Replace"],
-        "description": ""
-    },
-    "Repeat": {
-        "prefix": "Repeat",
-        "body": ["Repeat"],
-        "description": ""
-    },
-    "ReloadTime": {
-        "prefix": "ReloadTime",
-        "body": ["ReloadTime"],
-        "description": ""
-    },
-    "Red": {
-        "prefix": "Red",
-        "body": ["Red"],
-        "description": ""
-    },
-    "RecNo": {
-        "prefix": "RecNo",
-        "body": ["RecNo"],
-        "description": ""
-    },
-    "Rate": {
-        "prefix": "Rate",
-        "body": ["Rate"],
-        "description": ""
-    },
-    "RangeXNPV": {
-        "prefix": "RangeXNPV",
-        "body": ["RangeXNPV"],
-        "description": ""
-    },
-    "RangeXIRR": {
-        "prefix": "RangeXIRR",
-        "body": ["RangeXIRR"],
-        "description": ""
-    },
-    "RangeTextCount": {
-        "prefix": "RangeTextCount",
-        "body": ["RangeTextCount"],
-        "description": ""
-    },
-    "RangeSum": {
-        "prefix": "RangeSum",
-        "body": ["RangeSum"],
-        "description": ""
-    },
-    "RangeStdev": {
-        "prefix": "RangeStdev",
-        "body": ["RangeStdev"],
-        "description": ""
-    },
-    "RangeSkew": {
-        "prefix": "RangeSkew",
-        "body": ["RangeSkew"],
-        "description": ""
-    },
-    "RangeOnly": {
-        "prefix": "RangeOnly",
-        "body": ["RangeOnly"],
-        "description": ""
-    },
-    "RangeNumericCount": {
-        "prefix": "RangeNumericCount",
-        "body": ["RangeNumericCount"],
-        "description": ""
-    },
-    "RangeNullCount": {
-        "prefix": "RangeNullCount",
-        "body": ["RangeNullCount"],
-        "description": ""
-    },
-    "RangeNPV": {
-        "prefix": "RangeNPV",
-        "body": ["RangeNPV"],
-        "description": ""
-    },
-    "RangeMode": {
-        "prefix": "RangeMode",
-        "body": ["RangeMode"],
-        "description": ""
-    },
-    "RangeMissingCount": {
-        "prefix": "RangeMissingCount",
-        "body": ["RangeMissingCount"],
-        "description": ""
-    },
-    "RangeMinString": {
-        "prefix": "RangeMinString",
-        "body": ["RangeMinString"],
-        "description": ""
-    },
-    "RangeMin": {
-        "prefix": "RangeMin",
-        "body": ["RangeMin"],
-        "description": ""
-    },
-    "RangeMaxString": {
-        "prefix": "RangeMaxString",
-        "body": ["RangeMaxString"],
-        "description": ""
-    },
-    "RangeMax": {
-        "prefix": "RangeMax",
-        "body": ["RangeMax"],
-        "description": ""
-    },
-    "RangeKurtosis": {
-        "prefix": "RangeKurtosis",
-        "body": ["RangeKurtosis"],
-        "description": ""
-    },
-    "RangeIRR": {
-        "prefix": "RangeIRR",
-        "body": ["RangeIRR"],
-        "description": ""
-    },
-    "RangeFractile": {
-        "prefix": "RangeFractile",
-        "body": ["RangeFractile"],
-        "description": ""
-    },
-    "RangeCount": {
-        "prefix": "RangeCount",
-        "body": ["RangeCount"],
-        "description": ""
-    },
-    "RangeCorrel": {
-        "prefix": "RangeCorrel",
-        "body": ["RangeCorrel"],
-        "description": ""
-    },
-    "RangeAvg": {
-        "prefix": "RangeAvg",
-        "body": ["RangeAvg"],
-        "description": ""
-    },
-    "Rand": {
-        "prefix": "Rand",
-        "body": ["Rand"],
-        "description": ""
-    },
-    "QVUser": {
-        "prefix": "QVUser",
-        "body": ["QVUser"],
-        "description": ""
-    },
-    "QvdTableName": {
-        "prefix": "QvdTableName",
-        "body": ["QvdTableName"],
-        "description": ""
-    },
-    "QvdNoOfRecords": {
-        "prefix": "QvdNoOfRecords",
-        "body": ["QvdNoOfRecords"],
-        "description": ""
-    },
-    "QvdNoOfFields": {
-        "prefix": "QvdNoOfFields",
-        "body": ["QvdNoOfFields"],
-        "description": ""
-    },
-    "QvdFieldName": {
-        "prefix": "QvdFieldName",
-        "body": ["QvdFieldName"],
-        "description": ""
-    },
-    "QvdCreateTime": {
-        "prefix": "QvdCreateTime",
-        "body": ["QvdCreateTime"],
-        "description": ""
-    },
-    "QuarterStart": {
-        "prefix": "QuarterStart",
-        "body": ["QuarterStart"],
-        "description": ""
-    },
-    "QuarterName": {
-        "prefix": "QuarterName",
-        "body": ["QuarterName"],
-        "description": ""
-    },
-    "QuarterEnd": {
-        "prefix": "QuarterEnd",
-        "body": ["QuarterEnd"],
-        "description": ""
-    },
-    "QlikViewVersion": {
-        "prefix": "QlikViewVersion",
-        "body": ["QlikViewVersion"],
-        "description": ""
-    },
-    "QlikTechGray": {
-        "prefix": "QlikTechGray",
-        "body": ["QlikTechGray"],
-        "description": ""
-    },
-    "QlikTechBlue": {
-        "prefix": "QlikTechBlue",
-        "body": ["QlikTechBlue"],
-        "description": ""
-    },
-    "PV": {
-        "prefix": "PV",
-        "body": ["PV"],
-        "description": ""
-    },
-    "PurgeChar": {
-        "prefix": "PurgeChar",
-        "body": ["PurgeChar"],
-        "description": ""
-    },
-    "Previous": {
-        "prefix": "Previous",
-        "body": ["Previous"],
-        "description": ""
-    },
-    "pow": {
-        "prefix": "pow",
-        "body": ["pow"],
-        "description": ""
-    },
-    "Pmt": {
-        "prefix": "Pmt",
-        "body": ["Pmt"],
-        "description": ""
-    },
-    "Pick": {
-        "prefix": "Pick",
-        "body": ["Pick"],
-        "description": ""
-    },
-    "Pi": {
-        "prefix": "Pi",
-        "body": ["Pi"],
-        "description": ""
-    },
-    "Permut": {
-        "prefix": "Permut",
-        "body": ["Permut"],
-        "description": ""
-    },
-    "Peek": {
-        "prefix": "Peek",
-        "body": ["Peek"],
-        "description": ""
-    },
-    "OSUser": {
-        "prefix": "OSUser",
-        "body": ["OSUser"],
-        "description": ""
-    },
-    "Ord": {
-        "prefix": "Ord",
-        "body": ["Ord"],
-        "description": ""
-    },
-    "Only": {
-        "prefix": "Only",
-        "body": ["Only"],
-        "description": ""
-    },
-    "Odd": {
-        "prefix": "Odd",
-        "body": ["Odd"],
-        "description": ""
-    },
-    "NumSum": {
-        "prefix": "NumSum",
-        "body": ["NumSum"],
-        "description": ""
-    },
-    "NumMin": {
-        "prefix": "NumMin",
-        "body": ["NumMin"],
-        "description": ""
-    },
-    "NumMax": {
-        "prefix": "NumMax",
-        "body": ["NumMax"],
-        "description": ""
-    },
-    "NumericCount": {
-        "prefix": "NumericCount",
-        "body": ["NumericCount"],
-        "description": ""
-    },
-    "NumCount": {
-        "prefix": "NumCount",
-        "body": ["NumCount"],
-        "description": ""
-    },
-    "NumAvg": {
-        "prefix": "NumAvg",
-        "body": ["NumAvg"],
-        "description": ""
-    },
-    "Num#": {
-        "prefix": "Num#",
-        "body": ["Num#"],
-        "description": ""
-    },
-    "Num": {
-        "prefix": "Num",
-        "body": ["Num"],
-        "description": ""
-    },
-    "NullCount": {
-        "prefix": "NullCount",
-        "body": ["NullCount"],
-        "description": ""
-    },
-    "Null": {
-        "prefix": "Null",
-        "body": ["Null"],
-        "description": ""
-    },
-    "NPV": {
-        "prefix": "NPV",
-        "body": ["NPV"],
-        "description": ""
-    },
-    "nPer": {
-        "prefix": "nPer",
-        "body": ["nPer"],
-        "description": ""
-    },
-    "Now": {
-        "prefix": "Now",
-        "body": ["Now"],
-        "description": ""
-    },
-    "NORMINV": {
-        "prefix": "NORMINV",
-        "body": ["NORMINV"],
-        "description": ""
-    },
-    "NORMDIST": {
-        "prefix": "NORMDIST",
-        "body": ["NORMDIST"],
-        "description": ""
-    },
-    "NoOfTables": {
-        "prefix": "NoOfTables",
-        "body": ["NoOfTables"],
-        "description": ""
-    },
-    "NoOfRows": {
-        "prefix": "NoOfRows",
-        "body": ["NoOfRows"],
-        "description": ""
-    },
-    "NoOfReports": {
-        "prefix": "NoOfReports",
-        "body": ["NoOfReports"],
-        "description": ""
-    },
-    "NoOfFields": {
-        "prefix": "NoOfFields",
-        "body": ["NoOfFields"],
-        "description": ""
-    },
-    "NetWorkDays": {
-        "prefix": "NetWorkDays",
-        "body": ["NetWorkDays"],
-        "description": ""
-    },
-    "MsgBox": {
-        "prefix": "MsgBox",
-        "body": ["MsgBox"],
-        "description": ""
-    },
-    "MonthStart": {
-        "prefix": "MonthStart",
-        "body": ["MonthStart"],
-        "description": ""
-    },
-    "MonthsStart": {
-        "prefix": "MonthsStart",
-        "body": ["MonthsStart"],
-        "description": ""
-    },
-    "MonthsName": {
-        "prefix": "MonthsName",
-        "body": ["MonthsName"],
-        "description": ""
-    },
-    "MonthsEnd": {
-        "prefix": "MonthsEnd",
-        "body": ["MonthsEnd"],
-        "description": ""
-    },
-    "MonthName": {
-        "prefix": "MonthName",
-        "body": ["MonthName"],
-        "description": ""
-    },
-    "MonthEnd": {
-        "prefix": "MonthEnd",
-        "body": ["MonthEnd"],
-        "description": ""
-    },
-    "Month": {
-        "prefix": "Month",
-        "body": ["Month"],
-        "description": ""
-    },
-    "Money#": {
-        "prefix": "Money#",
-        "body": ["Money#"],
+    "MapSubString": {
+        "prefix": "MapSubstring('mapname', expression)",
+        "body": [
+            "MapSubString"
+        ],
+        "description": "The MapSubstring script function is used to map parts of any expression to a previously loaded mapping table. The mapping is case\nsensitive and non-iterative, and substrings are mapped from left to right."
+    },
+    "Match": {
+        "prefix": "match( str, expr1 [ , expr2,...exprN ])",
+        "body": [
+            "Match"
+        ],
+        "description": "The match function compares the first parameter with all the following ones and returns the number of the expression that matches.\nThe comparison is case sensitive."
+    },
+    "Max": {
+        "prefix": "Max ( expr [, rank])",
+        "body": [
+            "Max"
+        ],
+        "description": "Max() finds the highest numeric value of the aggregated data in the expression, as defined by a group by clause. By specifying a \nrank n, the nth highest value can be found."
+    },
+    "MaxString": {
+        "prefix": "MaxString ( expr )",
+        "body": [
+            "MaxString"
+        ],
+        "description": "MaxString() finds string values in the expression and returns the last text value sorted over a number of records, as defined by a \ngroup by clause."
+    },
+    "Median": {
+        "prefix": "Median([{SetExpression}] [DISTINCT] [TOTAL [<fld{, fld}>]] expr)",
+        "body": [
+            "Median"
+        ],
+        "description": "Syntax: \n\nMedian([{SetExpression}] [DISTINCT] [TOTAL [<fld{, fld}>]] expr) \n\nReturn data type: numeric\n\nArguments: \n\nArgument Description expr The expression or field containing the data to be measured. SetExpression By default, the aggregation\nfunction will aggregate over the set of possible records defined by the selection. An alternative set of records can be defined by\na set analysis expression. DISTINCT If the word DISTINCT occurs before the function arguments, duplicates resulting from the\nevaluation of the function arguments are disregarded. TOTAL If the word TOTAL occurs before the function arguments, the calculation is made over all possible values given the current\nselections, and not just those that pertain to the current dimensional value, that is, it disregards the chart dimensions."
+    },
+    "Mid": {
+        "prefix": "Mid(text, start[, count])",
+        "body": [
+            "Mid"
+        ],
+        "description": "Mid() returns the part of the input string starting at the position of the character defined by the second argument, 'start', and\nreturning the number of characters defined by the third argument, 'count'. If 'count' is omitted, the rest of the input string is\nreturned. The first character in the input string is numbered 1."
+    },
+    "Min": {
+        "prefix": "Min ( expr [, rank])",
+        "body": [
+            "Min"
+        ],
+        "description": "Min() returns the lowest numeric value of the aggregated data in the expression, as defined by a group by clause. By specifying a \nrank n, the nth lowest value can be found."
+    },
+    "MinString": {
+        "prefix": "MinString ( expr )",
+        "body": [
+            "MinString"
+        ],
+        "description": "MaxString() finds string values in the expression and returns the first text value sorted over a number of records, as defined by\na group by clause."
+    },
+    "Minute": {
+        "prefix": "minute(expression)",
+        "body": [
+            "Minute"
+        ],
+        "description": "This function returns an integer representing the minute when the fraction of the expression is interpreted as a time according to\nthe standard number interpretation."
+    },
+    "MissingCount": {
+        "prefix": "MissingCount ( [ distinct ] expr)",
+        "body": [
+            "MissingCount"
+        ],
+        "description": "MissingCount() returns the number of missing values aggregated in the expression, as defined by a group by clause."
+    },
+    "MixMatch": {
+        "prefix": "mixmatch( str, expr1 [ , expr2,...exprN ])",
+        "body": [
+            "MixMatch"
+        ],
+        "description": "The mixmatch function compares the first parameter with all the following ones and returns the number of the expression that\nmatches. The comparison is case insensitive."
+    },
+    "Mod": {
+        "prefix": "Mod(integernumber1, integernumber2)",
+        "body": [
+            "Mod"
+        ],
+        "description": "Mod() is a modulo function that returns the non-negative remainder of an integer division. The first argument is the dividend, the\nsecond argument is the divisor, Both arguments must be integer values."
+    },
+    "Mode": {
+        "prefix": "",
+        "body": [
+            "Mode"
+        ],
         "description": ""
     },
     "Money": {
-        "prefix": "Money",
-        "body": ["Money"],
-        "description": ""
-    },
-    "Mode": {
-        "prefix": "Mode",
-        "body": ["Mode"],
-        "description": ""
-    },
-    "Mod": {
-        "prefix": "Mod",
-        "body": ["Mod"],
-        "description": ""
-    },
-    "MixMatch": {
-        "prefix": "MixMatch",
-        "body": ["MixMatch"],
-        "description": ""
-    },
-    "MissingCount": {
-        "prefix": "MissingCount",
-        "body": ["MissingCount"],
-        "description": ""
-    },
-    "Minute": {
-        "prefix": "Minute",
-        "body": ["Minute"],
-        "description": ""
-    },
-    "MinString": {
-        "prefix": "MinString",
-        "body": ["MinString"],
-        "description": ""
-    },
-    "Min": {
-        "prefix": "Min",
-        "body": ["Min"],
-        "description": ""
-    },
-    "Mid": {
-        "prefix": "Mid",
-        "body": ["Mid"],
-        "description": ""
-    },
-    "Median": {
-        "prefix": "Median",
-        "body": ["Median"],
-        "description": ""
-    },
-    "MaxString": {
-        "prefix": "MaxString",
-        "body": ["MaxString"],
-        "description": ""
-    },
-    "Max": {
-        "prefix": "Max",
-        "body": ["Max"],
-        "description": ""
-    },
-    "Match": {
-        "prefix": "Match",
-        "body": ["Match"],
-        "description": ""
-    },
-    "MapSubString": {
-        "prefix": "MapSubString",
-        "body": ["MapSubString"],
-        "description": ""
-    },
-    "MakeWeekDate": {
-        "prefix": "MakeWeekDate",
-        "body": ["MakeWeekDate"],
-        "description": ""
-    },
-    "MakeTime": {
-        "prefix": "MakeTime",
-        "body": ["MakeTime"],
-        "description": ""
-    },
-    "MakeDate": {
-        "prefix": "MakeDate",
-        "body": ["MakeDate"],
-        "description": ""
-    },
-    "Magenta": {
-        "prefix": "Magenta",
-        "body": ["Magenta"],
-        "description": ""
-    },
-    "LunarWeekStart": {
-        "prefix": "LunarWeekStart",
-        "body": ["LunarWeekStart"],
-        "description": ""
-    },
-    "LunarWeekName": {
-        "prefix": "LunarWeekName",
-        "body": ["LunarWeekName"],
-        "description": ""
-    },
-    "LunarWeekEnd": {
-        "prefix": "LunarWeekEnd",
-        "body": ["LunarWeekEnd"],
-        "description": ""
-    },
-    "LTrim": {
-        "prefix": "LTrim",
-        "body": ["LTrim"],
-        "description": ""
-    },
-    "Lower": {
-        "prefix": "Lower",
-        "body": ["Lower"],
-        "description": ""
-    },
-    "Lookup": {
-        "prefix": "Lookup",
-        "body": ["Lookup"],
-        "description": ""
-    },
-    "log10": {
-        "prefix": "log10",
-        "body": ["log10"],
-        "description": ""
-    },
-    "log": {
-        "prefix": "log",
-        "body": ["log"],
-        "description": ""
-    },
-    "LocalTime": {
-        "prefix": "LocalTime",
-        "body": ["LocalTime"],
-        "description": ""
-    },
-    "LINEST_SSRESID": {
-        "prefix": "LINEST_SSRESID",
-        "body": ["LINEST_SSRESID"],
-        "description": ""
-    },
-    "LINEST_SSREG": {
-        "prefix": "LINEST_SSREG",
-        "body": ["LINEST_SSREG"],
-        "description": ""
-    },
-    "LINEST_SEY": {
-        "prefix": "LINEST_SEY",
-        "body": ["LINEST_SEY"],
-        "description": ""
-    },
-    "LINEST_SEM": {
-        "prefix": "LINEST_SEM",
-        "body": ["LINEST_SEM"],
-        "description": ""
-    },
-    "LINEST_SEB": {
-        "prefix": "LINEST_SEB",
-        "body": ["LINEST_SEB"],
-        "description": ""
-    },
-    "LINEST_R2": {
-        "prefix": "LINEST_R2",
-        "body": ["LINEST_R2"],
-        "description": ""
-    },
-    "LINEST_M": {
-        "prefix": "LINEST_M",
-        "body": ["LINEST_M"],
-        "description": ""
-    },
-    "LINEST_F": {
-        "prefix": "LINEST_F",
-        "body": ["LINEST_F"],
-        "description": ""
-    },
-    "LINEST_DF": {
-        "prefix": "LINEST_DF",
-        "body": ["LINEST_DF"],
-        "description": ""
-    },
-    "LINEST_B": {
-        "prefix": "LINEST_B",
-        "body": ["LINEST_B"],
-        "description": ""
-    },
-    "LightRed": {
-        "prefix": "LightRed",
-        "body": ["LightRed"],
-        "description": ""
-    },
-    "LightMagenta": {
-        "prefix": "LightMagenta",
-        "body": ["LightMagenta"],
-        "description": ""
-    },
-    "LightGreen": {
-        "prefix": "LightGreen",
-        "body": ["LightGreen"],
-        "description": ""
-    },
-    "LightGray": {
-        "prefix": "LightGray",
-        "body": ["LightGray"],
-        "description": ""
-    },
-    "LightCyan": {
-        "prefix": "LightCyan",
-        "body": ["LightCyan"],
-        "description": ""
-    },
-    "LightBlue": {
-        "prefix": "LightBlue",
-        "body": ["LightBlue"],
-        "description": ""
-    },
-    "Len": {
-        "prefix": "Len",
-        "body": ["Len"],
-        "description": ""
-    },
-    "Left": {
-        "prefix": "Left",
-        "body": ["Left"],
-        "description": ""
-    },
-    "LastWorkDate": {
-        "prefix": "LastWorkDate",
-        "body": ["LastWorkDate"],
-        "description": ""
-    },
-    "LastValue": {
-        "prefix": "LastValue",
-        "body": ["LastValue"],
-        "description": ""
-    },
-    "Kurtosis": {
-        "prefix": "Kurtosis",
-        "body": ["Kurtosis"],
-        "description": ""
-    },
-    "KeepChar": {
-        "prefix": "KeepChar",
-        "body": ["KeepChar"],
-        "description": ""
-    },
-    "IterNo": {
-        "prefix": "IterNo",
-        "body": ["IterNo"],
-        "description": ""
-    },
-    "IsText": {
-        "prefix": "IsText",
-        "body": ["IsText"],
-        "description": ""
-    },
-    "IsPartialReload": {
-        "prefix": "IsPartialReload",
-        "body": ["IsPartialReload"],
-        "description": ""
-    },
-    "IsNum": {
-        "prefix": "IsNum",
-        "body": ["IsNum"],
-        "description": ""
-    },
-    "IsNull": {
-        "prefix": "IsNull",
-        "body": ["IsNull"],
-        "description": ""
-    },
-    "IRR": {
-        "prefix": "IRR",
-        "body": ["IRR"],
-        "description": ""
-    },
-    "InYearToDate": {
-        "prefix": "InYearToDate",
-        "body": ["InYearToDate"],
-        "description": ""
-    },
-    "InYear": {
-        "prefix": "InYear",
-        "body": ["InYear"],
-        "description": ""
-    },
-    "InWeekToDate": {
-        "prefix": "InWeekToDate",
-        "body": ["InWeekToDate"],
-        "description": ""
-    },
-    "InWeek": {
-        "prefix": "InWeek",
-        "body": ["InWeek"],
-        "description": ""
-    },
-    "Interval#": {
-        "prefix": "Interval#",
-        "body": ["Interval#"],
-        "description": ""
-    },
-    "Interval": {
-        "prefix": "Interval",
-        "body": ["Interval"],
-        "description": ""
-    },
-    "InQuarterToDate": {
-        "prefix": "InQuarterToDate",
-        "body": ["InQuarterToDate"],
-        "description": ""
-    },
-    "InQuarter": {
-        "prefix": "InQuarter",
-        "body": ["InQuarter"],
-        "description": ""
-    },
-    "InputSum": {
-        "prefix": "InputSum",
-        "body": ["InputSum"],
-        "description": ""
-    },
-    "InputAvg": {
-        "prefix": "InputAvg",
-        "body": ["InputAvg"],
-        "description": ""
-    },
-    "Input": {
-        "prefix": "Input",
-        "body": ["Input"],
-        "description": ""
-    },
-    "InMonthToDate": {
-        "prefix": "InMonthToDate",
-        "body": ["InMonthToDate"],
-        "description": ""
-    },
-    "InMonthsToDate": {
-        "prefix": "InMonthsToDate",
-        "body": ["InMonthsToDate"],
-        "description": ""
-    },
-    "InMonths": {
-        "prefix": "InMonths",
-        "body": ["InMonths"],
-        "description": ""
-    },
-    "InMonth": {
-        "prefix": "InMonth",
-        "body": ["InMonth"],
-        "description": ""
-    },
-    "InLunarWeekToDate": {
-        "prefix": "InLunarWeekToDate",
-        "body": ["InLunarWeekToDate"],
-        "description": ""
-    },
-    "InLunarWeek": {
-        "prefix": "InLunarWeek",
-        "body": ["InLunarWeek"],
-        "description": ""
-    },
-    "Index": {
-        "prefix": "Index",
-        "body": ["Index"],
-        "description": ""
-    },
-    "InDayToTime": {
-        "prefix": "InDayToTime",
-        "body": ["InDayToTime"],
-        "description": ""
-    },
-    "InDay": {
-        "prefix": "InDay",
-        "body": ["InDay"],
-        "description": ""
-    },
-    "if": {
-        "prefix": "if",
-        "body": ["if"],
-        "description": ""
-    },
-    "HSL": {
-        "prefix": "HSL",
-        "body": ["HSL"],
-        "description": ""
-    },
-    "Hour": {
-        "prefix": "Hour",
-        "body": ["Hour"],
-        "description": ""
-    },
-    "Hash256": {
-        "prefix": "Hash256",
-        "body": ["Hash256"],
-        "description": ""
-    },
-    "Hash160": {
-        "prefix": "Hash160",
-        "body": ["Hash160"],
-        "description": ""
-    },
-    "Hash128": {
-        "prefix": "Hash128",
-        "body": ["Hash128"],
-        "description": ""
-    },
-    "Green": {
-        "prefix": "Green",
-        "body": ["Green"],
-        "description": ""
-    },
-    "GMT": {
-        "prefix": "GMT",
-        "body": ["GMT"],
-        "description": ""
-    },
-    "GetRegistryString": {
-        "prefix": "GetRegistryString",
-        "body": ["GetRegistryString"],
-        "description": ""
-    },
-    "GetObjectField": {
-        "prefix": "GetObjectField",
-        "body": ["GetObjectField"],
-        "description": ""
-    },
-    "GetFolderPath": {
-        "prefix": "GetFolderPath",
-        "body": ["GetFolderPath"],
-        "description": ""
-    },
-    "GetExtendedProperty": {
-        "prefix": "GetExtendedProperty",
-        "body": ["GetExtendedProperty"],
-        "description": ""
-    },
-    "FV": {
-        "prefix": "FV",
-        "body": ["FV"],
-        "description": ""
-    },
-    "Fractile": {
-        "prefix": "Fractile",
-        "body": ["Fractile"],
-        "description": ""
-    },
-    "Frac": {
-        "prefix": "Frac",
-        "body": ["Frac"],
-        "description": ""
-    },
-    "fmod": {
-        "prefix": "fmod",
-        "body": ["fmod"],
-        "description": ""
-    },
-    "Floor": {
-        "prefix": "Floor",
-        "body": ["Floor"],
-        "description": ""
-    },
-    "FirstWorkDate": {
-        "prefix": "FirstWorkDate",
-        "body": ["FirstWorkDate"],
-        "description": ""
-    },
-    "FirstValue": {
-        "prefix": "FirstValue",
-        "body": ["FirstValue"],
-        "description": ""
-    },
-    "FirstSortedValue": {
-        "prefix": "FirstSortedValue",
-        "body": ["FirstSortedValue"],
-        "description": ""
-    },
-    "FINV": {
-        "prefix": "FINV",
-        "body": ["FINV"],
-        "description": ""
-    },
-    "FindOneOf": {
-        "prefix": "FindOneOf",
-        "body": ["FindOneOf"],
-        "description": ""
-    },
-    "FileTime": {
-        "prefix": "FileTime",
-        "body": ["FileTime"],
-        "description": ""
-    },
-    "FileSize": {
-        "prefix": "FileSize",
-        "body": ["FileSize"],
-        "description": ""
-    },
-    "FilePath": {
-        "prefix": "FilePath",
-        "body": ["FilePath"],
-        "description": ""
-    },
-    "FileName": {
-        "prefix": "FileName",
-        "body": ["FileName"],
-        "description": ""
-    },
-    "FileList": {
-        "prefix": "FileList",
-        "body": ["FileList"],
-        "description": ""
-    },
-    "FileExtension": {
-        "prefix": "FileExtension",
-        "body": ["FileExtension"],
-        "description": ""
-    },
-    "FileDir": {
-        "prefix": "FileDir",
-        "body": ["FileDir"],
-        "description": ""
-    },
-    "FileBaseName": {
-        "prefix": "FileBaseName",
-        "body": ["FileBaseName"],
-        "description": ""
-    },
-    "FieldValueCount": {
-        "prefix": "FieldValueCount",
-        "body": ["FieldValueCount"],
-        "description": ""
-    },
-    "FieldValue": {
-        "prefix": "FieldValue",
-        "body": ["FieldValue"],
-        "description": ""
-    },
-    "FieldNumber": {
-        "prefix": "FieldNumber",
-        "body": ["FieldNumber"],
-        "description": ""
-    },
-    "FieldName": {
-        "prefix": "FieldName",
-        "body": ["FieldName"],
-        "description": ""
-    },
-    "FieldIndex": {
-        "prefix": "FieldIndex",
-        "body": ["FieldIndex"],
-        "description": ""
-    },
-    "FDIST": {
-        "prefix": "FDIST",
-        "body": ["FDIST"],
-        "description": ""
-    },
-    "FALSE": {
-        "prefix": "FALSE",
-        "body": ["FALSE"],
-        "description": ""
-    },
-    "Fact": {
-        "prefix": "Fact",
-        "body": ["Fact"],
-        "description": ""
-    },
-    "fabs": {
-        "prefix": "fabs",
-        "body": ["fabs"],
-        "description": ""
-    },
-    "exp": {
-        "prefix": "exp",
-        "body": ["exp"],
-        "description": ""
-    },
-    "Exists": {
-        "prefix": "Exists",
-        "body": ["Exists"],
-        "description": ""
-    },
-    "Even": {
-        "prefix": "Even",
-        "body": ["Even"],
-        "description": ""
-    },
-    "Evaluate": {
-        "prefix": "Evaluate",
-        "body": ["Evaluate"],
-        "description": ""
-    },
-    "e": {
-        "prefix": "e",
-        "body": ["e"],
-        "description": ""
-    },
-    "Dual": {
-        "prefix": "Dual",
-        "body": ["Dual"],
-        "description": ""
-    },
-    "DocumentTitle": {
-        "prefix": "DocumentTitle",
-        "body": ["DocumentTitle"],
-        "description": ""
-    },
-    "DocumentPath": {
-        "prefix": "DocumentPath",
-        "body": ["DocumentPath"],
-        "description": ""
-    },
-    "DocumentName": {
-        "prefix": "DocumentName",
-        "body": ["DocumentName"],
-        "description": ""
-    },
-    "div": {
-        "prefix": "div",
-        "body": ["div"],
-        "description": ""
-    },
-    "daystart": {
-        "prefix": "daystart",
-        "body": ["daystart"],
-        "description": ""
-    },
-    "daynumberofyear": {
-        "prefix": "daynumberofyear",
-        "body": ["daynumberofyear"],
-        "description": ""
-    },
-    "daynumberofquarter": {
-        "prefix": "daynumberofquarter",
-        "body": ["daynumberofquarter"],
-        "description": ""
-    },
-    "dayname": {
-        "prefix": "dayname",
-        "body": ["dayname"],
-        "description": ""
-    },
-    "daylightsaving": {
-        "prefix": "daylightsaving",
-        "body": ["daylightsaving"],
-        "description": ""
-    },
-    "dayend": {
-        "prefix": "dayend",
-        "body": ["dayend"],
-        "description": ""
-    },
-    "day": {
-        "prefix": "day",
-        "body": ["day"],
-        "description": ""
-    },
-    "date#": {
-        "prefix": "date#",
-        "body": ["date#"],
-        "description": ""
-    },
-    "date": {
-        "prefix": "date",
-        "body": ["date"],
-        "description": ""
-    },
-    "darkgray": {
-        "prefix": "darkgray",
-        "body": ["darkgray"],
-        "description": ""
-    },
-    "cyan": {
-        "prefix": "cyan",
-        "body": ["cyan"],
-        "description": ""
-    },
-    "count": {
-        "prefix": "count",
-        "body": ["count"],
-        "description": ""
-    },
-    "cosh": {
-        "prefix": "cosh",
-        "body": ["cosh"],
-        "description": ""
-    },
-    "cos": {
-        "prefix": "cos",
-        "body": ["cos"],
-        "description": ""
-    },
-    "correl": {
-        "prefix": "correl",
-        "body": ["correl"],
-        "description": ""
-    },
-    "converttolocaltime": {
-        "prefix": "converttolocaltime",
-        "body": ["converttolocaltime"],
-        "description": ""
-    },
-    "connectstring": {
-        "prefix": "connectstring",
-        "body": ["connectstring"],
-        "description": ""
-    },
-    "concat": {
-        "prefix": "concat",
-        "body": ["concat"],
-        "description": ""
-    },
-    "computername": {
-        "prefix": "computername",
-        "body": ["computername"],
-        "description": ""
-    },
-    "combin": {
-        "prefix": "combin",
-        "body": ["combin"],
-        "description": ""
-    },
-    "colormix2": {
-        "prefix": "colormix2",
-        "body": ["colormix2"],
-        "description": ""
-    },
-    "colormix1": {
-        "prefix": "colormix1",
-        "body": ["colormix1"],
-        "description": ""
-    },
-    "colormapjet": {
-        "prefix": "colormapjet",
-        "body": ["colormapjet"],
-        "description": ""
-    },
-    "colormaphue": {
-        "prefix": "colormaphue",
-        "body": ["colormaphue"],
-        "description": ""
-    },
-    "color": {
-        "prefix": "color",
-        "body": ["color"],
-        "description": ""
-    },
-    "clientplatform": {
-        "prefix": "clientplatform",
-        "body": ["clientplatform"],
-        "description": ""
-    },
-    "class": {
-        "prefix": "class",
-        "body": ["class"],
-        "description": ""
-    },
-    "chr": {
-        "prefix": "chr",
-        "body": ["chr"],
-        "description": ""
-    },
-    "chiinv": {
-        "prefix": "chiinv",
-        "body": ["chiinv"],
-        "description": ""
-    },
-    "chidist": {
-        "prefix": "chidist",
-        "body": ["chidist"],
-        "description": ""
-    },
-    "chi2test_p": {
-        "prefix": "chi2test_p",
-        "body": ["chi2test_p"],
-        "description": ""
-    },
-    "chi2test_df": {
-        "prefix": "chi2test_df",
-        "body": ["chi2test_df"],
-        "description": ""
-    },
-    "chi2test_chi2": {
-        "prefix": "chi2test_chi2",
-        "body": ["chi2test_chi2"],
-        "description": ""
-    },
-    "ceil": {
-        "prefix": "ceil",
-        "body": ["ceil"],
-        "description": ""
-    },
-    "capitalize": {
-        "prefix": "capitalize",
-        "body": ["capitalize"],
-        "description": ""
-    },
-    "brown": {
-        "prefix": "brown",
-        "body": ["brown"],
-        "description": ""
-    },
-    "blue": {
-        "prefix": "blue",
-        "body": ["blue"],
-        "description": ""
-    },
-    "blackandschole": {
-        "prefix": "blackandschole",
-        "body": ["blackandschole"],
-        "description": ""
-    },
-    "black": {
-        "prefix": "black",
-        "body": ["black"],
-        "description": ""
-    },
-    "bitcount": {
-        "prefix": "bitcount",
-        "body": ["bitcount"],
-        "description": ""
-    },
-    "avg": {
-        "prefix": "avg",
-        "body": ["avg"],
-        "description": ""
-    },
-    "AutoNumberHash256": {
-        "prefix": "AutoNumberHash256",
-        "body": ["AutoNumberHash256"],
-        "description": ""
-    },
-    "AutoNumberHash128": {
-        "prefix": "AutoNumberHash128",
-        "body": ["AutoNumberHash128"],
-        "description": ""
-    },
-    "AutoNumber": {
-        "prefix": "AutoNumber",
-        "body": ["AutoNumber"],
-        "description": ""
-    },
-    "author": {
-        "prefix": "author",
-        "body": ["author"],
-        "description": ""
-    },
-    "attribute": {
-        "prefix": "attribute",
-        "body": ["attribute"],
-        "description": ""
-    },
-    "atan2": {
-        "prefix": "atan2",
-        "body": ["atan2"],
-        "description": ""
-    },
-    "atan": {
-        "prefix": "atan",
-        "body": ["atan"],
-        "description": ""
-    },
-    "asin": {
-        "prefix": "asin",
-        "body": ["asin"],
-        "description": ""
-    },
-    "argb": {
-        "prefix": "argb",
-        "body": ["argb"],
-        "description": ""
-    },
-    "applymap": {
-        "prefix": "applymap",
-        "body": ["applymap"],
-        "description": ""
-    },
-    "applycodepage": {
-        "prefix": "applycodepage",
-        "body": ["applycodepage"],
-        "description": ""
-    },
-    "alt": {
-        "prefix": "alt",
-        "body": ["alt"],
-        "description": ""
-    },
-    "age": {
-        "prefix": "age",
-        "body": ["age"],
-        "description": ""
-    },
-    "addyears": {
-        "prefix": "addyears",
-        "body": ["addyears"],
-        "description": ""
-    },
-    "addmonths": {
-        "prefix": "addmonths",
-        "body": ["addmonths"],
-        "description": ""
-    },
-    "acos": {
-        "prefix": "acos",
-        "body": ["acos"],
-        "description": ""
-    },
-    "with": {
-        "prefix": "with",
-        "body": ["with"],
-        "description": ""
-    },
-    "then": {
-        "prefix": "then",
-        "body": ["then"],
-        "description": ""
-    },
-    "and": {
-        "prefix": "and",
-        "body": ["and"],
-        "description": ""
-    },
-    "or": {
-        "prefix": "or",
-        "body": ["or"],
-        "description": ""
-    },
-    "not": {
-        "prefix": "not",
-        "body": ["not"],
-        "description": ""
-    },
-    "resident": {
-        "prefix": "resident",
-        "body": ["resident"],
-        "description": ""
-    },
-    "autogenerate": {
-        "prefix": "autogenerate",
-        "body": ["autogenerate"],
-        "description": ""
-    },
-    "step": {
-        "prefix": "step",
-        "body": ["step"],
-        "description": ""
-    },
-    "to": {
-        "prefix": "to",
-        "body": ["to"],
-        "description": ""
-    },
-    "into": {
-        "prefix": "into",
-        "body": ["into"],
-        "description": ""
-    },
-    "as": {
-        "prefix": "as",
-        "body": ["as"],
-        "description": ""
-    },
-    "from": {
-        "prefix": "from",
-        "body": ["from"],
-        "description": ""
-    },
-    "set": {
-        "prefix": "set",
-        "body": ["set"],
-        "description": ""
-    },
-    "Where": {
-        "prefix": "Where",
-        "body": ["Where"],
-        "description": ""
-    },
-    "When": {
-        "prefix": "When",
-        "body": ["When"],
-        "description": ""
-    },
-    "Untag": {
-        "prefix": "Untag",
-        "body": ["Untag"],
-        "description": ""
-    },
-    "Unqualify": {
-        "prefix": "Unqualify",
-        "body": ["Unqualify"],
-        "description": ""
-    },
-    "Unmap": {
-        "prefix": "Unmap",
-        "body": ["Unmap"],
-        "description": ""
-    },
-    "Unless": {
-        "prefix": "Unless",
-        "body": ["Unless"],
-        "description": ""
-    },
-    "Trace": {
-        "prefix": "Trace",
-        "body": ["Trace"],
-        "description": ""
-    },
-    "tag fields": {
-        "prefix": "tag fields",
-        "body": ["tag fields"],
-        "description": ""
-    },
-    "Tag field": {
-        "prefix": "Tag field",
-        "body": ["Tag field"],
-        "description": ""
-    },
-    "end switch": {
-        "prefix": "end switch",
-        "body": ["end switch"],
-        "description": ""
-    },
-    "switch": {
-        "prefix": "switch",
-        "body": ["switch"],
-        "description": ""
-    },
-    "Store": {
-        "prefix": "Store",
-        "body": ["Store"],
-        "description": ""
-    },
-    "Star": {
-        "prefix": "Star",
-        "body": ["Star"],
-        "description": ""
-    },
-    "SQLTypes": {
-        "prefix": "SQLTypes",
-        "body": ["SQLTypes"],
-        "description": ""
-    },
-    "SQLTables": {
-        "prefix": "SQLTables",
-        "body": ["SQLTables"],
-        "description": ""
-    },
-    "SQLColumns": {
-        "prefix": "SQLColumns",
-        "body": ["SQLColumns"],
-        "description": ""
-    },
-    "SQL": {
-        "prefix": "SQL",
-        "body": ["SQL"],
-        "description": ""
-    },
-    "Sleep": {
-        "prefix": "Sleep",
-        "body": ["Sleep"],
-        "description": ""
-    },
-    "Semantic": {
-        "prefix": "Semantic",
-        "body": ["Semantic"],
-        "description": ""
-    },
-    "select": {
-        "prefix": "select",
-        "body": ["select"],
-        "description": ""
-    },
-    "Section": {
-        "prefix": "Section",
-        "body": ["Section"],
-        "description": ""
-    },
-    "Sample": {
-        "prefix": "Sample",
-        "body": ["Sample"],
-        "description": ""
-    },
-    "right Keep": {
-        "prefix": "right Keep",
-        "body": ["right Keep"],
-        "description": ""
-    },
-    "Right Join": {
-        "prefix": "Right Join",
-        "body": ["Right Join"],
-        "description": ""
-    },
-    "Replace Only Load": {
-        "prefix": "Replace Only Load",
-        "body": ["Replace Only Load"],
-        "description": ""
-    },
-    "Replace Load": {
-        "prefix": "Replace Load",
-        "body": ["Replace Load"],
-        "description": ""
-    },
-    "Rename Tables Using": {
-        "prefix": "Rename Tables Using",
-        "body": ["Rename Tables Using"],
-        "description": ""
-    },
-    "Rename Tables": {
-        "prefix": "Rename Tables",
-        "body": ["Rename Tables"],
-        "description": ""
-    },
-    "Rename Table Using": {
-        "prefix": "Rename Table Using",
-        "body": ["Rename Table Using"],
-        "description": ""
-    },
-    "Rename Table": {
-        "prefix": "Rename Table",
-        "body": ["Rename Table"],
-        "description": ""
-    },
-    "Rename Fields Using": {
-        "prefix": "Rename Fields Using",
-        "body": ["Rename Fields Using"],
-        "description": ""
-    },
-    "Rename Field Using": {
-        "prefix": "Rename Field Using",
-        "body": ["Rename Field Using"],
-        "description": ""
-    },
-    "Rename Fields": {
-        "prefix": "Rename Fields",
-        "body": ["Rename Fields"],
-        "description": ""
-    },
-    "Rename Field": {
-        "prefix": "Rename Field",
-        "body": ["Rename Field"],
-        "description": ""
-    },
-    "Qualify": {
-        "prefix": "Qualify",
-        "body": ["Qualify"],
-        "description": ""
-    },
-    "Outer Join": {
-        "prefix": "Outer Join",
-        "body": ["Outer Join"],
-        "description": ""
-    },
-    "NullAsNull": {
-        "prefix": "NullAsNull",
-        "body": ["NullAsNull"],
-        "description": ""
-    },
-    "NullAsValue": {
-        "prefix": "NullAsValue",
-        "body": ["NullAsValue"],
-        "description": ""
-    },
-    "Noconcatenate Load": {
-        "prefix": "Noconcatenate Load",
-        "body": ["Noconcatenate Load"],
-        "description": ""
-    },
-    "using": {
-        "prefix": "using",
-        "body": ["using"],
-        "description": ""
-    },
-    "Map": {
-        "prefix": "Map",
-        "body": ["Map"],
-        "description": ""
-    },
-    "Mapping Load": {
-        "prefix": "Mapping Load",
-        "body": ["Mapping Load"],
-        "description": ""
-    },
-    "Loosen": {
-        "prefix": "Loosen",
-        "body": ["Loosen"],
-        "description": ""
-    },
-    "Load": {
-        "prefix": "Load",
-        "body": ["Load"],
-        "description": ""
-    },
-    "Let": {
-        "prefix": "Let",
-        "body": ["Let"],
-        "description": ""
-    },
-    "left Keep": {
-        "prefix": "left Keep",
-        "body": ["left Keep"],
-        "description": ""
-    },
-    "Left Join": {
-        "prefix": "Left Join",
-        "body": ["Left Join"],
-        "description": ""
-    },
-    "Join": {
-        "prefix": "Join",
-        "body": ["Join"],
-        "description": ""
-    },
-    "IntervalMatch": {
-        "prefix": "IntervalMatch",
-        "body": ["IntervalMatch"],
-        "description": ""
-    },
-    "InputField": {
-        "prefix": "InputField",
-        "body": ["InputField"],
-        "description": ""
-    },
-    "inner Keep": {
-        "prefix": "inner Keep",
-        "body": ["inner Keep"],
-        "description": ""
-    },
-    "Inner Join": {
-        "prefix": "Inner Join",
-        "body": ["Inner Join"],
-        "description": ""
-    },
-    "Inline": {
-        "prefix": "Inline",
-        "body": ["Inline"],
-        "description": ""
-    },
-    "info sql": {
-        "prefix": "info sql",
-        "body": ["info sql"],
-        "description": ""
-    },
-    "Info Load": {
-        "prefix": "Info Load",
-        "body": ["Info Load"],
-        "description": ""
-    },
-    "In": {
-        "prefix": "In",
-        "body": ["In"],
-        "description": ""
-    },
-    "info Image_size": {
-        "prefix": "info Image_size",
-        "body": ["info Image_size"],
-        "description": ""
-    },
-    "end if": {
-        "prefix": "end if",
-        "body": ["end if"],
-        "description": ""
-    },
-    "endif": {
-        "prefix": "endif",
-        "body": ["endif"],
-        "description": ""
-    },
-    "else if": {
-        "prefix": "else if",
-        "body": ["else if"],
-        "description": ""
-    },
-    "elseif": {
-        "prefix": "elseif",
-        "body": ["elseif"],
-        "description": ""
-    },
-    "else": {
-        "prefix": "else",
-        "body": ["else"],
-        "description": ""
-    },
-    "HierarchyBelongsTo": {
-        "prefix": "HierarchyBelongsTo",
-        "body": ["HierarchyBelongsTo"],
-        "description": ""
-    },
-    "Hierarchy": {
-        "prefix": "Hierarchy",
-        "body": ["Hierarchy"],
-        "description": ""
-    },
-    "Group By": {
-        "prefix": "Group By",
-        "body": ["Group By"],
-        "description": ""
-    },
-    "Generic": {
-        "prefix": "Generic",
-        "body": ["Generic"],
-        "description": ""
-    },
-    "Force": {
-        "prefix": "Force",
-        "body": ["Force"],
-        "description": ""
-    },
-    "First": {
-        "prefix": "First",
-        "body": ["First"],
-        "description": ""
-    },
-    "exit script": {
-        "prefix": "exit script",
-        "body": ["exit script"],
-        "description": ""
-    },
-    "exit sub": {
-        "prefix": "exit sub",
-        "body": ["exit sub"],
-        "description": ""
-    },
-    "exit do": {
-        "prefix": "exit do",
-        "body": ["exit do"],
-        "description": ""
-    },
-    "exit for": {
-        "prefix": "exit for",
-        "body": ["exit for"],
-        "description": ""
-    },
-    "each": {
-        "prefix": "each",
-        "body": ["each"],
-        "description": ""
-    },
-    "Execute": {
-        "prefix": "Execute",
-        "body": ["Execute"],
-        "description": ""
-    },
-    "Drop Fields": {
-        "prefix": "Drop Fields",
-        "body": ["Drop Fields"],
-        "description": ""
-    },
-    "Drop Field": {
-        "prefix": "Drop Field",
-        "body": ["Drop Field"],
-        "description": ""
-    },
-    "Drop Tables": {
-        "prefix": "Drop Tables",
-        "body": ["Drop Tables"],
-        "description": ""
-    },
-    "Drop Table": {
-        "prefix": "Drop Table",
-        "body": ["Drop Table"],
-        "description": ""
-    },
-    "Load distinct": {
-        "prefix": "Load distinct",
-        "body": ["Load distinct"],
-        "description": ""
-    },
-    "Disconnect": {
-        "prefix": "Disconnect",
-        "body": ["Disconnect"],
-        "description": ""
-    },
-    "Directory": {
-        "prefix": "Directory",
-        "body": ["Directory"],
-        "description": ""
-    },
-    "Crosstable": {
-        "prefix": "Crosstable",
-        "body": ["Crosstable"],
-        "description": ""
-    },
-    "Connect": {
-        "prefix": "Connect",
-        "body": ["Connect"],
-        "description": ""
-    },
-    "Concatenate": {
-        "prefix": "Concatenate",
-        "body": ["Concatenate"],
-        "description": ""
-    },
-    "Comment": {
-        "prefix": "Comment",
-        "body": ["Comment"],
-        "description": ""
-    },
-    "Call": {
-        "prefix": "Call",
-        "body": ["Call"],
-        "description": ""
-    },
-    "Bundle Info sql": {
-        "prefix": "Bundle Info sql",
-        "body": ["Bundle Info sql"],
-        "description": ""
-    },
-    "Bundle sql": {
-        "prefix": "Bundle sql",
-        "body": ["Bundle sql"],
-        "description": ""
-    },
-    "Bundle Info load": {
-        "prefix": "Bundle Info load",
-        "body": ["Bundle Info load"],
-        "description": ""
-    },
-    "Bundle Load": {
-        "prefix": "Bundle Load",
-        "body": ["Bundle Load"],
-        "description": ""
-    },
-    "Buffer": {
-        "prefix": "Buffer",
-        "body": ["Buffer"],
-        "description": ""
-    },
-    "Binary": {
-        "prefix": "Binary",
-        "body": ["Binary"],
-        "description": ""
-    },
-    "Alias": {
-        "prefix": "Alias",
-        "body": ["Alias"],
-        "description": ""
-    },
-    "Add": {
-        "prefix": "Add",
-        "body": ["Add"],
-        "description": ""
+        "prefix": "Money(number[, format[, decsep[, thousep]]])",
+        "body": [
+            "Money"
+        ],
+        "description": "Money() formats an expression numerically as a money value, in the format set in the system variables set in the load script, or\nin the operating system, unless a format string is supplied, and optional decimal and thousands separators."
+    },
+    "Money#": {
+        "prefix": "",
+        "body": [
+            "Money#"
+        ],
+        "description": ""
+    },
+    "Month": {
+        "prefix": "month(expression)",
+        "body": [
+            "Month"
+        ],
+        "description": "This function returns a dual value with a month name as defined in the environment variable MonthNames and an integer between\n1-12. The month is calculated from the date interpretation of the expression, according to the standard number interpretation."
+    },
+    "MonthEnd": {
+        "prefix": "MonthEnd(date[, periodno])",
+        "body": [
+            "MonthEnd"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the last millisecond of the last day of the month containing date.\nThe default output format will be the DateFormat set in the script."
+    },
+    "MonthName": {
+        "prefix": "MonthName(date[, periodno])",
+        "body": [
+            "MonthName"
+        ],
+        "description": "This function returns a display value showing the month (formatted according to the MonthNames script variable) and year with an\nunderlying numeric value corresponding to a timestamp of the first millisecond of the first day of the month."
+    },
+    "MonthsEnd": {
+        "prefix": "MonthsEnd(nmonths, date[, periodno [, firstmonthofyear]])",
+        "body": [
+            "MonthsEnd"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the last millisecond of the month, bi-month, quarter, tertial, or\nhalf-year containing a base date. It is also possible to find the timestamp for a previous or following time period."
+    },
+    "MonthsName": {
+        "prefix": "MonthsName(nmonths, date[, periodno[, firstmonthofyear]])",
+        "body": [
+            "MonthsName"
+        ],
+        "description": "This function returns a display value representing the range of the months of the period (formatted according to the MonthNames \nscript variable) as well as the year. The underlying numeric value corresponds to a timestamp of the first millisecond of the\nmonth, bi-month, quarter, tertial, or half-year containing a base date."
+    },
+    "MonthsStart": {
+        "prefix": "MonthsStart(nmonths, date[, periodno [, firstmonthofyear]])",
+        "body": [
+            "MonthsStart"
+        ],
+        "description": "This function returns a value corresponding to the timestamp of the first millisecond of the month, bi-month, quarter, tertial, or\nhalf-year containing a base date. It is also possible to find the timestamp for a previous or following time period."
+    },
+    "MonthStart": {
+        "prefix": "MonthStart(date[, periodno])",
+        "body": [
+            "MonthStart"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the first millisecond of the first day of the month containing date.\nThe default output format will be the DateFormat set in the script."
+    },
+    "MsgBox": {
+        "prefix": "",
+        "body": [
+            "MsgBox"
+        ],
+        "description": ""
+    },
+    "NetWorkDays": {
+        "prefix": "networkdays (startdate, enddate [, holiday])",
+        "body": [
+            "NetWorkDays"
+        ],
+        "description": "The networkdays function returns the number of working days (Monday-Friday) between and including start_date and end_date taking\ninto account any optionally listed holiday."
+    },
+    "NoOfFields": {
+        "prefix": "NoOfFields(tablename)",
+        "body": [
+            "NoOfFields"
+        ],
+        "description": "The NoOfFields script function returns the number of fields in a previously loaded table. If the function is used within a LOAD \nstatement, it must not reference the table currently being loaded."
+    },
+    "NoOfRows": {
+        "prefix": "NoOfRows([TOTAL])",
+        "body": [
+            "NoOfRows"
+        ],
+        "description": "NoOfRows() returns the number of rows in the current column segment in a table. For bitmap charts, NoOfRows() returns the number\nof rows in the chart's straight table equivalent."
+    },
+    "NoOfTables": {
+        "prefix": "",
+        "body": [
+            "NoOfTables"
+        ],
+        "description": ""
+    },
+    "NORMDIST": {
+        "prefix": "NORMDIST(value, mean, standarddev)",
+        "body": [
+            "NORMDIST"
+        ],
+        "description": "NORMDIST() returns the cumulative normal distribution for the specified mean and standard deviation. If mean = 0 and standard_dev\n= 1, the function returns the standard normal distribution."
+    },
+    "NORMINV": {
+        "prefix": "NORMINV(prob, mean, standarddev)",
+        "body": [
+            "NORMINV"
+        ],
+        "description": "NORMINV() returns the inverse of the normal cumulative distribution for the specified mean and standard deviation."
+    },
+    "Now": {
+        "prefix": "now([ timermode])",
+        "body": [
+            "Now"
+        ],
+        "description": "This function returns a timestamp of the current time from the system clock. The default value is 1."
+    },
+    "nPer": {
+        "prefix": "nPer(rate, pmt, pv [ ,fv [ , type ] ])",
+        "body": [
+            "nPer"
+        ],
+        "description": "This function returns the number of periods for an investment based on periodic, constant payments and a constant interest rate."
+    },
+    "NPV": {
+        "prefix": "NPV(discountrate, value)",
+        "body": [
+            "NPV"
+        ],
+        "description": "NPV() returns the aggregated net present value of an investment based on a constant discount_rate per period and a series of\nfuture payments (negative values) and incomes (positive values), represented by the numbers in value, iterated over a number of\nrecords, as defined by a group by clause. The payments and incomes are assumed to occur at the end of each period."
+    },
+    "Null": {
+        "prefix": "",
+        "body": [
+            "Null"
+        ],
+        "description": ""
+    },
+    "NullCount": {
+        "prefix": "NullCount ( [ distinct ] expr)",
+        "body": [
+            "NullCount"
+        ],
+        "description": "NullCount() returns the number of NULL values aggregated in the expression, as defined by a group by clause."
+    },
+    "Num": {
+        "prefix": "",
+        "body": [
+            "Num"
+        ],
+        "description": ""
+    },
+    "Num#": {
+        "prefix": "Num#(text[, format[, decsep [, thousep ] ] ])",
+        "body": [
+            "Num#"
+        ],
+        "description": "Num#() converts a text string to a numerical value, in the number format set in the load script or the operating system, unless a\nformat string is supplied. Custom decimal and thousand separator symbols are optional parameters."
+    },
+    "NumAvg": {
+        "prefix": "NumAvg(expr1 [ , expr2, ... exprN ])",
+        "body": [
+            "NumAvg"
+        ],
+        "description": "Returns the numeric average of 1 to N arguments. If no numeric value is found, NULL is returned."
+    },
+    "NumCount": {
+        "prefix": "NumCount(expr1 [ , expr2, ... exprN ])",
+        "body": [
+            "NumCount"
+        ],
+        "description": "Returns the number of numeric values found in 1 to N arguments."
+    },
+    "NumericCount": {
+        "prefix": "NumericCount ( [ distinct ] expr)",
+        "body": [
+            "NumericCount"
+        ],
+        "description": "NumericCount() returns the number of numeric values found in the expression, as defined by a group by clause."
+    },
+    "NumMax": {
+        "prefix": "NumMax(expr1 [ , expr2, ... exprN ])",
+        "body": [
+            "NumMax"
+        ],
+        "description": "Returns the highest numeric value of 1 to N arguments. If no numeric value is found, NULL is returned."
+    },
+    "NumMin": {
+        "prefix": "NumMin(expr1 [ , expr2, ... exprN ])",
+        "body": [
+            "NumMin"
+        ],
+        "description": "Returns the lowest numeric value of 1 to N arguments. If no numeric value is found, NULL is returned."
+    },
+    "NumSum": {
+        "prefix": "NumSum(expr1 [ , expr2, ... exprN ])",
+        "body": [
+            "NumSum"
+        ],
+        "description": "Returns the numeric sum of 1 to N arguments. As opposed to the + operator, numsum will treat all non-numeric values as 0."
+    },
+    "Odd": {
+        "prefix": "Odd(integernumber)",
+        "body": [
+            "Odd"
+        ],
+        "description": "Odd() returns True (-1), if integer_number is an odd integer or zero. It returns False (0), if integer_number is an even integer,\nand NULL if integer_number is not an integer."
+    },
+    "Only": {
+        "prefix": "Only([{SetExpression}] [TOTAL [<fld {,fld}>]] expr)",
+        "body": [
+            "Only"
+        ],
+        "description": "Only() returns a value if there is one and only one possible result from the aggregated data. For example, searching for the only\nproduct where the unit price =9 will return NULL if more than one product has a unit price of 9."
+    },
+    "Ord": {
+        "prefix": "Ord(char)",
+        "body": [
+            "Ord"
+        ],
+        "description": "Ord() returns the Unicode code point number of the first character of the input string."
+    },
+    "OSUser": {
+        "prefix": "",
+        "body": [
+            "OSUser"
+        ],
+        "description": ""
+    },
+    "Peek": {
+        "prefix": "Peek(fieldname[, rowno[, tablename ] ] )",
+        "body": [
+            "Peek"
+        ],
+        "description": "Peek() finds the value of a field in a table for a row that has already been loaded or that exists in internal memory. The row\nnumber can be specified, as can the table."
+    },
+    "Permut": {
+        "prefix": "Permut(p, q)",
+        "body": [
+            "Permut"
+        ],
+        "description": "Permut() returns the number of permutations of q elements that can be selected from a set of p items. As represented by the\nformula: Permut(p,q) = (p)! / (p - q)! The order in which the items are selected is significant."
+    },
+    "Pi": {
+        "prefix": "",
+        "body": [
+            "Pi"
+        ],
+        "description": ""
+    },
+    "Pick": {
+        "prefix": "pick(n, expr1[ , expr2,...exprN])",
+        "body": [
+            "Pick"
+        ],
+        "description": "The pick function returns the n:th expression in the list."
+    },
+    "Pmt": {
+        "prefix": "Pmt(rate, nper, pv [ ,fv [ , type ] ] )",
+        "body": [
+            "Pmt"
+        ],
+        "description": "This function returns the payment for a loan based on periodic, constant payments and a constant interest rate."
+    },
+    "pow": {
+        "prefix": "",
+        "body": [
+            "pow"
+        ],
+        "description": ""
+    },
+    "Previous": {
+        "prefix": "Previous(expr)",
+        "body": [
+            "Previous"
+        ],
+        "description": "Previous() finds the value of the expr expression using data from the previous input record. In the first record of an internal\ntable, the function will return NULL."
+    },
+    "PurgeChar": {
+        "prefix": "PurgeChar(text, removechars)",
+        "body": [
+            "PurgeChar"
+        ],
+        "description": "PurgeChar() returns a string consisting of the characters contained in the input string ('text'), excluding any that appear in the\nsecond argument ('remove_chars')."
+    },
+    "PV": {
+        "prefix": "PV(rate, nper, pmt [ ,fv [ , type ] ])",
+        "body": [
+            "PV"
+        ],
+        "description": "This function returns the present value of an investment."
+    },
+    "QlikTechBlue": {
+        "prefix": "",
+        "body": [
+            "QlikTechBlue"
+        ],
+        "description": ""
+    },
+    "QlikTechGray": {
+        "prefix": "",
+        "body": [
+            "QlikTechGray"
+        ],
+        "description": ""
+    },
+    "QlikViewVersion": {
+        "prefix": "QlikViewVersion()",
+        "body": [
+            "QlikViewVersion"
+        ],
+        "description": "This function returns the full QlikView version and build number as a string."
+    },
+    "QuarterEnd": {
+        "prefix": "QuarterEnd(date[, periodno[, firstmonthofyear]])",
+        "body": [
+            "QuarterEnd"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the last millisecond of the quarter containing date. The default\noutput format will be the DateFormat set in the script."
+    },
+    "QuarterName": {
+        "prefix": "QuarterName(date[, periodno[, firstmonthofyear]])",
+        "body": [
+            "QuarterName"
+        ],
+        "description": "This function returns a display value showing the months of the quarter (formatted according to the MonthNames script variable)\nand year with an underlying numeric value corresponding to a timestamp of the first millisecond of the first day of the quarter."
+    },
+    "QuarterStart": {
+        "prefix": "QuarterStart(date[, periodno[, firstmonthofyea]])",
+        "body": [
+            "QuarterStart"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the first millisecond of the quarter containing date. The default\noutput format will be the DateFormat set in the script."
+    },
+    "QvdCreateTime": {
+        "prefix": "QvdCreateTime(filename)",
+        "body": [
+            "QvdCreateTime"
+        ],
+        "description": "This script function returns the XML-header time stamp from a QVD file, if any is present, otherwise it returns NULL."
+    },
+    "QvdFieldName": {
+        "prefix": "QvdFieldName(filename , fieldno)",
+        "body": [
+            "QvdFieldName"
+        ],
+        "description": "This script function returns the name of field number fieldno, if it exists in a QVD file (otherwise NULL)."
+    },
+    "QvdNoOfFields": {
+        "prefix": "QvdNoOfFields(filename)",
+        "body": [
+            "QvdNoOfFields"
+        ],
+        "description": "This script function returns the number of fields in a QVD file."
+    },
+    "QvdNoOfRecords": {
+        "prefix": "QvdNoOfRecords(filename)",
+        "body": [
+            "QvdNoOfRecords"
+        ],
+        "description": "This script function returns the number of records currently in a QVD file."
+    },
+    "QvdTableName": {
+        "prefix": "QvdTableName(filename)",
+        "body": [
+            "QvdTableName"
+        ],
+        "description": "This script function returns the name of the table stored in a QVD file."
+    },
+    "QVUser": {
+        "prefix": "",
+        "body": [
+            "QVUser"
+        ],
+        "description": ""
+    },
+    "Rand": {
+        "prefix": "",
+        "body": [
+            "Rand"
+        ],
+        "description": ""
+    },
+    "RangeAvg": {
+        "prefix": "RangeAvg(firstexpr[, Expression])",
+        "body": [
+            "RangeAvg"
+        ],
+        "description": "RangeAvg() returns the average of a range. Input to the function can be either a range of values or an expression."
+    },
+    "RangeCorrel": {
+        "prefix": "RangeCorrel(xvalues , yvalues[, Expression])",
+        "body": [
+            "RangeCorrel"
+        ],
+        "description": "Syntax: \n\nRangeCorrel(x_values , y_values[, Expression]) \n\nReturn data type: numeric"
+    },
+    "RangeCount": {
+        "prefix": "RangeCount(firstexpr[, Expression])",
+        "body": [
+            "RangeCount"
+        ],
+        "description": "RangeCount()returns the number of values, both text and numeric, in the expression or field."
+    },
+    "RangeFractile": {
+        "prefix": "RangeFractile(fractile, firstexpr[, Expression])",
+        "body": [
+            "RangeFractile"
+        ],
+        "description": "RangeFractile() returns the value that corresponds to the n-th fractile (quantile) of a range of numbers."
+    },
+    "RangeIRR": {
+        "prefix": "RangeIRR(value[, value][, Expression])",
+        "body": [
+            "RangeIRR"
+        ],
+        "description": "RangeIRR() returns the internal rate of return for a series of cash flows represented by the input values."
+    },
+    "RangeKurtosis": {
+        "prefix": "RangeKurtosis(firstexpr[, Expression])",
+        "body": [
+            "RangeKurtosis"
+        ],
+        "description": "RangeKurtosis() returns the value that corresponds to the kurtosis of a range of numbers."
+    },
+    "RangeMax": {
+        "prefix": "RangeMax(firstexpr[, Expression])",
+        "body": [
+            "RangeMax"
+        ],
+        "description": "RangeMax() returns the highest numeric value found within the expression or field."
+    },
+    "RangeMaxString": {
+        "prefix": "RangeMaxString(firstexpr[, Expression])",
+        "body": [
+            "RangeMaxString"
+        ],
+        "description": "RangeMaxString() returns the last value in the text sort order that it finds in the expression or field."
+    },
+    "RangeMin": {
+        "prefix": "RangeMin(firstexpr[, Expression])",
+        "body": [
+            "RangeMin"
+        ],
+        "description": "RangeMin()returns the lowest numeric values found within the expression or field."
+    },
+    "RangeMinString": {
+        "prefix": "RangeMinString(firstexpr[, Expression])",
+        "body": [
+            "RangeMinString"
+        ],
+        "description": "RangeMinString() returns the first value in the text sort order that it finds in the expression or field."
+    },
+    "RangeMissingCount": {
+        "prefix": "RangeMissingCount(firstexpr[, Expression])",
+        "body": [
+            "RangeMissingCount"
+        ],
+        "description": "RangeMissingCount() returns the number of non-numeric values (including NULL) in the expression or field."
+    },
+    "RangeMode": {
+        "prefix": "RangeMode(firstexpr {, Expression})",
+        "body": [
+            "RangeMode"
+        ],
+        "description": "RangeMode() finds the most commonly occurring value (mode value) in the expression or field."
+    },
+    "RangeNPV": {
+        "prefix": "RangeNPV(discountrate, value[,value][, Expression])",
+        "body": [
+            "RangeNPV"
+        ],
+        "description": "RangeNPV() returns the net present value of an investment based on a discount rate and a series of future payments (negative\nvalues) and incomes (positive values). The result has a default number format of money."
+    },
+    "RangeNullCount": {
+        "prefix": "RangeNullCount(firstexpr [, Expression])",
+        "body": [
+            "RangeNullCount"
+        ],
+        "description": "RangeNullCount() finds the number of NULLvalues in the expression or field."
+    },
+    "RangeNumericCount": {
+        "prefix": "RangeNumericCount(firstexpr[, Expression])",
+        "body": [
+            "RangeNumericCount"
+        ],
+        "description": "RangeNumericCount() finds the number of numeric values in an expression or field."
+    },
+    "RangeOnly": {
+        "prefix": "RangeOnly(firstexpr[, Expression])",
+        "body": [
+            "RangeOnly"
+        ],
+        "description": "RangeOnly() is a dual function that returns a value if the expression evaluates to one unique value. If this is not the case then \nNULLis returned."
+    },
+    "RangeSkew": {
+        "prefix": "RangeSkew(firstexpr[, Expression])",
+        "body": [
+            "RangeSkew"
+        ],
+        "description": "RangeSkew() returns the value corresponding to the skewness of a range of numbers."
+    },
+    "RangeStdev": {
+        "prefix": "RangeStdev(firstexpr[, Expression])",
+        "body": [
+            "RangeStdev"
+        ],
+        "description": "RangeStdev() finds the standard deviation of a range of numbers."
+    },
+    "RangeSum": {
+        "prefix": "RangeSum(firstexpr[, Expression])",
+        "body": [
+            "RangeSum"
+        ],
+        "description": "RangeSum() returns the sum of a range of values.All non-numeric values are treated as 0, unlike the + operator."
+    },
+    "RangeTextCount": {
+        "prefix": "RangeTextCount(firstexpr[, Expression])",
+        "body": [
+            "RangeTextCount"
+        ],
+        "description": "RangeTextCount() returns the number of text values in an expression or field."
+    },
+    "RangeXIRR": {
+        "prefix": "RangeXIRR(values, dates[, Expression])",
+        "body": [
+            "RangeXIRR"
+        ],
+        "description": "RangeXIRR() returns the internal rate of return for a schedule of cash flows that is not necessarily periodic. To calculate the\ninternal rate of return for a series of periodic cash flows, use the RangeIRR function."
+    },
+    "RangeXNPV": {
+        "prefix": "RangeXNPV(discountrate, values, dates[, Expression])",
+        "body": [
+            "RangeXNPV"
+        ],
+        "description": "RangeXNPV() returns the net present value for a schedule of cash flows that is not necessarily periodic. The result has a default\nnumber format of money. To calculate the net present value for a series of periodic cash flows, use the RangeNPV function."
+    },
+    "Rate": {
+        "prefix": "Rate(nper, pmt , pv [ ,fv [ , type ] ])",
+        "body": [
+            "Rate"
+        ],
+        "description": "This function returns the interest rate per period on annuity. The result has a default number format of Fix two decimals and %."
+    },
+    "RecNo": {
+        "prefix": "RecNo( )",
+        "body": [
+            "RecNo"
+        ],
+        "description": "This script functions returns an integer for the number of the currently read row of the current table. The first record is number\n1."
+    },
+    "ReloadTime": {
+        "prefix": "",
+        "body": [
+            "ReloadTime"
+        ],
+        "description": ""
+    },
+    "Repeat": {
+        "prefix": "Repeat(text[, repeatcount])",
+        "body": [
+            "Repeat"
+        ],
+        "description": "Repeat() forms a string consisting of the input string repeated the number of times defined by the second argument."
+    },
+    "Replace": {
+        "prefix": "Replace [only](loadstatement |selectstatement |map...usingstatement)",
+        "body": [
+            "Replace"
+        ],
+        "description": "The replace prefix is used to drop the entire QlikView table and replace it with a new table that is loaded or selected."
+    },
+    "RGB": {
+        "prefix": "RGB (r, g, b)",
+        "body": [
+            "RGB"
+        ],
+        "description": "RGB() is used in expressions to set or evaluate the color properties of a chart object, where the color is defined by a red\ncomponent r, a green component g, and a blue component bwith values between 0 and 255."
+    },
+    "Right": {
+        "prefix": "Right (Join | Keep) [(tablename)](loadstatement |selectstatement )",
+        "body": [
+            "Right"
+        ],
+        "description": "The Join and Keep prefixes can be preceded by the prefix right."
+    },
+    "Round": {
+        "prefix": "Round(x[, step[, offset]])",
+        "body": [
+            "Round"
+        ],
+        "description": "Round() returns the result of rounding x up or down to the nearest multiple of step [+ offset]. The default value of offset is 0.\nThe default value of step is 1."
+    },
+    "RowNo": {
+        "prefix": "RowNo([TOTAL])",
+        "body": [
+            "RowNo"
+        ],
+        "description": "RowNo() returns the number of the current row within the current column segment in a table. For bitmap charts, RowNo()returns the\nnumber of the current row within the chart's straight table equivalent."
+    },
+    "RTrim": {
+        "prefix": "RTrim(text)",
+        "body": [
+            "RTrim"
+        ],
+        "description": "RTrim() returns the input string trimmed of any trailing spaces."
+    },
+    "Second": {
+        "prefix": "second (expression)",
+        "body": [
+            "Second"
+        ],
+        "description": "This function returns an integer representing the second when the fraction of the expression is interpreted as a time according to\nthe standard number interpretation."
+    },
+    "SetDateYear": {
+        "prefix": "setdateyear (timestamp, year)",
+        "body": [
+            "SetDateYear"
+        ],
+        "description": "This function takes as input a timestamp and a year and updates the timestamp with the year specified in input."
+    },
+    "SetDateYearMonth": {
+        "prefix": "SetDateYearMonth (timestamp, year, month)",
+        "body": [
+            "SetDateYearMonth"
+        ],
+        "description": "This function takes as input a timestamp, a month and a year and updates the timestamp with the year and the month specified in\ninput.."
+    },
+    "Sign": {
+        "prefix": "",
+        "body": [
+            "Sign"
+        ],
+        "description": ""
+    },
+    "sin": {
+        "prefix": "",
+        "body": [
+            "sin"
+        ],
+        "description": ""
+    },
+    "sinh": {
+        "prefix": "",
+        "body": [
+            "sinh"
+        ],
+        "description": ""
+    },
+    "Skew": {
+        "prefix": "",
+        "body": [
+            "Skew"
+        ],
+        "description": "Skew() returns the skewness of expression over a number of records as defined by a group by clause."
+    },
+    "sqr": {
+        "prefix": "",
+        "body": [
+            "sqr"
+        ],
+        "description": ""
+    },
+    "sqrt": {
+        "prefix": "",
+        "body": [
+            "sqrt"
+        ],
+        "description": ""
+    },
+    "Stdev": {
+        "prefix": "Stdev([{SetExpression}] [DISTINCT] [TOTAL [<fld{, fld}>]] expr)",
+        "body": [
+            "Stdev"
+        ],
+        "description": "Syntax: \n\nStdev([{SetExpression}] [DISTINCT] [TOTAL [<fld{, fld}>]] expr) \n\nReturn data type: numeric\n\nArguments: \n\nArgument Description expr The expression or field containing the data to be measured. SetExpression By default, the aggregation\nfunction will aggregate over the set of possible records defined by the selection. An alternative set of records can be defined by\na set analysis expression. DISTINCT If the word DISTINCT occurs before the function arguments, duplicates resulting from the\nevaluation of the function arguments are disregarded. TOTAL If the word TOTAL occurs before the function arguments, the calculation is made over all possible values given the current\nselections, and not just those that pertain to the current dimensional value, that is, it disregards the chart dimensions."
+    },
+    "Sterr": {
+        "prefix": "",
+        "body": [
+            "Sterr"
+        ],
+        "description": "Sterr() returns the aggregated standard error (stdev/sqrt(n)) for a series of values represented by the expression iterated over a\nnumber of records as defined by a group by clause."
+    },
+    "STEYX": {
+        "prefix": "",
+        "body": [
+            "STEYX"
+        ],
+        "description": "STEYX() returns the aggregated standard error of the predicted y-value for each x-value in the regression for a series of\ncoordinates represented by paired numbers in x-expression and y-expression iterated over a number of records as defined by a group\nby clause."
+    },
+    "SubField": {
+        "prefix": "SubField(text, delimiter[, fieldno ])",
+        "body": [
+            "SubField"
+        ],
+        "description": "Subfield() is used to extract substring components from a parent string field, where the original record fields consist of two or\nmore parts separated by a delimiter."
+    },
+    "SubStringCount": {
+        "prefix": "SubStringCount(text, substring)",
+        "body": [
+            "SubStringCount"
+        ],
+        "description": "SubstringCount() returns the number of occurrences of the specified substring in the input string text. If there is no match, 0 is\nreturned."
+    },
+    "sum": {
+        "prefix": "sum ( [ distinct] expr)",
+        "body": [
+            "sum"
+        ],
+        "description": "Sum() calculates the total of the values aggregated in the expression, as defined by a group by clause."
+    },
+    "SysColor": {
+        "prefix": "",
+        "body": [
+            "SysColor"
+        ],
+        "description": ""
+    },
+    "TableName": {
+        "prefix": "",
+        "body": [
+            "TableName"
+        ],
+        "description": ""
+    },
+    "TableNumber": {
+        "prefix": "",
+        "body": [
+            "TableNumber"
+        ],
+        "description": ""
+    },
+    "tan": {
+        "prefix": "",
+        "body": [
+            "tan"
+        ],
+        "description": ""
+    },
+    "tanh": {
+        "prefix": "",
+        "body": [
+            "tanh"
+        ],
+        "description": ""
+    },
+    "TDIST": {
+        "prefix": "TDIST(value, degreesfreedom, tails)",
+        "body": [
+            "TDIST"
+        ],
+        "description": "TDIST() returns the probability for the Student's t-distribution where a numeric value is a calculated value of t for which the\nprobability is to be computed."
+    },
+    "Text": {
+        "prefix": "",
+        "body": [
+            "Text"
+        ],
+        "description": ""
+    },
+    "TextBetween": {
+        "prefix": "TextBetween(text, delimiter1, delimiter2[, n])",
+        "body": [
+            "TextBetween"
+        ],
+        "description": "TextBetween() returns the text in the input string that occurs between the characters specified as delimiters."
+    },
+    "TextCount": {
+        "prefix": "TextCount ( [ distinct ] expr)",
+        "body": [
+            "TextCount"
+        ],
+        "description": "TextCount() returns the number of field values that are non-numeric aggregated in the expression, as defined by a group by clause."
+    },
+    "Time": {
+        "prefix": "",
+        "body": [
+            "Time"
+        ],
+        "description": ""
+    },
+    "Time#": {
+        "prefix": "",
+        "body": [
+            "Time#"
+        ],
+        "description": ""
+    },
+    "Timestamp": {
+        "prefix": "",
+        "body": [
+            "Timestamp"
+        ],
+        "description": ""
+    },
+    "Timestamp#": {
+        "prefix": "timestamp#(text[, format])",
+        "body": [
+            "Timestamp#"
+        ],
+        "description": "Timestamp#() evaluates an expression as a date and time value, in the timestamp format set in the load script or the operating\nsystem, unless a format string is supplied."
+    },
+    "TimeZone": {
+        "prefix": "TimeZone( )",
+        "body": [
+            "TimeZone"
+        ],
+        "description": "This function returns the name of the current time zone, as defined in Windows, not taking into account the daylight savings\nadjustment."
+    },
+    "TINV": {
+        "prefix": "TINV(prob, degreesfreedom)",
+        "body": [
+            "TINV"
+        ],
+        "description": "TINV() returns the t-value of the Student's t-distribution as a function of the probability and the degrees of freedom."
+    },
+    "Today": {
+        "prefix": "today([ timermode])",
+        "body": [
+            "Today"
+        ],
+        "description": "This function returns the current date from the system clock."
+    },
+    "Trim": {
+        "prefix": "Trim(text)",
+        "body": [
+            "Trim"
+        ],
+        "description": "Trim() returns the input string trimmed of any leading and trailing spaces."
+    },
+    "TRUE": {
+        "prefix": "",
+        "body": [
+            "TRUE"
+        ],
+        "description": ""
+    },
+    "TTest1_conf": {
+        "prefix": "TTest1conf (value [, sig ])",
+        "body": [
+            "TTest1_conf"
+        ],
+        "description": "TTest1_conf() returns the aggregated confidence interval value for a series of values."
+    },
+    "TTest1_df": {
+        "prefix": "TTest1df (value)",
+        "body": [
+            "TTest1_df"
+        ],
+        "description": "TTest1_df() returns the aggregated student's t-test df value (degrees of freedom) for a series of values."
+    },
+    "TTest1_dif": {
+        "prefix": "TTest1dif (value)",
+        "body": [
+            "TTest1_dif"
+        ],
+        "description": "TTest1_dif() returns the aggregated student's t-test mean difference for a series of values."
+    },
+    "TTest1_lower": {
+        "prefix": "TTest1lower (value [, sig])",
+        "body": [
+            "TTest1_lower"
+        ],
+        "description": "TTest1_lower() returns the aggregated value for the lower end of the confidence interval for a series of values."
+    },
+    "TTest1_sig": {
+        "prefix": "TTest1sig (value)",
+        "body": [
+            "TTest1_sig"
+        ],
+        "description": "TTest1_sig() returns the aggregated student's t-test 2-tailed level of significance for a series of values."
+    },
+    "TTest1_sterr": {
+        "prefix": "TTest1sterr (value)",
+        "body": [
+            "TTest1_sterr"
+        ],
+        "description": "TTest1_sterr() returns the aggregated student's t-test standard error of the mean difference for a series of values."
+    },
+    "TTest1_t": {
+        "prefix": "TTest1t (value)",
+        "body": [
+            "TTest1_t"
+        ],
+        "description": "TTest1_t() returns the aggregated t value for a series of values."
+    },
+    "TTest1_upper": {
+        "prefix": "TTest1upper (value [, sig])",
+        "body": [
+            "TTest1_upper"
+        ],
+        "description": "TTest1_upper() returns the aggregated value for the upper end of the confidence interval for a series of values."
+    },
+    "TTest1w_conf": {
+        "prefix": "TTest1wconf (weight, value [, sig ])",
+        "body": [
+            "TTest1w_conf"
+        ],
+        "description": "TTest1w_conf() is a numeric function that returns the aggregated confidence interval value for a series of values."
+    },
+    "TTest1w_df": {
+        "prefix": "TTest1wdf (weight, value)",
+        "body": [
+            "TTest1w_df"
+        ],
+        "description": "TTest1w_df() returns the aggregated student's t-test df value (degrees of freedom) for a series of values."
+    },
+    "TTest1w_dif": {
+        "prefix": "TTest1wdif (weight, value)",
+        "body": [
+            "TTest1w_dif"
+        ],
+        "description": "TTest1w_dif() returns the aggregated student's t-test mean difference for a series of values."
+    },
+    "TTest1w_lower": {
+        "prefix": "TTest1wlower (weight, value [, sig ])",
+        "body": [
+            "TTest1w_lower"
+        ],
+        "description": "TTest1w_lower() returns the aggregated value for the lower end of the confidence interval for a series of values."
+    },
+    "TTest1w_sig": {
+        "prefix": "TTest1wsig (weight, value)",
+        "body": [
+            "TTest1w_sig"
+        ],
+        "description": "TTest1w_sig() returns the aggregated student's t-test 2-tailed level of significance for a series of values."
+    },
+    "TTest1w_sterr": {
+        "prefix": "TTest1wsterr (weight, value)",
+        "body": [
+            "TTest1w_sterr"
+        ],
+        "description": "TTest1w_sterr() returns the aggregated student's t-test standard error of the mean difference for a series of values."
+    },
+    "TTest1w_t": {
+        "prefix": "TTest1wt ( weight, value)",
+        "body": [
+            "TTest1w_t"
+        ],
+        "description": "TTest1w_t() returns the aggregated t value for a series of values."
+    },
+    "TTest1w_upper": {
+        "prefix": "TTest1wupper (weight, value [, sig])",
+        "body": [
+            "TTest1w_upper"
+        ],
+        "description": "TTest1w_upper() returns the aggregated value for the upper end of the confidence interval for a series of values."
+    },
+    "TTest_conf": {
+        "prefix": "TTestconf ( grp, value [, sig [, eqvar]])",
+        "body": [
+            "TTest_conf"
+        ],
+        "description": "TTest_conf returns the aggregated t-test confidence interval value for two independent samples."
+    },
+    "TTest_df": {
+        "prefix": "TTestdf (grp, value [, eqvar])",
+        "body": [
+            "TTest_df"
+        ],
+        "description": "TTest_df() returns the aggregated student's t-test value (degrees of freedom) for two independent series of values."
+    },
+    "TTest_dif": {
+        "prefix": "TTestdif (grp, value [, eqvar] )",
+        "body": [
+            "TTest_dif"
+        ],
+        "description": "TTest_dif() is a numeric function that returns the aggregated student's t-test mean difference for two independent series of\nvalues."
+    },
+    "TTest_lower": {
+        "prefix": "TTestlower (grp, value [, sig [, eqvar]])",
+        "body": [
+            "TTest_lower"
+        ],
+        "description": "TTest_lower() returns the aggregated value for the lower end of the confidence interval for two independent series of values."
+    },
+    "TTest_sig": {
+        "prefix": "TTestsig (grp, value [, eqvar])",
+        "body": [
+            "TTest_sig"
+        ],
+        "description": "TTest_sig() returns the aggregated student's t-test 2-tailed level of significance for two independent series of values."
+    },
+    "TTest_sterr": {
+        "prefix": "TTeststerr (grp, value [, eqvar])",
+        "body": [
+            "TTest_sterr"
+        ],
+        "description": "TTest_sterr() returns the aggregated student's t-test standard error of the mean difference for two independent series of values."
+    },
+    "TTest_t": {
+        "prefix": "TTestt(grp, value[, eqvar])",
+        "body": [
+            "TTest_t"
+        ],
+        "description": "TTest_t() returns the aggregated t value for two independent series of values."
+    },
+    "TTest_upper": {
+        "prefix": "TTestupper (grp, value [, sig [, eqvar]])",
+        "body": [
+            "TTest_upper"
+        ],
+        "description": "TTest_upper() returns the aggregated value for the upper end of the confidence interval for two independent series of values."
+    },
+    "TTestw_conf": {
+        "prefix": "TTestwconf (weight, grp, value [, sig [, eqvar]])",
+        "body": [
+            "TTestw_conf"
+        ],
+        "description": "TTestw_conf() returns the aggregated t value for two independent series of values."
+    },
+    "TTestw_df": {
+        "prefix": "TTestwdf (weight, grp, value [, eqvar])",
+        "body": [
+            "TTestw_df"
+        ],
+        "description": "TTestw_df() returns the aggregated student's t-test df value (degrees of freedom) for two independent series of values."
+    },
+    "TTestw_dif": {
+        "prefix": "TTestwdif (weight, group, value)",
+        "body": [
+            "TTestw_dif"
+        ],
+        "description": "TTestw_dif() returns the aggregated student's t-test mean difference for two independent series of values."
+    },
+    "TTestw_lower": {
+        "prefix": "TTestwlower (weight, grp, value [, sig [, eqvar]])",
+        "body": [
+            "TTestw_lower"
+        ],
+        "description": "TTestw_lower() returns the aggregated value for the lower end of the confidence interval for two independent series of values."
+    },
+    "TTestw_sig": {
+        "prefix": "TTestwsig ( weight, grp, value [, eqvar])",
+        "body": [
+            "TTestw_sig"
+        ],
+        "description": "TTestw_sig() returns the aggregated student's t-test 2-tailed level of significance for two independent series of values."
+    },
+    "TTestw_sterr": {
+        "prefix": "TTestwsterr (weight, grp, value [, eqvar])",
+        "body": [
+            "TTestw_sterr"
+        ],
+        "description": "TTestw_sterr() returns the aggregated student's t-test standard error of the mean difference for two independent series of\nvalues."
+    },
+    "TTestw_t": {
+        "prefix": "ttestwt (weight, grp, value [, eqvar])",
+        "body": [
+            "TTestw_t"
+        ],
+        "description": "TTestw_t() returns the aggregated t value for two independent series of values."
+    },
+    "TTestw_upper": {
+        "prefix": "TTestwupper (weight, grp, value [, sig [, eqvar]])",
+        "body": [
+            "TTestw_upper"
+        ],
+        "description": "TTestw_upper() returns the aggregated value for the upper end of the confidence interval for two independent series of values."
+    },
+    "Upper": {
+        "prefix": "Upper(text)",
+        "body": [
+            "Upper"
+        ],
+        "description": "Upper() converts all the characters in the input string to upper case for all text characters in the expression. Numbers and\nsymbols are ignored."
+    },
+    "UTC": {
+        "prefix": "UTC( )",
+        "body": [
+            "UTC"
+        ],
+        "description": "Returns the date and current Coordinated Universal Time."
+    },
+    "WeekDay": {
+        "prefix": "weekday(date [,firstweekday=0])",
+        "body": [
+            "WeekDay"
+        ],
+        "description": "This function returns a dual value with:"
+    },
+    "WeekEnd": {
+        "prefix": "WeekEnd(date [, periodno = 0 [, firstweekday=0]])",
+        "body": [
+            "WeekEnd"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the last millisecond of the last day (Sunday) of the calendar week\ncontaining date The default output format will be the DateFormat set in the script."
+    },
+    "WeekName": {
+        "prefix": "WeekName(date [, periodno = 0 [, firstweekday=0]])",
+        "body": [
+            "WeekName"
+        ],
+        "description": "This function returns a value showing the year and week number with an underlying numeric value corresponding to a timestamp of\nthe first millisecond of the first day of the week containing date."
+    },
+    "WeekStart": {
+        "prefix": "WeekStart(date [, periodno = 0 [, firstweekday=0]])",
+        "body": [
+            "WeekStart"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the first millisecond of the first day (Monday) of the calendar week\ncontaining date. The default output format is the DateFormat set in the script."
+    },
+    "WeekYear": {
+        "prefix": "weekyear(expression)",
+        "body": [
+            "WeekYear"
+        ],
+        "description": "This function returns the year to which the week number belongs according to ISO 8601. The week number ranges between 1 and\napproximately 52."
+    },
+    "WildMatch": {
+        "prefix": "wildmatch( str, expr1 [ , expr2,...exprN ])",
+        "body": [
+            "WildMatch"
+        ],
+        "description": "The wildmatch function compares the first parameter with all the following ones and returns the number of expression that matches.\nIt permits the use of wildcard characters ( * and ?) in the comparison strings. The comparison is case insensitive."
+    },
+    "WildMatch5": {
+        "prefix": "",
+        "body": [
+            "WildMatch5"
+        ],
+        "description": ""
+    },
+    "XIRR": {
+        "prefix": "XIRR([TOTAL [<fld {,fld}>]] pmt, date)",
+        "body": [
+            "XIRR"
+        ],
+        "description": "Syntax: \n\nXIRR([TOTAL [<fld {,fld}>]] pmt, date) \n\nReturn data type: numeric\n\nArguments: \n\nArgument Description pmt"
+    },
+    "XNPV": {
+        "prefix": "XNPV(discountrate, pmt, date)",
+        "body": [
+            "XNPV"
+        ],
+        "description": "XNPV() returns the aggregated net present value for a schedule of cashflows (not necessarily periodic) represented by paired\nnumbers in pmt and date, iterated over a number of records as defined by a group by clause. Rate is the interest rate per period.\nAll payments are discounted based on a 365-day year."
+    },
+    "Year": {
+        "prefix": "year(expression)",
+        "body": [
+            "Year"
+        ],
+        "description": "This function returns an integer representing the year when the expression is interpreted as a date according to the standard\nnumber interpretation."
+    },
+    "Year2Date": {
+        "prefix": "",
+        "body": [
+            "Year2Date"
+        ],
+        "description": ""
+    },
+    "YearEnd": {
+        "prefix": "YearEnd( date[, periodno[, firstmonthofyear = 1]])",
+        "body": [
+            "YearEnd"
+        ],
+        "description": "This function returns a value corresponding to a timestamp of the last millisecond of the last day of the year containing date.\nThe default output format will be the DateFormat set in the script."
+    },
+    "YearName": {
+        "prefix": "YearName(date[, periodno[, firstmonthofyear]] )",
+        "body": [
+            "YearName"
+        ],
+        "description": "This function returns a four-digit year as display value with an underlying numeric value corresponding to a timestamp of the\nfirst millisecond of the first day of the year containing date."
+    },
+    "YearStart": {
+        "prefix": "YearStart(date[, periodno[, firstmonthofyear]])",
+        "body": [
+            "YearStart"
+        ],
+        "description": "This function returns a timestamp corresponding to the start of the first day of the year containing date. The default output\nformat will be the DateFormat set in the script."
+    },
+    "YearToDate": {
+        "prefix": "YearToDate(timestamp [ , yearoffset [ , firstmonth [ , todaydate] ] ])",
+        "body": [
+            "YearToDate"
+        ],
+        "description": "This function finds if the input date falls within the year of the date the script was last loaded, and returns True if it does, \nFalse if it does not."
+    },
+    "ZTest_conf": {
+        "prefix": "ZTestconf (value [, sigma [, sig = 0.025 ])",
+        "body": [
+            "ZTest_conf"
+        ],
+        "description": "This script function returns the aggregated z value for a series of values iterated over a number of records as defined by a group\nby clause."
+    },
+    "ZTest_dif": {
+        "prefix": "ZTestdif (value [, sigma])",
+        "body": [
+            "ZTest_dif"
+        ],
+        "description": "This script function returns the aggregated z-test mean difference for a series of values iterated over a number of records as\ndefined by a group by clause."
+    },
+    "ZTest_lower": {
+        "prefix": "ZTestlower (grp, value [, sig [, eqvar]])",
+        "body": [
+            "ZTest_lower"
+        ],
+        "description": "ZTest_lower() returns the aggregated value for the lower end of the confidence interval for two independent series of values."
+    },
+    "ZTest_sig": {
+        "prefix": "ZTestsig (value [, sigma])",
+        "body": [
+            "ZTest_sig"
+        ],
+        "description": "This script function returns the aggregated z-test 2-tailed level of significance for a series of values iterated over a number of\nrecords as defined by a group by clause."
+    },
+    "ZTest_sterr": {
+        "prefix": "ZTeststerr (value [, sigma])",
+        "body": [
+            "ZTest_sterr"
+        ],
+        "description": "This script function returns the aggregated z-test standard error of the mean difference for a series of values iterated over a\nnumber of records as defined by a group by clause."
+    },
+    "ZTest_upper": {
+        "prefix": "ZTestupper (grp, value [, sig [, eqvar]])",
+        "body": [
+            "ZTest_upper"
+        ],
+        "description": "ZTest_upper() returns the aggregated value for the upper end of the confidence interval for two independent series of values."
+    },
+    "ZTest_z": {
+        "prefix": "ZTestz (value [, sigma])",
+        "body": [
+            "ZTest_z"
+        ],
+        "description": "This script function returns the aggregated z value for a series of values iterated over a number of records as defined by a group\nby clause."
+    },
+    "ZTestw_conf": {
+        "prefix": "ZTestwconf (weight, value [, sigma [, sig = 0.025 ]])",
+        "body": [
+            "ZTestw_conf"
+        ],
+        "description": "This script function returns the aggregated z value for a series of values iterated over a number of records as defined by a group\nby clause."
+    },
+    "ZTestw_dif": {
+        "prefix": "ZTestwdif (weight, value [, sigma])",
+        "body": [
+            "ZTestw_dif"
+        ],
+        "description": "This script function returns the aggregated z-test mean difference for a series of values iterated over a number of records as\ndefined by a group by clause."
+    },
+    "ZTestw_lower": {
+        "prefix": "ZTestwlower (grp, value [, sig [, eqvar]])",
+        "body": [
+            "ZTestw_lower"
+        ],
+        "description": "ZTestw_lower() returns the aggregated value for the lower end of the confidence interval for two independent series of values."
+    },
+    "ZTestw_sig": {
+        "prefix": "ZTestwsig (weight, value [, sigma])",
+        "body": [
+            "ZTestw_sig"
+        ],
+        "description": "This script function returns the aggregated z-test 2-tailed level of significance for a series of values iterated over a number of\nrecords as defined by a group by clause."
+    },
+    "ZTestw_sterr": {
+        "prefix": "ZTestwsterr (weight, value [, sigma])",
+        "body": [
+            "ZTestw_sterr"
+        ],
+        "description": "This script function returns the aggregated z-test standard error of the mean difference for a series of values iterated over a\nnumber of records as defined by a group by clause."
+    },
+    "ZTestw_upper": {
+        "prefix": "ZTestwupper (grp, value [, sig [, eqvar]])",
+        "body": [
+            "ZTestw_upper"
+        ],
+        "description": "ZTestw_upper() returns the aggregated value for the upper end of the confidence interval for two independent series of values."
+    },
+    "ZTestw_z": {
+        "prefix": "ZTestwz (weight, value [, sigma])",
+        "body": [
+            "ZTestw_z"
+        ],
+        "description": "This script function returns the aggregated z value for a series of values iterated over a number of records as defined by a group\nby clause."
+    },
+    "HidePrefix": {
+        "prefix": "HidePrefix",
+        "body": [
+            "HidePrefix"
+        ],
+        "description": "All field names beginning with this text string will be hidden in the same manner as the system fields. This is a user-defined\nvariable."
+    },
+    "HideSuffix": {
+        "prefix": "HideSuffix",
+        "body": [
+            "HideSuffix"
+        ],
+        "description": "All field names ending with this text string will be hidden in the same manner as the system fields. This is a user-defined\nvariable."
     }
-
-
 }
