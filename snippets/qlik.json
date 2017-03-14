@@ -387,7 +387,7 @@
     "Unqualify": {
         "prefix": "Unqualify *fieldlist",
         "body": [
-            "Unqualify"
+            "Unqualify "
         ],
         "description": "The Unqualify statement is used for switching off the qualification of field names that has been previously switched on by the \nQualify statement."
     },
@@ -415,7 +415,7 @@
     "set": {
         "prefix": "Set variablename=string",
         "body": [
-            "set"
+            "set ${1:VariableName} = ${2:Variablecontent};"
         ],
         "description": "The set statement is used for defining script variables. These can be used for substituting strings, paths, drives, and so on."
     },
@@ -429,35 +429,35 @@
     "autogenerate": {
         "prefix": "",
         "body": [
-            "autogenerate"
+            "autogenerate(${1:Counts})"
         ],
         "description": ""
     },
     "acos": {
-        "prefix": "",
+        "prefix": "acos( x )",
         "body": [
             "acos"
         ],
-        "description": ""
+        "description": "Inverse cosine of x. The function is only defined if -1≤x≤1. The result is a number between 0 and p."
     },
     "addmonths": {
         "prefix": "AddMonths(startdate, n , [ , mode])",
         "body": [
-            "addmonths"
+            "addmonths( ${1:DateField}, ${2:MonthsToAdd} )"
         ],
         "description": "This function returns the date occurring n months after startdate or, if n is negative, the date occurring n months before \nstartdate."
     },
     "addyears": {
         "prefix": "AddYears(startdate, n)",
         "body": [
-            "addyears"
+            "addyears( ${1:DateField}, ${2:YearToAdd} )"
         ],
         "description": "This function returns the date occurring n years after startdate or, if n is negative, the date occurring n years before startdate\n."
     },
     "age": {
         "prefix": "age(timestamp, dateofbirth)",
         "body": [
-            "age"
+            "age(${1:DateField}, ${2:DateOfBirth})"
         ],
         "description": "The age function returns the age at the time of timestamp (in completed years) of somebody born on date_of_birth."
     },
@@ -478,37 +478,37 @@
     "applymap": {
         "prefix": "ApplyMap('mapname', expression [ , defaultmapping ] )",
         "body": [
-            "applymap"
+            "applymap('${1:MappingTable}', ${2:Field})"
         ],
         "description": "The ApplyMap script function is used for mapping the output of an expression to a previously loaded mapping table."
     },
     "argb": {
         "prefix": "ARGB(alpha, r, g, b)",
         "body": [
-            "argb"
+            "argb(${1:alpha}, ${2:R}, ${3:G}, ${4:G})"
         ],
         "description": "ARGB() is used in expressions to set or evaluate the color properties of a chart object, where the color is defined by a red\ncomponent r, a green component g, and a blue component b, with an alpha factor (opacity) of alpha."
     },
     "asin": {
-        "prefix": "",
+        "prefix": "asin( x )",
         "body": [
             "asin"
         ],
-        "description": ""
+        "description": "Inverse sine of x. The function is only defined if -1≤x≤1. The result is a number between - p/2 and p/2."
     },
     "atan": {
-        "prefix": "",
+        "prefix": "atan( x )",
         "body": [
             "atan"
         ],
-        "description": ""
+        "description": "Inverse tangent of x. The result is a number between - p/2 and p/2."
     },
     "atan2": {
-        "prefix": "",
+        "prefix": "atan2( y,x )",
         "body": [
             "atan2"
         ],
-        "description": ""
+        "description": "Two-dimensional generalization of the inverse tangent function. Returns the angle between the origin and the point represented by the coordinates x and y. The result is a number between - p and + p."
     },
     "attribute": {
         "prefix": "Attribute(filename, attributename)",
@@ -518,7 +518,7 @@
         "description": "This script function returns the value of the meta tags of different media files as text. The following file formats are\nsupported: MP3, WMA, WMV, PNG and JPG. If the file filename does not exist, is not a supported file format or does not contain a\nmeta tag named attributename, NULL will be returned."
     },
     "author": {
-        "prefix": "",
+        "prefix": "author",
         "body": [
             "author"
         ],
@@ -527,26 +527,26 @@
     "AutoNumber": {
         "prefix": "autonumber(expression[ , AutoID])",
         "body": [
-            "AutoNumber"
+            "AutoNumber()"
         ],
         "description": "This script function returns a unique integer value for each distinct evaluated value of expression encountered during the script\nexecution. This function can be used e.g. for creating a compact memory representation of a complex key."
     },
     "AutoNumberHash128": {
         "prefix": "autonumberhash128(expression {, expression})",
         "body": [
-            "AutoNumberHash128"
+            "AutoNumberHash128()"
         ],
         "description": "This script function calculates a 128-bit hash of the combined input expression values and the returns a unique integer value for\neach distinct hash value encountered during the script execution. This function can be used for example for creating a compact\nmemory representation of a complex key."
     },
     "AutoNumberHash256": {
         "prefix": "autonumberhash256(expression {, expression})",
         "body": [
-            "AutoNumberHash256"
+            "AutoNumberHash256()"
         ],
         "description": "This script function calculates a 256-bit hash of the combined input expression values and returns a unique integer value for each\ndistinct hash value encountered during the script execution. This function can be used e.g. for creating a compact memory\nrepresentation of a complex key."
     },
     "avg": {
-        "prefix": "",
+        "prefix": "Avg([DISTINCT] expr)",
         "body": [
             "avg"
         ],
@@ -555,21 +555,21 @@
     "bitcount": {
         "prefix": "BitCount(integernumber)",
         "body": [
-            "bitcount"
+            "bitcount()"
         ],
         "description": "BitCount() finds how many bits in the binary equivalent of a number are set to 1. That is, the function returns the number of set\nbits in integer_number, where integer_number is interpreted as a signed 32-bit integer."
     },
     "capitalize": {
         "prefix": "Capitalize(text)",
         "body": [
-            "capitalize"
+            "capitalize(${1:Text})"
         ],
         "description": "Capitalize() returns the string with all words in initial uppercase letters."
     },
     "ceil": {
         "prefix": "Ceil(x[, step[, offset]])",
         "body": [
-            "ceil"
+            "ceil(${1:x}, ${2:step}, ${3:offset})"
         ],
         "description": "Ceil() rounds x up to the nearest multiple of step [+ offset]. The default value of offset is 0."
     },
@@ -611,14 +611,14 @@
     "chr": {
         "prefix": "Chr(int)",
         "body": [
-            "chr"
+            "chr(${1:int})"
         ],
         "description": "Chr() returns the Unicode character corresponding to the input integer."
     },
     "class": {
         "prefix": "class(expression, interval [ , label [ , offset ]])",
         "body": [
-            "class"
+            "class()"
         ],
         "description": "The class function assigns the first parameter to a class interval. The result is a dual value with a<=x<b as the textual value,\nwhere a and b are the upper and lower limits of the bin, and the lower bound as numeric value."
     },
@@ -627,7 +627,7 @@
         "body": [
             "clientplatform"
         ],
-        "description": ""
+        "description": "This function returns the user agent string of the client browser. It can be used in both the load script and in a chart expression."
     },
     "color": {
         "prefix": "",
@@ -653,21 +653,21 @@
     "colormix1": {
         "prefix": "",
         "body": [
-            "colormix1"
+            "colormix1()"
         ],
         "description": ""
     },
     "colormix2": {
         "prefix": "",
         "body": [
-            "colormix2"
+            "colormix2()"
         ],
         "description": ""
     },
     "combin": {
         "prefix": "Combin(p, q)",
         "body": [
-            "combin"
+            "combin(${1:p}, ${2:q})"
         ],
         "description": "Combin() returns the number of combinations of q elements that can be picked from a set of p items. As represented by the formula: \nCombin(p,q) = p! / q!(p-q)! The order in which the items are selected is insignificant."
     },
@@ -676,19 +676,19 @@
         "body": [
             "computername"
         ],
-        "description": ""
+        "description": "This function returns a string containing the name of the computer as returned by the operating system. It can be used in both the load script and in a chart expression."
     },
     "concat": {
         "prefix": "Concat({[SetExpression] [DISTINCT] [TOTAL [<fld{, fld}>]] string[, delimiter[, sortweight]])",
         "body": [
-            "concat"
+            "concat()"
         ],
         "description": "Concat()is used to combine string values. The function returns the aggregated string concatenation of all the values of the\nexpression evaluated over each dimension."
     },
     "connectstring": {
         "prefix": "ConnectString()",
         "body": [
-            "connectstring"
+            "connectstring()"
         ],
         "description": "The ConnectString() function returns the name of the active data connection for ODBC or OLE DBconnections. The function returns an\nempty string if no connect statement has been executed, or after a disconnect statement."
     },
@@ -700,9 +700,9 @@
         "description": "Converts a UTC or GMT timestamp to local time as a dual value. The place can be any of the cities listed below and time zones\naround the world."
     },
     "correl": {
-        "prefix": "",
+        "prefix": "Correl(value1, value2)",
         "body": [
-            "correl"
+            "correl(${1:value1}, ${2:value2})"
         ],
         "description": "Correl() returns the aggregated correlation coefficient for a series of coordinates represented by paired numbers in x-expression \nand y-expression iterated over a number of records as defined by a group by clause."
     },
@@ -723,110 +723,110 @@
     "count": {
         "prefix": "Count([{SetExpression}] [DISTINCT] [TOTAL [<fld {,fld}>]] expr)",
         "body": [
-            "count"
+            "count()"
         ],
         "description": "Count() is used to aggregate the number of values, text and numeric, in each chart dimension."
     },
     "date": {
         "prefix": "",
         "body": [
-            "date"
+            "date(${1:DateField}, '${2:YYYY-MM-DD}')"
         ],
         "description": ""
     },
     "date#": {
-        "prefix": "",
+        "prefix": "Date#(text[, format])",
         "body": [
-            "date#"
+            "date#(${1:Text}, '${2:Format}')"
         ],
         "description": ""
     },
     "day": {
         "prefix": "day(expression)",
         "body": [
-            "day"
+            "day(${1:Expression})"
         ],
         "description": "This function returns an integer representing the day when the fraction of the expression is interpreted as a date according to\nthe standard number interpretation."
     },
     "dayend": {
         "prefix": "DayEnd(time[, [periodno[, daystart]])",
         "body": [
-            "dayend"
+            "dayend()"
         ],
         "description": "This function returns a value corresponding to a timestamp of the final millisecond of the day contained in time. The default\noutput format will be the TimestampFormat set in the script."
     },
     "daylightsaving": {
         "prefix": "DaylightSaving( )",
         "body": [
-            "daylightsaving"
+            "daylightsaving()"
         ],
         "description": "Returns the current adjustment for daylight saving time, as defined in Windows."
     },
     "dayname": {
         "prefix": "DayName(time[, periodno [, daystart]])",
         "body": [
-            "dayname"
+            "dayname()"
         ],
         "description": "This function returns a value showing the date with an underlying numeric value corresponding to a timestamp of the first\nmillisecond of the day containing time."
     },
     "daynumberofquarter": {
         "prefix": "DayNumberOfQuarter(timestamp[,startmonth])",
         "body": [
-            "daynumberofquarter"
+            "daynumberofquarter(${1:Date})"
         ],
         "description": "This function calculates the day number of the quarter in which a timestamp falls."
     },
     "daynumberofyear": {
         "prefix": "DayNumberOfYear(timestamp[,startmonth])",
         "body": [
-            "daynumberofyear"
+            "daynumberofyear()"
         ],
         "description": "This function calculates the day number of the year in which a timestamp falls. The calculation is made from the first millisecond\nof the first day of the year, but the first month can be offset."
     },
     "daystart": {
         "prefix": "DayStart(time[, [periodno[, daystart]])",
         "body": [
-            "daystart"
+            "daystart()"
         ],
         "description": "This function returns a value corresponding to a timestamp with the first millisecond of the day contained in the time argument.\nThe default output format will be the TimestampFormat set in the script."
     },
     "div": {
         "prefix": "Div(integernumber1, integernumber2)",
         "body": [
-            "div"
+            "div(${1:integernumber1}, ${2:integernumber2})"
         ],
         "description": "Div() returns the integer part of the arithmetic division of the first argument by the second argument. Both parameters are\ninterpreted as real numbers, that is, they do not have to be integers."
     },
     "DocumentName": {
-        "prefix": "",
+        "prefix": "DocumentName",
         "body": [
-            "DocumentName"
+            "DocumentName()"
         ],
-        "description": ""
+        "description": "This function returns a string containing the name of the current QlikView document, without path but with extension. It can be used in both the load script and in a chart expression."
     },
     "DocumentPath": {
-        "prefix": "",
+        "prefix": "DocumentPath",
         "body": [
-            "DocumentPath"
+            "DocumentPath()"
         ],
-        "description": ""
+        "description": "This function returns a string containing the full path to the current QlikView document. It can be used in both the load script and in a chart expression."
     },
     "DocumentTitle": {
-        "prefix": "",
+        "prefix": "DocumentTitle",
         "body": [
-            "DocumentTitle"
+            "DocumentTitle()"
         ],
-        "description": ""
+        "description": "This function returns a string containing the title of the current QlikView document. It can be used in both the load script and in a chart expression."
     },
     "Dual": {
         "prefix": "Dual(text, number)",
         "body": [
-            "Dual"
+            "Dual(${1:Text}, ${2:Number})"
         ],
         "description": "Dual() combines a number and a string into a single record, such that the number representation of the record can be used for\nsorting and calculation purposes, while the string value can be used for display purposes"
     },
     "e": {
-        "prefix": "",
+        "prefix": "e",
         "body": [
             "e"
         ],
@@ -835,26 +835,26 @@
     "Evaluate": {
         "prefix": "Evaluate(expressiontext)",
         "body": [
-            "Evaluate"
+            "Evaluate(${1:Expression])"
         ],
         "description": "Evaluate() finds if the input text string can be evaluated as a valid QlikView expression, and if so, returns the value of the\nexpression as a string. If the input string is not a valid expression, NULL is returned."
     },
     "Even": {
         "prefix": "Even(integernumber)",
         "body": [
-            "Even"
+            "Even(${1:integer})"
         ],
         "description": "Even() returns True (-1), if integer_number is an even integer or zero. It returns False (0), if integer_number is an odd integer,\nand NULL if integer_number is not an integer."
     },
     "Exists": {
         "prefix": "Exists(fieldname [, expr] )",
         "body": [
-            "Exists"
+            "Exists(${1:FieldName})"
         ],
         "description": "Exists() determines whether a specific field value has already been loaded into the field in the load script. The function returns \nTRUEor FALSE, so can be used in the where clause of a LOADstatement or an IF statement."
     },
     "exp": {
-        "prefix": "",
+        "prefix": "exp",
         "body": [
             "exp"
         ],
@@ -863,19 +863,19 @@
     "fabs": {
         "prefix": "fabs(x)",
         "body": [
-            "fabs"
+            "fabs(${1:x})"
         ],
         "description": "Fabs() returns the absolute value of x. The result is a positive number."
     },
     "Fact": {
         "prefix": "Fact(x)",
         "body": [
-            "Fact"
+            "Fact(${1:x})"
         ],
         "description": "Fact() returns the factorial of a positive integer x."
     },
     "FALSE": {
-        "prefix": "",
+        "prefix": "FALSE",
         "body": [
             "FALSE"
         ],
@@ -891,61 +891,61 @@
     "FieldIndex": {
         "prefix": "FieldIndex(fieldname , value )",
         "body": [
-            "FieldIndex"
+            "FieldIndex('${1:FieldName}', ${2:Value})"
         ],
         "description": "Returns the position of the field value value found in the field fieldname (by load order). If value cannot be found among the\nfield values, 0 is returned. fieldname must be given as a string value, e.g. the field name must be enclosed by single quotes."
     },
     "FieldName": {
         "prefix": "FieldName(fieldnumber ,tablename)",
         "body": [
-            "FieldName"
+            "FieldName('${1:FieldNumber}', ${2:TableName})"
         ],
         "description": "The FieldName script function returns the name of the field with the specified number within a previously loaded table. If the\nfunction is used within a LOAD statement, it must not reference the table currently being loaded."
     },
     "FieldNumber": {
         "prefix": "FieldNumber(fieldname ,tablename)",
         "body": [
-            "FieldNumber"
+            "FieldNumber('${1:FieldName}', ${2:TableName})"
         ],
         "description": "The FieldNumber script function returns the number of a specified field within a previously loaded table. If the function is used\nwithin a LOAD statement, it must not reference the table currently being loaded."
     },
     "FieldValue": {
         "prefix": "FieldValue(fieldname , n )",
         "body": [
-            "FieldValue"
+            "FieldValue('${1:FieldName}, ${2:n}')"
         ],
         "description": "Returns the field value found in position n of the field fieldname (by load order). fieldname must be given as a string value,\ne.g. the field name must be enclosed by single quotes. The first field value is returned for n=1. If n is larger than the number\nof field values, NULL is returned."
     },
     "FieldValueCount": {
         "prefix": "fieldvaluecount(fieldname)",
         "body": [
-            "FieldValueCount"
+            "FieldValueCount('${1:FieldName}')"
         ],
         "description": "This script function returns the number of distinct values in a field. fieldname must be given as a string (for example a quoted\nliteral)."
     },
     "FileBaseName": {
         "prefix": "FileBaseName()",
         "body": [
-            "FileBaseName"
+            "FileBaseName()"
         ],
         "description": "The FileBaseName function returns a string containing the name of the table file currently being read, without path or extension."
     },
     "FileDir": {
         "prefix": "FileDir()",
         "body": [
-            "FileDir"
+            "FileDir()"
         ],
         "description": "The FileDir function returns a string containing the path to the directory of the table file currently being read."
     },
     "FileExtension": {
         "prefix": "FileExtension()",
         "body": [
-            "FileExtension"
+            "FileExtension()"
         ],
         "description": "The FileExtension function returns a string containing the extension of the table file currently being read."
     },
     "FileList": {
-        "prefix": "",
+        "prefix": "FileList",
         "body": [
             "FileList"
         ],
@@ -954,182 +954,182 @@
     "FileName": {
         "prefix": "FileName()",
         "body": [
-            "FileName"
+            "FileName()"
         ],
         "description": "The FileName function returns a string containing the name of the table file currently being read, without path but including the\nextension."
     },
     "FilePath": {
         "prefix": "FilePath()",
         "body": [
-            "FilePath"
+            "FilePath()"
         ],
         "description": "The FilePath function returns a string containing the full path to the table file currently being read."
     },
     "FileSize": {
-        "prefix": "",
+        "prefix": "FileSize",
         "body": [
-            "FileSize"
+            "FileSize()"
         ],
         "description": "The FileSize function returns an integer containing the size in bytes of the file filename or, if no filename is specified, of the\ntable file currently being read."
     },
     "FileTime": {
         "prefix": "FileTime([ filename ])",
         "body": [
-            "FileTime"
+            "FileTime(${1:FileName})"
         ],
         "description": "The FileTime function returns a timestamp for the date and time of the last modification of the file filename. If no filename is\nspecified, the function will refer to the currently read table file."
     },
     "FindOneOf": {
         "prefix": "FindOneOf(text, charset[, count])",
         "body": [
-            "FindOneOf"
+            "FindOneOf('${1:Text}', ${2:Charset}, ${3:Count})"
         ],
-        "description": "FindOneOf() searches a string to find the position of the occurrence of any character from a set of provided characters. The\nposition of the first occurrence of any character from the search set is returned unless a third argument (with a value greater\nthan 1) is supplied. If no match is found, 0 is returned."
+        "description": "FindOneOf() searches a string to find the position of the occurrence of any character from a set of provided characters. The position of the first occurrence of any character from the search set is returned unless a third argument (with a value greater\nthan 1) is supplied. If no match is found, 0 is returned."
     },
     "FINV": {
         "prefix": "FINV(prob, degreesfreedom1, degreesfreedom2)",
         "body": [
-            "FINV"
+            "FINV()"
         ],
         "description": "FINV() returns the inverse of the F-probability distribution."
     },
     "FirstSortedValue": {
         "prefix": "FirstSortedValue ([ distinct ] value, sort-weight [, rank ])",
         "body": [
-            "FirstSortedValue"
+            "FirstSortedValue()"
         ],
         "description": "FirstSortedValue() returns the value from the expression specified in value that corresponds to the result of sorting the \nsort_weight argument, taking into account rank, if specified. If more than one resulting value shares the same sort_weight for the\nspecified rank, the function returns NULL."
     },
     "FirstValue": {
         "prefix": "FirstValue ( expr)",
         "body": [
-            "FirstValue"
+            "FirstValue()"
         ],
         "description": "FirstValue() returns the value that was loaded first from the records defined by the expression, sorted by a group by clause."
     },
     "FirstWorkDate": {
         "prefix": "firstworkdate(enddate, noofworkdays [, holiday] )",
         "body": [
-            "FirstWorkDate"
+            "FirstWorkDate()"
         ],
         "description": "The firstworkdate function returns the latest starting date to achieve no_of_workdays (Monday-Friday) ending no later than \nend_date taking into account any optionally listed holidays. end_date and holiday should be valid dates or timestamps."
     },
     "Floor": {
         "prefix": "Floor(x[, step[, offset]])",
         "body": [
-            "Floor"
+            "Floor()"
         ],
         "description": "Floor() rounds x down to the nearest multiple of step [+ offset]. The default value of offset is 0."
     },
     "fmod": {
         "prefix": "fmod(a, b)",
         "body": [
-            "fmod"
+            "fmod()"
         ],
         "description": "fmod() is a modulo function that returns the remainder part of the division of the first argument (the dividend) by the second\nargument (the divisor). The result is a real number. Both arguments are interpreted as real numbers, that is, they do not have to\nbe integers."
     },
     "Frac": {
         "prefix": "Frac(x)",
         "body": [
-            "Frac"
+            "Frac()"
         ],
         "description": "Frac() returns the fraction to the right of the decimal point of x, where x is a real number."
     },
     "Fractile": {
-        "prefix": "",
+        "prefix": "Fractile(expr, fraction)",
         "body": [
-            "Fractile"
+            "Fractile()"
         ],
         "description": "Fractile() finds the value that corresponds to the fractile (quantile) of the aggregated data in the expression over a number of\nrecords as defined by a group by clause."
     },
     "FV": {
         "prefix": "FV(rate, nper, pmt [ ,pv [ , type ] ])",
         "body": [
-            "FV"
+            "FV()"
         ],
         "description": "This function returns the future value of an investment based on periodic, constant payments and a simple annual interest."
     },
     "GetExtendedProperty": {
         "prefix": "GetExtendedProperty (name[, objectid])",
         "body": [
-            "GetExtendedProperty"
+            "GetExtendedProperty()"
         ],
         "description": "This function returns the value of a named extended property in the sheet object with the given object ID. If objectid is not\ngiven, the sheet object containing the expression will be used. An extended property is defined for the extension object in its\ndefinition file."
     },
     "GetFolderPath": {
         "prefix": "GetFolderPath(foldername)",
         "body": [
-            "GetFolderPath"
+            "GetFolderPath()"
         ],
         "description": "The GetFolderPath function returns the value of the Microsoft Windows SHGetFolderPath function. This function takes as input the\nname of a Microsoft Windows folder and returns the full path of the folder."
     },
     "GetObjectField": {
         "prefix": "GetObjectField ([index])",
         "body": [
-            "GetObjectField"
+            "GetObjectField()"
         ],
         "description": "This function returns the name of the dimension. Index is an optional integer denoting which of the used dimensions that should be\nreturned."
     },
     "GetRegistryString": {
         "prefix": "",
         "body": [
-            "GetRegistryString"
+            "GetRegistryString()"
         ],
         "description": ""
     },
     "GMT": {
         "prefix": "GMT( )",
         "body": [
-            "GMT"
+            "GMT()"
         ],
         "description": "This function returns the date and current Greenwich Mean Time, as derived from the system clock and Windows time settings."
     },
     "Hash128": {
         "prefix": "Hash128(expr{, expression})",
         "body": [
-            "Hash128"
+            "Hash128()"
         ],
         "description": "Hash128() returns a 128-bit hash of the combined input expression values. The result is a 22-character string."
     },
     "Hash160": {
         "prefix": "Hash160(expr{, expression})",
         "body": [
-            "Hash160"
+            "Hash160()"
         ],
         "description": "Hash160() returns a 160-bit hash of the combined input expression values. The result is a 27-character string."
     },
     "Hash256": {
         "prefix": "Hash256(expr{, expression})",
         "body": [
-            "Hash256"
+            "Hash256()"
         ],
         "description": "Hash256() returns a 256-bit hash of the combined input expression values. The result is a 43-character string."
     },
     "Hour": {
         "prefix": "hour(expression)",
         "body": [
-            "Hour"
+            "Hour(${1:Expression})"
         ],
         "description": "This function returns an integer representing the hour when the fraction of the expression is interpreted as a time according to\nthe standard number interpretation."
     },
     "HSL": {
         "prefix": "HSL (hue, saturation, luminosity)",
         "body": [
-            "HSL"
+            "HSL(${1:hue}, ${2:saturation}, ${3:luminosity})"
         ],
         "description": "HSL() is used in expressions to set or evaluate the color properties of a chart object, where the color is defined by values of \nhue, saturation, and luminosity between 0 and 1."
     },
     "InDay": {
         "prefix": "InDay (timestamp, basetimestamp, periodno[, daystart])",
         "body": [
-            "InDay"
+            "InDay()"
         ],
         "description": "This function returns True if timestamp lies inside the day containing base_timestamp."
     },
     "InDayToTime": {
         "prefix": "InDayToTime (timestamp, basetimestamp, periodno[, daystart])",
         "body": [
-            "InDayToTime"
+            "InDayToTime()"
         ],
         "description": "This function returns True if timestamp lies inside the part of day containing base_timestamp up until and including the exact\nmillisecond of base_timestamp."
     },
