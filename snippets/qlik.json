@@ -357,11 +357,11 @@
         "description": "This script function creates a QVD or a CSV file."
     },
     "Tag field": {
-        "prefix": "",
+        "prefix": "Tag field fieldname with tagname",
         "body": [
             "Tag field"
         ],
-        "description": ""
+        "description": "This script function provides a way of assigning tags to one or more fields. If an attempt to tag a field name not present in the app is made, the tagging will be ignored. If conflicting occurrences of a field or tag name are found, the last value is used."
     },
     "Trace": {
         "prefix": "Trace string",
@@ -436,7 +436,7 @@
     "acos": {
         "prefix": "acos( x )",
         "body": [
-            "acos"
+            "acos()"
         ],
         "description": "Inverse cosine of x. The function is only defined if -1≤x≤1. The result is a number between 0 and p."
     },
@@ -464,7 +464,7 @@
     "alt": {
         "prefix": "alt(case1[ , case2 , case3 , ...] , else)",
         "body": [
-            "alt"
+            "alt()"
         ],
         "description": "The alt function returns the first of the parameters that has a valid number representation. If no such match is found, the last\nparameter will be returned. Any number of parameters can be used."
     },
@@ -492,28 +492,28 @@
     "asin": {
         "prefix": "asin( x )",
         "body": [
-            "asin"
+            "asin()"
         ],
         "description": "Inverse sine of x. The function is only defined if -1≤x≤1. The result is a number between - p/2 and p/2."
     },
     "atan": {
         "prefix": "atan( x )",
         "body": [
-            "atan"
+            "atan()"
         ],
         "description": "Inverse tangent of x. The result is a number between - p/2 and p/2."
     },
     "atan2": {
         "prefix": "atan2( y,x )",
         "body": [
-            "atan2"
+            "atan2()"
         ],
         "description": "Two-dimensional generalization of the inverse tangent function. Returns the angle between the origin and the point represented by the coordinates x and y. The result is a number between - p and + p."
     },
     "attribute": {
         "prefix": "Attribute(filename, attributename)",
         "body": [
-            "attribute"
+            "attribute()"
         ],
         "description": "This script function returns the value of the meta tags of different media files as text. The following file formats are\nsupported: MP3, WMA, WMV, PNG and JPG. If the file filename does not exist, is not a supported file format or does not contain a\nmeta tag named attributename, NULL will be returned."
     },
@@ -548,7 +548,7 @@
     "avg": {
         "prefix": "Avg([DISTINCT] expr)",
         "body": [
-            "avg"
+            "avg()"
         ],
         "description": "Avg() finds the average value of the aggregated data in the expression over a number of records as defined by a group by clause."
     },
@@ -576,35 +576,35 @@
     "chi2test_chi2": {
         "prefix": "Chi2Testchi2(col, row, actualvalue[, expectedvalue])",
         "body": [
-            "chi2test_chi2"
+            "chi2test_chi2()"
         ],
         "description": "Chi2Test_chi2() returns the aggregated chi2-test value for one or two series of values."
     },
     "chi2test_df": {
         "prefix": "Chi2Testdf(col, row, actualvalue[, expectedvalue])",
         "body": [
-            "chi2test_df"
+            "chi2test_df()"
         ],
         "description": "Chi2Test_df() returns the aggregated chi2-test df value (degrees of freedom) for one or two series of values."
     },
     "chi2test_p": {
         "prefix": "Chi2Testp(col, row, actualvalue[, expectedvalue])",
         "body": [
-            "chi2test_p"
+            "chi2test_p()"
         ],
         "description": "Chi2Test_p() returns the aggregated chi2-test p value (significance) for one or two series of values. The test can be done either\non the values in actual_value, testing for variations within the specified col and row matrix, or by comparing values in \nactual_value with corresponding values in expected_value, if specified."
     },
     "chidist": {
         "prefix": "CHIDIST(value, degreesfreedom)",
         "body": [
-            "chidist"
+            "chidist()"
         ],
         "description": "CHIDIST() returns the one-tailed probability of the chi2 distribution. The chi2 distribution is associated with a chi2 test."
     },
     "chiinv": {
         "prefix": "CHIINV(prob, degreesfreedom)",
         "body": [
-            "chiinv"
+            "chiinv()"
         ],
         "description": "CHIINV() returns the inverse of the one-tailed probability of the chi2 distribution."
     },
@@ -695,7 +695,7 @@
     "converttolocaltime": {
         "prefix": "ConvertToLocalTime(timestamp [, place [, ignoredst=false]])",
         "body": [
-            "converttolocaltime"
+            "converttolocaltime()"
         ],
         "description": "Converts a UTC or GMT timestamp to local time as a dual value. The place can be any of the cities listed below and time zones\naround the world."
     },
@@ -884,7 +884,7 @@
     "FDIST": {
         "prefix": "FDIST(value, degreesfreedom1, degreesfreedom2)",
         "body": [
-            "FDIST"
+            "FDIST()"
         ],
         "description": "FDIST() returns the F-probability distribution."
     },
@@ -1290,7 +1290,7 @@
     "IsText": {
         "prefix": "IsText( expr )",
         "body": [
-            "IsText"
+            "IsText()"
         ],
         "description": "Returns -1 (True) if the expression has a text representation, otherwise 0 (False)."
     },
@@ -2221,7 +2221,7 @@
     "Sign": {
         "prefix": "Sign(x)",
         "body": [
-            "Sign"
+            "Sign()"
         ],
         "description": "gn() returns 1, 0 or -1 depending on whether x is a positive number, 0, or a negative number."
     },
@@ -2249,14 +2249,14 @@
     "sqr": {
         "prefix": "sqr (x )",
         "body": [
-            "sqr"
+            "sqr()"
         ],
         "description": "x squared (x to the power of 2). The result is a number."
     },
     "sqrt": {
         "prefix": "sqrt( x )",
         "body": [
-            "sqrt"
+            "sqrt()"
         ],
         "description": "Square root of x. The function is only defined if x >= 0. The result is a positive number."
     },
@@ -2375,7 +2375,7 @@
     "Time#": {
         "prefix": "time#(text[, format])",
         "body": [
-            "Time#"
+            "Time#()"
         ],
         "description": "Time#() evaluates an expression as a time value, in the time format set in the data load script or the operating system, unless a format string is supplied.."
     },
