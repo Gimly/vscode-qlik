@@ -4,6 +4,14 @@
 	"description": "Qlik script support for Visual Studio Code",
 	"version": "0.2.1",
 	"publisher": "Gimly81",
+	"author": {
+		"name": "Xavier Hahn"
+	},
+	"contributors": [
+		{
+			"name": "Stefan Stoichev"
+		}
+	],
 	"engines": {
 		"vscode": "^1.0.0"
 	},
@@ -44,7 +52,7 @@
 			{
 				"language": "qlik",
 				"path": "./snippets/qlik.json"
-			}		
+			}
 		]
 	},
 	"__metadata": {
