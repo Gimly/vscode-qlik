@@ -1,3 +1,7 @@
+[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/v/Gimly81.qlik.svg)](https://marketplace.visualstudio.com/items?itemName=Gimly81.qlik)
+[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/d/Gimly81.qlik.svg)](https://marketplace.visualstudio.com/items?itemName=Gimly81.qlik)
+[![Visual Studio Marketplace](https://img.shields.io/vscode-marketplace/r/Gimly81.qlik.svg)](https://marketplace.visualstudio.com/items?itemName=Gimly81.qlik)
+
 # Qlik for Visual Studio Code
 
 This extension adds support for Qlik scripting to VS Code.
