@@ -125,6 +125,14 @@
 			<string>keyword.other.load.qvs</string>
 		</dict>
 		<dict>
+			<key>comment</key>
+			<string>LOAD and MAPPING LOAD keywords</string>
+			<key>match</key>
+			<string>(?i:\b(rename\s+field|rename\s+table|to)\b)</string>
+			<key>name</key>
+			<string>keyword.other.load.qvs</string>
+		</dict>
+		<dict>
 			<key>match</key>
 			<string>(?i:\b(concatenate)(?=\s*\()\b)</string>
 			<key>name</key>
@@ -132,13 +140,19 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(if|endif|end\s+if|elseif|else|then|not|or|and|sub|end\s+sub|switch|case|default|end\s+switch|for|to|step|exit\s+for|next|do|do\s+while|loop\s+until)\b</string>
+			<string>(?i)\b(endif|end\s+if|elseif|else|then|not|or|and|sub|end\s+sub|switch|case|default|end\s+switch|for|step|exit\s+for|next|do\s+while|do\s+until|exit\s+do|do|loop\s+while|loop\s+until|loop)\b</string>
 			<key>name</key>
 			<string>keyword.control.qvs</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?i)\b(applymap|if)(?=\s*\()</string>
+			<string>(?i)\b(if)\b(?!\s*\()</string>
+			<key>name</key>
+			<string>keyword.control.qvs</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?i)\b(if|applymap)(?=\s*\()</string>
 			<key>name</key>
 			<string>support.function.other.qvs</string>
 		</dict>
@@ -194,8 +208,6 @@
 				<dict>
 					<key>match</key>
 					<string>(?i:\b(sum|max|maxstring|minstring|min|avg|concat|count|NumAvg|NumericCount|NumMax|NumMin|NumSum|Median|NullCount|NumCount|textcount|only)(?=\s*\())</string>
-					
-
 					<key>name</key>
 					<string>support.function.aggregate.qvs</string>
 				</dict>
@@ -266,8 +278,6 @@
 					<string>Functions that take a date as input</string>
 					<key>match</key>
 					<string>(?i)\b(second|minute|hour|day|dayname|daynumberofquarter|daynumberofyear|weekday|week|WeekName|weekyear|month|MonthName|MonthsName|year|YearName|QuarterName)(?=\s*\()</string>
-					
-
 					<key>name</key>
 					<string>support.function.other.qvs</string>
 				</dict>
@@ -315,8 +325,6 @@
 					<string>Color functions</string>
 					<key>match</key>
 					<string>(?i)\b(argb|color|colormaphue|colormapjet|colormix1|colormix2|white|black|red|green|blue|brown|cyan|darkgray|LightBlue|LightCyan|LightGray|LightGreen|LightMagenta|LightRed|Magenta|QlikTechBlue|QlikTechGray|rgb|SysColor|yellow)(?=\s*\()</string>
-					
-
 					<key>name</key>
 					<string>support.function.other.qvs</string>
 				</dict>
@@ -383,8 +391,6 @@
 				<dict>
 					<key>match</key>
 					<string>(?i)\b(exists|fieldindex|fieldvalue|peek|previous|lookup|FieldName|FieldNumber|TableName|TableNumber|NoOfFields|NoOfReports|NoOfRows|NoOfTables)(?=\s*\()</string>
-					
-
 					<key>name</key>
 					<string>support.function.other.qvs</string>
 				</dict>
@@ -436,8 +442,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(num|num#|money|money#|dual|ceil|floor|round|even|odd|log|log10|mode|pow|rand|sqr|sqrt|pi)(?=\s*\()</string>
-
+					<string>(?i)\b(num|num#|interval|interval#|money|money#|dual|ceil|floor|round|even|odd|log|log10|mode|pow|rand|sqr|sqrt|pi)(?=\s*\()</string>
 					<key>name</key>
 					<string>support.function.other.qvs</string>
 				</dict>
@@ -463,7 +468,7 @@
 					<key>comment</key>
 					<string>LOAD and MAPPING LOAD keywords</string>
 					<key>match</key>
-					<string>(?i:\b(join|left\s+join|right\s+join|inner\s+join|outer\s+join|left\s+keep|right\s+keep|inner\s+keep|mapping\s+load|info\s+load|bundle\s+info\s+load|load\s+distinct|load|direct\s+query|dimension|measure|detail|native|sql\s+select|inline|resident|autogenerate|from|where|while|group\sby|order\sby|asc|desc)\b)</string>
+					<string>(?i:\b(join|left\s+join|right\s+join|inner\s+join|outer\s+join|left\s+keep|right\s+keep|inner\s+keep|mapping\s+load|info\s+load|bundle\s+info\s+load|load\s+distinct|load|direct\s+query|dimension|measure|detail|native|sql\s+select|inline|resident|autogenerate|from|where|group\sby|order\sby|asc|desc)\b)</string>
 					<key>name</key>
 					<string>keyword.other.load.qvs</string>
 				</dict>
@@ -475,7 +480,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i:\b(add|alias|binary|buffer|bundle|directory|concatenate|noconcatenate|intervalmatch|trace|unqualify|qualify|include)\b)</string>
+					<string>(?i:\b(add|alias|binary|buffer|directory|concatenate|noconcatenate|intervalmatch|trace|unqualify|qualify|include)\b)</string>
 					<key>name</key>
 					<string>keyword.other.source.qvs</string>
 				</dict>
