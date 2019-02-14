@@ -198,6 +198,27 @@
 			<key>name</key>
 			<string>meta.drop.qvs</string>
 		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.create.qvs</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.qvs</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>TAG statement</string>
+			<key>match</key>
+			<string>(?i:^\s*(tag|untag)\s+(fields|field))</string>
+			<key>name</key>
+			<string>meta.tag.qvs</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
@@ -496,6 +517,13 @@
 					<key>name</key>
 					<string>keyword.other.qvs</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?i:\b(with|using)\b)</string>
+					<key>name</key>
+					<string>keyword.other.qvs</string>
+				</dict>
+				
 			</array>
 		</dict>
 		<key>stringFunctions</key>
