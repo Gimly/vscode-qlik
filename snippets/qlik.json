@@ -363,6 +363,13 @@
         ],
         "description": "This script function provides a way of assigning tags to one or more fields. If an attempt to tag a field name not present in the app is made, the tagging will be ignored. If conflicting occurrences of a field or tag name are found, the last value is used."
     },
+    "Tag fields": {
+        "prefix": "Tag fields fieldlist using mapname",
+        "body": [
+            "Tag fields"
+        ],
+        "description": "This script function provides a way of assigning tags to one or more fields. If an attempt to tag a field name not present in the app is made, the tagging will be ignored. If conflicting occurrences of a field or tag name are found, the last value is used."
+    },
     "Trace": {
         "prefix": "Trace string",
         "body": [
@@ -391,10 +398,17 @@
         ],
         "description": "The Unqualify statement is used for switching off the qualification of field names that has been previously switched on by the \nQualify statement."
     },
-    "Untag": {
+    "Untag field": {
+        "prefix": "Untag field fieldname with tagname",
+        "body": [
+            "Untag field"
+        ],
+        "description": "Provides a way of removing tags from one or more fields. If an attempt to untag a Field name not present in the document is made,\nthe untagging will be ignored. If conflicting occurrences of a field or tag name is found, the last value is used."
+    },
+    "Untag fields": {
         "prefix": "Untag fields fieldlist using mapname",
         "body": [
-            "Untag"
+            "Untag fields"
         ],
         "description": "Provides a way of removing tags from one or more fields. If an attempt to untag a Field name not present in the document is made,\nthe untagging will be ignored. If conflicting occurrences of a field or tag name is found, the last value is used."
     },
