@@ -1,63 +1,63 @@
 {
-    "name": "qlik",
-    "displayName": "Qlik",
-    "description": "Qlik script support for Visual Studio Code",
-    "version": "0.3.0",
-    "publisher": "Gimly81",
-    "author": {
-        "name": "Xavier Hahn"
-    },
-    "contributors": [
-        {
-            "name": "Stefan Stoichev"
-        }
-    ],
-    "engines": {
-        "vscode": "^1.0.0"
-    },
-    "categories": [
-        "Languages"
-    ],
-    "homepage": "https://github.com/Gimly/vscode-qlik/blob/master/README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Gimly/vscode-qlik.git"
-    },
-    "icon": "images/icon.png",
-    "bugs": {
-        "url": "https://github.com/Gimly/vscode-qlik/issues"
-    },
-    "contributes": {
-        "languages": [
-            {
-                "id": "qlik",
-                "aliases": [
-                    "QlikView",
-                    "qlik"
-                ],
-                "extensions": [
-                    ".qvs"
-                ],
-                "configuration": "./qvs.configuration.json"
-            }
-        ],
-        "grammars": [
-            {
-                "language": "qlik",
-                "scopeName": "source.qvs",
-                "path": "./syntaxes/qvs.tmLanguage"
-            }
-        ],
-        "snippets": [
-            {
-                "language": "qlik",
-                "path": "./snippets/qlik.json"
-            }
-        ]
-    },
-    "__metadata": {
-        "id": "69082845-3bc1-4b18-b994-2da75c25dc06",
-        "publisherId": "a3934051-a67e-4d75-b8ab-6a1f7909293e",
-        "publisherDisplayName": "Xavier Hahn"
+  "name": "qlik",
+  "displayName": "Qlik",
+  "description": "Qlik script support for Visual Studio Code",
+  "version": "0.5.0",
+  "publisher": "Gimly81",
+  "author": {
+    "name": "Xavier Hahn"
+  },
+  "contributors": [
+    {
+      "name": "Stefan Stoichev"
     }
+  ],
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Languages"
+  ],
+  "homepage": "https://github.com/Gimly/vscode-qlik/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gimly/vscode-qlik.git"
+  },
+  "icon": "images/icon.png",
+  "bugs": {
+    "url": "https://github.com/Gimly/vscode-qlik/issues"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "qlik",
+        "aliases": [
+          "QlikView",
+          "qlik"
+        ],
+        "extensions": [
+          ".qvs"
+        ],
+        "configuration": "./qvs.configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "qlik",
+        "scopeName": "source.qvs",
+        "path": "./syntaxes/qvs.tmLanguage"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "qlik",
+        "path": "./snippets/qlik.json"
+      }
+    ]
+  },
+  "__metadata": {
+    "id": "69082845-3bc1-4b18-b994-2da75c25dc06",
+    "publisherId": "a3934051-a67e-4d75-b8ab-6a1f7909293e",
+    "publisherDisplayName": "Xavier Hahn"
+  }
 }
