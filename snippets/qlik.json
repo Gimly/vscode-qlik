@@ -230,6 +230,13 @@
         ],
         "description": "The map ... using statement is used for mapping a certain field value or expression to the values of a specific mapping table. The\nmapping table is created through the Mapping statement."
     },
+    "NoConcatenate": {
+        "prefix": "NoConcatenate( loadstatement | selectstatement )",
+        "body": [
+            "NoConcatenate"
+        ],
+        "description": "The NoConcatenate prefix forces two loaded tables with identical field sets to be treated as two separate internal tables, when they would otherwise be automatically concatenated."
+    },
     "NullAsValue": {
         "prefix": "NullAsValue *fieldlist",
         "body": [
